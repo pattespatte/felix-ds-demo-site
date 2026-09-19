@@ -1,13 +1,19 @@
 <script setup lang="ts">
-// App shell – chrome (header, notification, footer) is wired in phase 2.
-// The main landmark lives here so every routed view renders inside it.
+import AppHeader from './components/common/AppHeader.vue'
+import AppFooter from './components/common/AppFooter.vue'
+import DemoNotification from './components/common/DemoNotification.vue'
+import AppBreadcrumbs from './components/common/AppBreadcrumbs.vue'
 </script>
 
 <template>
     <div class="app-shell">
-        <main class="app-shell__main">
+        <DemoNotification />
+        <AppHeader />
+        <AppBreadcrumbs />
+        <main class="app-shell__main" id="main-content">
             <router-view />
         </main>
+        <AppFooter />
     </div>
 </template>
 

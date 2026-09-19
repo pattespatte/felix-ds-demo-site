@@ -1,0 +1,10 @@
+[
+    {
+        "id": "home",
+        "title": "Vårdcentralen Vårdportalen - Start",
+        "url": "/",
+        "content": "Välkommen till Vårdcentralen Vårdportalen. Boka tid, kontakta vården och hantera dina vårdärenden. Placeholderindex – fullindex genereras i fas 4.",
+        "description": "Boka tid, kontakta vården och hantera dina vårdärenden",
+        "keywords": ["vårdcentral", "boka", "tid"]
+    }
+]
