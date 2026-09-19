@@ -24,6 +24,7 @@ const dismiss = () => {
                     class="demo-notification__dismiss"
                     variant="tertiary"
                     size="small"
+                    icon-left="close"
                     @click="dismiss"
                 >
                     Stäng meddelande
