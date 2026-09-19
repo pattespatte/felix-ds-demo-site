@@ -157,7 +157,13 @@ async function main() {
 				}
 			}
 			fs.mkdirSync(path.dirname(outPath), { recursive: true })
-			const html = await page.content()
+			let html = await page.content()
+			// Vite's runtime modulepreload helper resolves lazy-chunk URLs
+			// against the document origin, so the snapshot would otherwise
+			// persist absolute URLs pointing at this throwaway preview server
+			// (dead preloads on every host afterwards). Rewrite them back to
+			// the base-relative paths the built index.html uses.
+			html = html.split(`${origin}`).join(basePath)
 			fs.writeFileSync(outPath, html)
 			written++
 			console.log(`  ✓ ${route.path === '/' ? '/' : route.path} -> ${path.relative(distDir, outPath)}`)
