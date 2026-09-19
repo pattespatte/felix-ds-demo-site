@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
-import { FSearchTextField } from '@fkui/vue'
+import { FIcon, FSearchTextField } from '@fkui/vue'
 import { useSearch } from '@/composables/useSearch'
 import SearchResults from './SearchResults.vue'
 import type { SearchResult } from '@/composables/useSearch'
@@ -126,21 +126,25 @@ defineExpose({
             @focusin="handleFocus"
             @focusout="handleBlur"
         >
-            <!-- FSearchTextField carries its own magnifier and clear button;
-                 v-model drives the composable's live search. -->
+            <!-- FSearchTextField carries the label, clear button and the
+                 input-left/input-right slots this look is built on; v-model
+                 drives the composable's live search. -->
             <f-search-text-field v-model="searchQuery" :placeholder="placeholder">
                 {{ ariaLabel }}
+                <template #input-left>
+                    <f-icon name="search" class="search-box__magnifier" />
+                </template>
+                <template #input-right>
+                    <button
+                        v-if="showSearchButton"
+                        type="button"
+                        class="search-box__submit"
+                        @click="handleSearch"
+                    >
+                        Sök
+                    </button>
+                </template>
             </f-search-text-field>
-
-            <button
-                v-if="showSearchButton"
-                type="button"
-                class="search-box__submit"
-                :disabled="disabled || !searchQuery"
-                @click="handleSearch"
-            >
-                Sök
-            </button>
         </div>
 
         <!-- Search results dropdown -->
@@ -163,16 +167,8 @@ defineExpose({
     position: relative;
 }
 
-.search-box__field {
-    display: flex;
-    align-items: stretch;
-    gap: 0.5rem;
-}
-
-// The FKUI field wants to grow to its container width; in the header it sits
-// in a fixed-width slot instead.
 .search-box--medium {
-    width: 18rem;
+    width: 21rem;
 }
 
 .search-box--large {
@@ -180,16 +176,16 @@ defineExpose({
 }
 
 .search-box--small {
-    width: 14rem;
+    width: 15rem;
 }
 
-.search-box__field :deep(.text-field--search) {
+.search-box__field :deep(.text-field) {
     width: 100%;
 }
 
 // Header variant: the label stays in the accessibility tree but not in the
 // tight header band.
-.search-box__field--hide-label :deep(.text-field__label) {
+.search-box__field--hide-label :deep(label.label) {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -202,29 +198,73 @@ defineExpose({
     border: 0;
 }
 
+// The field container: one white rounded surface holding magnifier, input,
+// clear button and the Sök button – the reference look. Tokens only, so the
+// surface flips with the color mode.
+.search-box__field :deep(.text-field__input-wrapper) {
+    align-items: center;
+    background-color: var(--fkds-color-background-primary);
+    border: 1px solid var(--fkds-color-border-primary);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+
+    &:focus-within {
+        border-color: var(--fkds-color-action-border-primary-default);
+        box-shadow: var(--f-focus-box-shadow);
+    }
+}
+
+.search-box__field :deep(.text-field__icon-wrapper) {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.search-box__field :deep(.text-field__input) {
+    border: none;
+    background: transparent;
+    border-radius: 0.375rem;
+    height: auto;
+    padding-block: 0.5rem;
+    padding-right: 2.5rem;
+    font-size: 1rem;
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    &::placeholder {
+        color: var(--fkds-color-text-secondary);
+        opacity: 1;
+    }
+}
+
+.search-box__magnifier {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: 0.75rem;
+    color: var(--fkds-color-text-secondary);
+}
+
 .search-box__submit {
     flex-shrink: 0;
     border: none;
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    padding: 0 1rem;
-    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     background-color: var(--fkds-color-action-background-primary-default);
     color: var(--fkds-color-action-text-inverted-default);
     cursor: pointer;
 
-    &:hover:not(:disabled) {
+    // Always navy like the reference; an empty query simply does nothing.
+    &:hover {
         background-color: var(--fkds-color-action-background-primary-hover);
     }
 
-    &:active:not(:disabled) {
+    &:active {
         background-color: var(--fkds-color-action-background-primary-active);
-    }
-
-    &:disabled {
-        background-color: var(--fkds-color-background-disabled);
-        color: var(--fkds-color-text-secondary);
-        cursor: not-allowed;
     }
 
     &:focus-visible {

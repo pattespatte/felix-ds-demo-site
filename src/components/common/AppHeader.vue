@@ -339,13 +339,14 @@ const isDropdownActive = (item: NavItem) =>
 }
 
 //
-// Nav row
+// Nav row – light blue band under the white brand row (reference look).
+// The feedback-info token is the theme's pale blue in light mode and a dark
+// navy surface in dark mode, so text-primary keeps contrast in both.
 //
 .app-header__nav {
     display: none;
-    background-color: var(--fkds-color-header-background-primary);
-    color: var(--fkds-color-header-text-primary);
-    border-bottom: 1px solid var(--fkds-color-border-primary);
+    background-color: var(--fkds-color-feedback-background-info);
+    color: var(--fkds-color-text-primary);
 
     @media (min-width: 48rem) {
         display: block;
@@ -424,11 +425,11 @@ const isDropdownActive = (item: NavItem) =>
 }
 
 //
-// Mobile menu
+// Mobile menu – same light blue band as the desktop nav row.
 //
 .app-header__mobile {
-    background-color: var(--fkds-color-header-background-primary);
-    color: var(--fkds-color-header-text-primary);
+    background-color: var(--fkds-color-feedback-background-info);
+    color: var(--fkds-color-text-primary);
     border-bottom: 1px solid var(--fkds-color-border-primary);
     padding: 1rem;
 

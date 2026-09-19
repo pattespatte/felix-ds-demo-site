@@ -111,8 +111,10 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 
 <style scoped lang="scss">
 .app-breadcrumbs {
-    background-color: var(--fkds-color-background-secondary);
-    border-bottom: 1px solid var(--fkds-color-border-weak);
+    // Same light blue band as the main navigation row above – together they
+    // form one navigation surface, like the reference design.
+    background-color: var(--fkds-color-feedback-background-info);
+    border-bottom: 1px solid var(--fkds-color-border-primary);
     padding: 0.5rem 1rem;
 
     // The 404 route has no trail beyond Start; hide the band there.

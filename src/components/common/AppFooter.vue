@@ -164,10 +164,12 @@ const formatPhoneLink = (phone: string): string => {
 </template>
 
 <style scoped lang="scss">
+// Dark navy footer on the theme's primary action surface (near-identical to
+// the reference navy). Text and links use the inverted tokens, so the footer
+// keeps its dark look in both color modes while every value stays a token.
 .app-footer {
-    background-color: var(--fkds-color-background-tertiary);
-    color: var(--fkds-color-text-primary);
-    border-top: 1px solid var(--fkds-color-border-primary);
+    background-color: var(--fkds-color-action-background-primary-default);
+    color: var(--fkds-color-text-inverted);
     margin-top: auto;
 }
 
@@ -218,7 +220,7 @@ const formatPhoneLink = (phone: string): string => {
 .app-footer__nav-link {
     font-size: 0.875rem;
     text-decoration: none;
-    color: var(--fkds-color-text-primary);
+    color: var(--fkds-color-text-inverted);
 
     &:hover {
         text-decoration: underline;
@@ -241,7 +243,7 @@ const formatPhoneLink = (phone: string): string => {
 }
 
 .app-footer__contact-link {
-    color: var(--fkds-color-text-primary);
+    color: var(--fkds-color-text-inverted);
 
     &:hover {
         text-decoration: underline;
@@ -295,13 +297,13 @@ const formatPhoneLink = (phone: string): string => {
     min-width: 2rem;
     padding: 0.25rem 0.5rem;
     border-radius: 999px;
-    border: 1px solid var(--fkds-color-border-primary);
+    border: 1px solid var(--fkds-color-border-inverted);
     font-size: 0.75rem;
     text-decoration: none;
-    color: var(--fkds-color-text-primary);
+    color: var(--fkds-color-text-inverted);
 
     &:hover {
-        background-color: var(--fkds-color-background-secondary);
+        text-decoration: underline;
     }
 
     &:focus-visible {
@@ -313,7 +315,7 @@ const formatPhoneLink = (phone: string): string => {
 .app-footer__bottom {
     margin-top: 1.5rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--fkds-color-border-weak);
+    border-top: 1px solid var(--fkds-color-border-inverted);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -327,7 +329,7 @@ const formatPhoneLink = (phone: string): string => {
 
 .app-footer__copyright {
     font-size: 0.75rem;
-    color: var(--fkds-color-text-secondary);
+    color: var(--fkds-color-text-inverted);
 }
 
 .app-footer__legal {
@@ -340,12 +342,11 @@ const formatPhoneLink = (phone: string): string => {
 
 .app-footer__legal-link {
     font-size: 0.75rem;
-    color: var(--fkds-color-text-secondary);
+    color: var(--fkds-color-text-inverted);
     text-decoration: none;
 
     &:hover {
         text-decoration: underline;
-        color: var(--fkds-color-text-primary);
     }
 
     &:focus-visible {
