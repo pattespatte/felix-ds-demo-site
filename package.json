@@ -7,7 +7,7 @@
         "dev": "vite",
         "generate-search-index": "node scripts/generate-search-index.js",
         "build:spa": "vue-tsc && vite build",
-        "build": "vue-tsc && vite build",
+        "build": "node scripts/generate-search-index.js && vue-tsc && vite build && node scripts/prerender.mjs",
         "preview": "vite preview"
     },
     "dependencies": {
@@ -24,6 +24,7 @@
     "devDependencies": {
         "@types/node": "^22.20.3",
         "@vitejs/plugin-vue": "^6.0.9",
+        "@vue/compiler-sfc": "^3.5.34",
         "axe-playwright": "^2.2.2",
         "playwright": "^1.57.0",
         "prettier": "^3.6.2",

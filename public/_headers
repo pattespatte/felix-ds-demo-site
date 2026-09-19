@@ -1,0 +1,10 @@
+# Set X-Robots-Tag headers for all paths to prevent indexing
+# This is an additional layer of protection beyond robots.txt and meta tags
+
+# Apply noindex, nofollow to all files
+/*
+  X-Robots-Tag: noindex, nofollow
+
+# Apply noindex, nofollow to all files in subdirectories
+/*/*
+  X-Robots-Tag: noindex, nofollow
