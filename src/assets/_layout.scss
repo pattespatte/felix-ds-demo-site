@@ -1,0 +1,84 @@
+// Shared page-layout primitives for the whole site. Colors come exclusively
+// from felix/FKUI tokens (--fkds-* / --f-*) so every surface flips with the
+// color mode; dimensions are plain rem values.
+//
+// Provided helpers:
+//   .page / .page__intro / .page__narrow – routed view containers
+//   .section                            – vertical rhythm between sections
+//   .grid / .grid--2 / .grid--3 / .grid--4 – responsive card grids
+//   .stack / .stack--tight              – vertical flow lists
+//   .header-focus-targets               – scroll-margin under a sticky header
+
+.page {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 4rem;
+    box-sizing: border-box;
+}
+
+.page__intro {
+    max-width: 46rem;
+}
+
+// Narrow reading measure for long-form policy pages.
+.page__narrow {
+    max-width: 46rem;
+}
+
+.section {
+    margin-top: 2.5rem;
+}
+
+.section__title {
+    margin-bottom: 1rem;
+}
+
+// Responsive card grid: single column on small viewports, N columns from
+// the given breakpoint up.
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 0;
+}
+
+.grid--2 {
+    @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grid--3 {
+    @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 60rem) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid--4 {
+    @media (min-width: 40rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 60rem) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+// Vertical flow: children spaced apart without margin-collapsed lists.
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stack--tight {
+    gap: 0.75rem;
+}
+
+// Anchor targets clear the sticky page header when scrolled into view.
+.page :is(h1, h2, h3, section)[id] {
+    scroll-margin-top: 7rem;
+}

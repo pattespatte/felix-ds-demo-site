@@ -1,0 +1,43 @@
+// Entry stylesheet: felix theme through the scoped mixin pair so the dark
+// profile can live under html[data-color-mode="dark"]. The plain global
+// entries (felix-ds/src/index, dist/felix.css) are light-only and cannot
+// support the attribute scope – see docs/create-a-site in the felix-ds repo.
+//
+// The base theme is loaded through the felix module (its `light`/`dark`
+// mixins emit the upstream default variables plus the felix overrides) –
+// loading @fkui/theme-default here as well would collide with felix's own
+// configured load of the same module.
+@use 'felix-ds/src/fonts/fonts';
+@use 'felix-ds/src/theme/default' as felix with (
+    $global: false
+);
+@use './layout';
+
+// Light is the default; the dark scope outranks :root by specificity
+// ((0,1,1) vs (0,1,0)), so switching is instant and needs no !important.
+// Both scopes emit the complete token surface including color-scheme, so
+// native controls and scrollbars follow the active mode.
+:root {
+    @include felix.light;
+
+    // Page layout surface token: upstream defines it only inside the page
+    // layout's shadow parts, so standalone consumers of it would render
+    // transparent.
+    --f-page-layout-background: var(--fkds-color-background-secondary);
+}
+
+html[data-color-mode='dark'] {
+    @include felix.dark;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+// Without an explicit background the browser canvas shows through wherever
+// the app shell does not paint; the token flips with the active mode.
+body {
+    background-color: var(--fkds-color-background-primary);
+}

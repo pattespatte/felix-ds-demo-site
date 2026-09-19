@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
+        <title>Vårdportalen</title>
+        <script>
+            // Pre-paint color-mode restore: applies the persisted choice (or
+            // the system preference) before first paint so the page never
+            // flashes the wrong mode. Mirrors src/color-mode.ts, which owns
+            // the state once the app has mounted.
+            ;(function () {
+                try {
+                    var stored = localStorage.getItem('felix-demo-color-mode')
+                    var dark =
+                        stored === 'dark' ||
+                        (stored !== 'light' &&
+                            window.matchMedia('(prefers-color-scheme: dark)').matches)
+                    if (dark) {
+                        document.documentElement.setAttribute('data-color-mode', 'dark')
+                    }
+                } catch (e) {
+                    /* localStorage unavailable – stay in light mode */
+                }
+            })()
+        </script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>
