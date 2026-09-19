@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import {
     FBadge,
     FButton,
+    FConfirmModal,
     FEmailTextField,
     FModal,
     FPhoneTextField,
@@ -99,7 +100,7 @@ const eligibilityCriteria = [
     {
         title: 'Läkarintyg',
         description: 'Du behöver ett läkarintyg som styrker ditt behov av hemsjukvård',
-        icon: 'doc'
+        icon: 'file'
     },
     {
         title: 'Kommunalt beslut',
@@ -174,6 +175,8 @@ const filteredServices = computed(() => {
 
 // Contact modal state
 const showContactModal = ref(false)
+const confirmOpen = ref(false)
+const successMessage = ref('')
 const selectedService = ref('')
 const contactForm = ref({
     name: '',
@@ -194,9 +197,16 @@ const closeModal = () => {
     selectedService.value = ''
 }
 
-const submitContact = () => {
-    // In a real app, this would submit to a backend
-    window.alert(`Kontaktformulär skickat för ${contactForm.value.service}`)
+// The contact modal hands over to a confirm dialog before anything is sent;
+// a success message replaces the source site's native alert.
+const requestSend = () => {
+    showContactModal.value = false
+    confirmOpen.value = true
+}
+
+const onConfirmSend = () => {
+    confirmOpen.value = false
+    successMessage.value = `Kontaktformulär skickat för ${contactForm.value.service}`
     closeModal()
     contactForm.value = {
         name: '',
@@ -205,11 +215,36 @@ const submitContact = () => {
         message: '',
         service: ''
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
 
 <template>
     <div class="page">
+        <AlertMessage
+            v-if="successMessage"
+            :key="successMessage"
+            type="success"
+            :message="successMessage"
+            :dismissible="true"
+            class="hem__success"
+        />
+
+        <f-confirm-modal
+            :is-open="confirmOpen"
+            :buttons="[
+                { label: 'Ja, skicka meddelandet', type: 'primary', event: 'confirm' },
+                { label: 'Avbryt', type: 'secondary', event: 'dismiss' }
+            ]"
+            @confirm="onConfirmSend"
+            @close="confirmOpen = false"
+        >
+            <template #heading> Skicka meddelande? </template>
+            <template #content>
+                <p>Du skickar ett kontaktformulär gällande {{ contactForm.service }}.</p>
+            </template>
+        </f-confirm-modal>
+
         <h1 class="hem__title">Hemsjukvård</h1>
 
         <!-- Alert for important information -->
@@ -404,7 +439,7 @@ const submitContact = () => {
                     <f-button size="medium" variant="secondary" @click="closeModal">
                         Avbryt
                     </f-button>
-                    <f-button size="medium" variant="primary" @click="submitContact">
+                    <f-button size="medium" variant="primary" @click="requestSend">
                         Skicka meddelande
                     </f-button>
                 </div>
@@ -421,6 +456,10 @@ const submitContact = () => {
 }
 
 .hem__alert {
+    margin-bottom: 1.5rem;
+}
+
+.hem__success {
     margin-bottom: 1.5rem;
 }
 

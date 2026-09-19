@@ -58,14 +58,14 @@ import ListItem from '@/components/display/ListItem.vue'
 
         <AppCard title="Information vid bokning" class="boka__info">
             <ul class="stack-list">
-                <ListItem icon="doc">
+                <ListItem icon="file">
                     Ha ditt personnummer och bankID tillgängligt vid bokning
                 </ListItem>
                 <ListItem icon="calendar">
                     Om du behöver avboka din tid, gör det senast 24 timmar innan
                 </ListItem>
                 <ListItem icon="alert"> Vid akuta besvär, ring oss istället för att boka online </ListItem>
-                <ListItem icon="doc"> Medtag giltig legitimation vid ditt besök </ListItem>
+                <ListItem icon="file"> Medtag giltig legitimation vid ditt besök </ListItem>
             </ul>
         </AppCard>
     </div>

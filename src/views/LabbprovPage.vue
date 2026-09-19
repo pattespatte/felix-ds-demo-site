@@ -3,6 +3,7 @@ import { ref, computed, watch } from 'vue'
 import {
     FBadge,
     FButton,
+    FConfirmModal,
     FDatepickerField,
     FModal,
     FPaginator,
@@ -125,7 +126,7 @@ const preparationInstructions = [
         title: 'Mediciner',
         description:
             'Meddela alltid vilka mediciner du tar. Vissa mediciner kan påverka provsvaren.',
-        icon: 'doc'
+        icon: 'file'
     },
     {
         title: 'Tidpunkt',
@@ -184,6 +185,8 @@ watch([searchQuery, selectedCategory], () => {
 
 // Booking modal state
 const showBookingModal = ref(false)
+const confirmOpen = ref(false)
+const successMessage = ref('')
 const selectedTest = ref('')
 const patientName = ref('')
 const patientPersonnummer = ref('')
@@ -203,15 +206,52 @@ const closeModal = () => {
     selectedTest.value = ''
 }
 
-const submitBooking = () => {
-    // In a real app, this would submit to a backend
-    window.alert(`Tid bokad för ${selectedTest.value}`)
+// The booking modal hands over to a confirm dialog before anything is sent;
+// a success message replaces the source site's native alert.
+const requestSend = () => {
+    showBookingModal.value = false
+    confirmOpen.value = true
+}
+
+const onConfirmSend = () => {
+    confirmOpen.value = false
+    successMessage.value = `Tid bokad för ${selectedTest.value}`
     closeModal()
+    patientName.value = ''
+    patientPersonnummer.value = ''
+    patientPhone.value = ''
+    timeSlot.value = ''
+    preferredDate.value = ''
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
 
 <template>
     <div class="page">
+        <AlertMessage
+            v-if="successMessage"
+            :key="successMessage"
+            type="success"
+            :message="successMessage"
+            :dismissible="true"
+            class="labb__success"
+        />
+
+        <f-confirm-modal
+            :is-open="confirmOpen"
+            :buttons="[
+                { label: 'Ja, boka tiden', type: 'primary', event: 'confirm' },
+                { label: 'Avbryt', type: 'secondary', event: 'dismiss' }
+            ]"
+            @confirm="onConfirmSend"
+            @close="confirmOpen = false"
+        >
+            <template #heading> Bekräfta bokning </template>
+            <template #content>
+                <p>Vill du boka tid för {{ selectedTest }}?</p>
+            </template>
+        </f-confirm-modal>
+
         <h1 class="labb__title">Labbprov</h1>
 
         <!-- Alert for important information -->
@@ -419,7 +459,7 @@ const submitBooking = () => {
                     <f-button size="medium" variant="secondary" @click="closeModal">
                         Avbryt
                     </f-button>
-                    <f-button size="medium" variant="primary" @click="submitBooking">
+                    <f-button size="medium" variant="primary" @click="requestSend">
                         Boka tid
                     </f-button>
                 </div>
@@ -436,6 +476,10 @@ const submitBooking = () => {
 }
 
 .labb__alert {
+    margin-bottom: 1.5rem;
+}
+
+.labb__success {
     margin-bottom: 1.5rem;
 }
 

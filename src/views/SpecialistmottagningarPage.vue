@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import {
     FBadge,
     FButton,
+    FConfirmModal,
     FDataTable,
     FModal,
     FSelectField,
@@ -135,6 +136,8 @@ const filteredClinics = computed(() => {
 
 // Referral application wizard
 const showBookingModal = ref(false)
+const confirmOpen = ref(false)
+const successMessage = ref('')
 const selectedClinic = ref('')
 const bookingStep = ref(1)
 const bookingSteps = ['Välj mottagning', 'Personuppgifter', 'Symptom', 'Bekräfta']
@@ -159,15 +162,54 @@ const closeModal = () => {
     bookingStep.value = 1
 }
 
-const submitBooking = () => {
-    // In a real app, this would submit to a backend
-    window.alert(`Remissansökan skickad för ${selectedClinic.value}`)
+// The wizard hands over to a confirm dialog before anything is sent; a
+// success message replaces the source site's native alert.
+const requestSend = () => {
+    showBookingModal.value = false
+    confirmOpen.value = true
+}
+
+const onConfirmSend = () => {
+    confirmOpen.value = false
+    successMessage.value = `Remissansökan skickad för ${selectedClinic.value}`
     closeModal()
+    referralReason.value = ''
+    patientName.value = ''
+    patientPersonnummer.value = ''
+    patientPhone.value = ''
+    symptoms.value = ''
+    medications.value = ''
+    allergies.value = ''
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
 
 <template>
     <div class="page">
+        <AlertMessage
+            v-if="successMessage"
+            :key="successMessage"
+            type="success"
+            :message="successMessage"
+            :dismissible="true"
+            class="specialist__success"
+        />
+
+        <f-confirm-modal
+            :is-open="confirmOpen"
+            :buttons="[
+                { label: 'Ja, skicka ansökan', type: 'primary', event: 'confirm' },
+                { label: 'Avbryt', type: 'secondary', event: 'dismiss' }
+            ]"
+            @confirm="onConfirmSend"
+            @close="confirmOpen = false"
+        >
+            <template #heading> Skicka ansökan? </template>
+            <template #content>
+                <p>Du skickar en remissansökan för {{ selectedClinic }}.</p>
+            </template>
+        </f-confirm-modal>
+
         <h1 class="specialist__title">Specialistmottagningar</h1>
 
         <!-- Alert for referral information -->
@@ -449,7 +491,7 @@ const submitBooking = () => {
                         >
                             Nästa
                         </f-button>
-                        <f-button v-else size="medium" variant="primary" @click="submitBooking">
+                        <f-button v-else size="medium" variant="primary" @click="requestSend">
                             Skicka ansökan
                         </f-button>
                     </div>
@@ -467,6 +509,10 @@ const submitBooking = () => {
 }
 
 .specialist__alert {
+    margin-bottom: 1.5rem;
+}
+
+.specialist__success {
     margin-bottom: 1.5rem;
 }
 

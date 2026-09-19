@@ -25,7 +25,7 @@ const services = [
         title: 'Mina journaler',
         description: 'Läs dina journalanteckningar och se dina provsvar.',
         action: 'Se mina journaler',
-        icon: 'doc'
+        icon: 'file'
     },
     {
         title: 'Mina recept',
@@ -37,7 +37,7 @@ const services = [
         title: 'Mina kontakter',
         description: 'Kontakta vården via e-tjänster och ställ frågor till vårdpersonal.',
         action: 'Kontakta vården',
-        icon: 'bell'
+        icon: 'envelope'
     }
 ]
 

@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import {
     FBadge,
     FButton,
+    FConfirmModal,
     FDataTable,
     FModal,
     FPhoneTextField,
@@ -160,6 +161,8 @@ const tabs = [
 
 // Booking modal state
 const showBookingModal = ref(false)
+const confirmOpen = ref(false)
+const successMessage = ref('')
 const selectedClinic = ref('')
 const patientName = ref('')
 const patientPhone = ref('')
@@ -175,15 +178,50 @@ const closeModal = () => {
     selectedClinic.value = ''
 }
 
-const submitBooking = () => {
-    // In a real app, this would submit to a backend
-    window.alert(`Bokning skickad för ${selectedClinic.value}`)
+// The booking modal hands over to a confirm dialog before anything is sent;
+// a success message replaces the source site's native alert.
+const requestSend = () => {
+    showBookingModal.value = false
+    confirmOpen.value = true
+}
+
+const onConfirmSend = () => {
+    confirmOpen.value = false
+    successMessage.value = `Bokning skickad för ${selectedClinic.value}`
     closeModal()
+    patientName.value = ''
+    patientPhone.value = ''
+    appointmentType.value = ''
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
 
 <template>
     <div class="page">
+        <AlertMessage
+            v-if="successMessage"
+            :key="successMessage"
+            type="success"
+            :message="successMessage"
+            :dismissible="true"
+            class="mott__success"
+        />
+
+        <f-confirm-modal
+            :is-open="confirmOpen"
+            :buttons="[
+                { label: 'Ja, skicka bokning', type: 'primary', event: 'confirm' },
+                { label: 'Avbryt', type: 'secondary', event: 'dismiss' }
+            ]"
+            @confirm="onConfirmSend"
+            @close="confirmOpen = false"
+        >
+            <template #heading> Bekräfta bokning </template>
+            <template #content>
+                <p>Vill du skicka en bokning för {{ selectedClinic }}?</p>
+            </template>
+        </f-confirm-modal>
+
         <h1 class="mott__title">Mottagningar</h1>
 
         <!-- Alert for important information -->
@@ -320,7 +358,7 @@ const submitBooking = () => {
             <template #footer>
                 <div class="mott__modal-actions">
                     <f-button size="medium" variant="secondary" @click="closeModal"> Avbryt </f-button>
-                    <f-button size="medium" variant="primary" @click="submitBooking"> Boka tid </f-button>
+                    <f-button size="medium" variant="primary" @click="requestSend"> Boka tid </f-button>
                 </div>
             </template>
         </f-modal>
@@ -335,6 +373,10 @@ const submitBooking = () => {
 }
 
 .mott__alert {
+    margin-bottom: 1.5rem;
+}
+
+.mott__success {
     margin-bottom: 1.5rem;
 }
 

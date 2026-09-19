@@ -15,6 +15,17 @@ interface Props {
 
 const props = defineProps<Props>()
 
+// Hand-drawn glyphs for semantics the default icon library lacks (it has no
+// mail or phone icon) – same precedent as the header's sun/moon toggle.
+const HAND_DRAWN_ICONS: Record<string, string> = {
+    envelope:
+        'M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z'
+}
+
+const handDrawnPath = computed(() =>
+    props.icon ? HAND_DRAWN_ICONS[props.icon] : undefined
+)
+
 // Internal routes get router links; external URLs stay plain anchors.
 const isInternal = computed(() => Boolean(props.link && props.link.startsWith('/')))
 </script>
@@ -26,7 +37,16 @@ const isInternal = computed(() => Boolean(props.link && props.link.startsWith('/
                 <div v-if="icon || $slots.image" class="service-card__visual">
                     <slot name="image">
                         <span v-if="icon" class="service-card__icon-circle">
-                            <f-icon :name="icon" class="service-card__glyph" />
+                            <svg
+                                v-if="handDrawnPath"
+                                class="service-card__glyph"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                                focusable="false"
+                            >
+                                <path :d="handDrawnPath" fill="currentColor" fill-rule="evenodd" />
+                            </svg>
+                            <f-icon v-else :name="icon" class="service-card__glyph" />
                         </span>
                     </slot>
                 </div>
