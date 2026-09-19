@@ -181,6 +181,11 @@ defineExpose({
 
 .search-box__field :deep(.text-field) {
     width: 100%;
+    // FKUI spaces stacked form fields with a 24px bottom margin; inside the
+    // header composite it is dead weight below the field that made the tools
+    // row center the box instead of the visible field, so the field rode
+    // high against the logo and the color-mode toggle.
+    margin-bottom: 0;
 }
 
 // Header variant: the label stays in the accessibility tree but not in the
