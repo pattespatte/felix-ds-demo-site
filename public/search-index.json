@@ -182,12 +182,16 @@
     "id": "/tjanster/specialistmottagningar",
     "title": "Specialistmottagningar - Vårdcentralen Vårdportalen",
     "url": "/tjanster/specialistmottagningar",
-    "content": "Specialistmottagningar Våra specialistmottagningar erbjuder avancerad medicinsk vård inom olika områden. Alla våra specialister är erfarna och uppdaterade med den senaste kunskapen inom sina fält. Sök specialistmottagning Filtrera specialitet Status: Väntetid: Öppettider: Telefon: Specialister: Remiss krävs Ansök om remiss Våra specialister Alla mottagningar ligger på adressen Specialistmottagningen, 123 45 Stockholm. Specialister per specialistmottagning Remissinformation Ansök om remiss Du ansöker om remiss till: Anledning till remiss Nya symptom Uppföljning av tidigare behandling Andrahandsutlåtande Annat Fullständigt namn Personnummer Telefonnummer Beskriv dina symptom Nuvarande medicinering Kända allergier Granska din ansökan Kontrollera att all information är korrekt innan du skickar din ansökan. Mottagning: Anledning: Remiss för specialistvård Personuppgifter: [Dina uppgifter] Symptom: [Dina symptom] Föregående Avbryt Nästa Skicka ansökan",
+    "content": "Skicka ansökan? Du skickar en remissansökan för . Specialistmottagningar Våra specialistmottagningar erbjuder avancerad medicinsk vård inom olika områden. Alla våra specialister är erfarna och uppdaterade med den senaste kunskapen inom sina fält. Sök specialistmottagning Filtrera specialitet Status: Väntetid: Öppettider: Telefon: Specialister: Remiss krävs Ansök om remiss Våra specialister Alla mottagningar ligger på adressen Specialistmottagningen, 123 45 Stockholm. Specialister per specialistmottagning Remissinformation Ansök om remiss Du ansöker om remiss till: Anledning till remiss Nya symptom Uppföljning av tidigare behandling Andrahandsutlåtande Annat Fullständigt namn Personnummer Telefonnummer Beskriv dina symptom Nuvarande medicinering Kända allergier Granska din ansökan Kontrollera att all information är korrekt innan du skickar din ansökan. Mottagning: Anledning: Remiss för specialistvård Personuppgifter: [Dina uppgifter] Symptom: [Dina symptom] Föregående Avbryt Nästa Skick",
     "description": "Specialiserad vård och mottagning",
     "keywords": [
       "specialistmottagningar",
       "vårdcentralen",
       "vårdportalen",
+      "skicka",
+      "ansökan",
+      "skickar",
+      "remissansökan",
       "våra",
       "erbjuder",
       "avancerad",
@@ -197,23 +201,23 @@
       "olika",
       "områden",
       "alla",
-      "specialister",
-      "erfarna",
-      "uppdaterade",
-      "senaste",
-      "kunskapen"
+      "specialister"
     ]
   },
   {
     "id": "/tjanster/labbprov",
     "title": "Labbprov - Vårdcentralen Vårdportalen",
     "url": "/tjanster/labbprov",
-    "content": "Labbprov På vår laboratorieavdelning erbjuder vi ett brett utbud av provtagningstjänster. All personal är utbildad för att ta prover på ett säkert och professionellt sätt. Sök provtyp Filtrera kategori Kategori: Tid: Pris: Förberedelse: Fasta krävs Tillgänglighet: Boka tid Förberedelser inför provtagning Hämta dina provsvar Gå till 1177 08-123 456 00 Mån-fre: 8:00-16:00 Boka tid för provtagning Du bokar tid för: Fullständigt namn Personnummer Telefonnummer Önskad tid Förmiddag (8:00-12:00) Eftermiddag (12:00-16:00) Önskat datum Avbryt Boka tid",
+    "content": "Bekräfta bokning Vill du boka tid för ? Labbprov På vår laboratorieavdelning erbjuder vi ett brett utbud av provtagningstjänster. All personal är utbildad för att ta prover på ett säkert och professionellt sätt. Sök provtyp Filtrera kategori Kategori: Tid: Pris: Förberedelse: Fasta krävs Tillgänglighet: Boka tid Förberedelser inför provtagning Hämta dina provsvar Gå till 1177 08-123 456 00 Mån-fre: 8:00-16:00 Boka tid för provtagning Du bokar tid för: Fullständigt namn Personnummer Telefonnummer Önskad tid Förmiddag (8:00-12:00) Eftermiddag (12:00-16:00) Önskat datum Avbryt Boka tid",
     "description": "Information om laboratorieprov och analyser",
     "keywords": [
       "labbprov",
       "vårdcentralen",
       "vårdportalen",
+      "bekräfta",
+      "bokning",
+      "vill",
+      "boka",
       "laboratorieavdelning",
       "erbjuder",
       "brett",
@@ -225,22 +229,24 @@
       "säkert",
       "professionellt",
       "sätt",
-      "provtyp",
-      "filtrera",
-      "kategori",
-      "pris"
+      "provtyp"
     ]
   },
   {
     "id": "/tjanster/hemsjukvard",
     "title": "Hemsjukvård - Vårdcentralen Vårdportalen",
     "url": "/tjanster/hemsjukvard",
-    "content": "Hemsjukvård Sök tjänst Filtrera kategori Vår hemsjukvård erbjuder professionell vård och behandling i ditt hem. Vi arbetar för att du ska kunna få den vård du behöver med bibehållen självständighet och livskvalitet. Kategori: Personal: Pris: Tillgänglighet: Kontakta oss Behov & rättigheter Vad kostar hemsjukvård? För de flesta medicinska insatser gäller högkostnadsskyddet precis som vid besök på vårdcentralen. Vissa omsorgsinsatser kan vara avgiftsbelagda baserat på inkomst. Maxavgift: För medicinsk hemsjukvård gäller samma maxavgift som för övrig sjukvård, för närvarande 1 150 kr per år. Kontakta oss Specialisering: Akut hemsjukvård För akut hemsjukvård utanför ordinarie arbetstid, ring vår akutmottagning på 08-123 456 80. Vid livshotande tillstånd, ring alltid 112. Kontakta oss om hemsjukvård Du kontaktar oss gällande: Ditt namn Telefonnummer E-postadress Tjänst Meddelande Avbryt Skicka meddelande",
+    "content": "Skicka meddelande? Du skickar ett kontaktformulär gällande . Hemsjukvård Sök tjänst Filtrera kategori Vår hemsjukvård erbjuder professionell vård och behandling i ditt hem. Vi arbetar för att du ska kunna få den vård du behöver med bibehållen självständighet och livskvalitet. Kategori: Personal: Pris: Tillgänglighet: Kontakta oss Behov & rättigheter Vad kostar hemsjukvård? För de flesta medicinska insatser gäller högkostnadsskyddet precis som vid besök på vårdcentralen. Vissa omsorgsinsatser kan vara avgiftsbelagda baserat på inkomst. Maxavgift: För medicinsk hemsjukvård gäller samma maxavgift som för övrig sjukvård, för närvarande 1 150 kr per år. Kontakta oss Specialisering: Akut hemsjukvård För akut hemsjukvård utanför ordinarie arbetstid, ring vår akutmottagning på 08-123 456 80. Vid livshotande tillstånd, ring alltid 112. Kontakta oss om hemsjukvård Du kontaktar oss gällande: Ditt namn Telefonnummer E-postadress Tjänst Meddelande Avbryt Skicka meddelande",
     "description": "Vård och behandling i hemmet",
     "keywords": [
       "hemsjukvård",
       "vårdcentralen",
       "vårdportalen",
+      "skicka",
+      "meddelande",
+      "skickar",
+      "kontaktformulär",
+      "gällande",
       "tjänst",
       "filtrera",
       "kategori",
@@ -250,11 +256,7 @@
       "behandling",
       "ditt",
       "arbetar",
-      "kunna",
-      "behöver",
-      "bibehållen",
-      "självständighet",
-      "livskvalitet"
+      "kunna"
     ]
   },
   {
@@ -434,12 +436,16 @@
     "id": "/mottagningar",
     "title": "Mottagningar - Vårdcentralen Vårdportalen",
     "url": "/mottagningar",
-    "content": "Mottagningar Här hittar du information om våra olika mottagningar och kliniker. Vi erbjuder specialistvård inom de flesta medicinska områden med erfarna läkare och sjuksköterskor. Status: Väntetid: Öppettider: Telefon: Boka tid Aktuella väntetider Väntetider per mottagning Kontaktinformation Alla mottagningar ligger på adressen Vårdcentralen, 123 45 Stockholm. Öppettider: Boka tid Du bokar tid för: Namn Telefonnummer Typ av besök Vanligt besök Uppföljning Akut Avbryt Boka tid",
+    "content": "Bekräfta bokning Vill du skicka en bokning för ? Mottagningar Här hittar du information om våra olika mottagningar och kliniker. Vi erbjuder specialistvård inom de flesta medicinska områden med erfarna läkare och sjuksköterskor. Status: Väntetid: Öppettider: Telefon: Boka tid Aktuella väntetider Väntetider per mottagning Kontaktinformation Alla mottagningar ligger på adressen Vårdcentralen, 123 45 Stockholm. Öppettider: Boka tid Du bokar tid för: Namn Telefonnummer Typ av besök Vanligt besök Uppföljning Akut Avbryt Boka tid",
     "description": "Våra mottagningar och specialistkliniker",
     "keywords": [
       "mottagningar",
       "vårdcentralen",
       "vårdportalen",
+      "bekräfta",
+      "bokning",
+      "vill",
+      "skicka",
       "hittar",
       "information",
       "våra",
@@ -449,12 +455,7 @@
       "specialistvård",
       "inom",
       "flesta",
-      "medicinska",
-      "områden",
-      "erfarna",
-      "läkare",
-      "sjuksköterskor",
-      "status"
+      "medicinska"
     ]
   },
   {

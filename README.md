@@ -6,6 +6,10 @@ The site is a fictional Swedish healthcare portal ("Vårdportalen"): 25 content 
 
 Everything here is fictional – the clinic, prices, people and contact details are made up. The site is kept out of search indexes (noindex meta, robots.txt, X-Robots-Tag headers).
 
+## Content notes
+
+The content is carried over verbatim from the source demo site, with one exception: the source contact page named a real Stockholm hospital under "Akutmottagning". Per this project's neutrality rule (no real organisation names), it is replaced with the fictional "Akutmottagningen Södra, Stockholm". Every other heading, paragraph, price and link matches the source.
+
 ## Stack
 
 - Vue 3 (`<script setup lang="ts">`) + TypeScript + Vite
