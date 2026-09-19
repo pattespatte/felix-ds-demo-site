@@ -18,7 +18,7 @@ import ListItem from '@/components/display/ListItem.vue'
             <ServiceCard
                 title="Akut tid"
                 description="För akuta besvär som inte kan vänta. Ring oss direkt på telefonnummer 08-123 456 78."
-                icon="alert"
+                icon="warning"
             >
                 <a href="tel:+46812345678" class="boka__action boka__action--alert">
                     Ring oss nu
@@ -38,7 +38,7 @@ import ListItem from '@/components/display/ListItem.vue'
             <ServiceCard
                 title="Vaccination"
                 description="Boka tid för vaccination, inklusive influensa- och COVID-19-vaccin."
-                icon="plus"
+                icon="shield"
             >
                 <button type="button" class="boka__action boka__action--primary">
                     Boka vaccinationstid
@@ -48,7 +48,7 @@ import ListItem from '@/components/display/ListItem.vue'
             <ServiceCard
                 title="Laboratorieprov"
                 description="Boka tid för provtagning. Observera att vissa prover kräver faste."
-                icon="file"
+                icon="flask"
             >
                 <button type="button" class="boka__action boka__action--primary">
                     Boka provtagning

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SecondaryNavigation from '@/components/common/SecondaryNavigation.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton } from '@fkui/vue'
@@ -33,7 +32,6 @@ const jobs = [
 </script>
 
 <template>
-    <SecondaryNavigation />
     <div class="page">
         <div class="page__narrow">
             <h1 class="lediga__title">Lediga tjänster</h1>

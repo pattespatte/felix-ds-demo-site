@@ -1,39 +1,39 @@
 <script setup lang="ts">
 import ServiceCard from '@/components/display/ServiceCard.vue'
 
-// Icons mapped semantically to the FKUI default library from the source's
-// Phosphor icons (stethoscope/baby/child/test-tube/brain have no direct
-// equivalents; the closest semantic glyphs are used).
+// Icons: the FKUI default library has no medical glyphs, so the cards mix
+// library icons (plus = vårdens kors) with the app's hand-drawn set
+// (heart, person, flask, chat – see ServiceCard).
 const services = [
     {
         title: 'Allmänmedicin',
         description:
             'Vi erbjuder allmänmedicinsk vård för vuxna och barn. Hos oss kan du få hjälp med vanliga sjukdomar, hälsokontroller och rådgivning.',
-        icon: 'cross'
+        icon: 'plus'
     },
     {
         title: 'Barnmorskemottagning',
         description:
             'Vår barnmorskemottagning erbjuder mödrahälsovård, preventivmedelsrådgivning och cellprovtagning.',
-        icon: 'circle'
+        icon: 'heart'
     },
     {
         title: 'BVC (Barnavårdscentral)',
         description:
             'Vi erbjuder barnhälsovård för barn från födseln tills de börjar skolan. Hos oss får ditt barn regelbundna hälsokontroller och vaccinationer.',
-        icon: 'plus'
+        icon: 'person'
     },
     {
         title: 'Laboratorium',
         description:
             'Vi har ett eget laboratorium där vi tar de vanligaste proverna. Du behöver inte boka tid för provtagning om du har remiss.',
-        icon: 'file'
+        icon: 'flask'
     },
     {
         title: 'Psykiatri',
         description:
             'Vi erbjuder psykiatrisk vård för vuxna. Hos oss kan du få hjälp med depression, ångest och andra psykiska besvär.',
-        icon: 'i'
+        icon: 'chat'
     }
 ]
 </script>

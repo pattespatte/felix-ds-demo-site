@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SecondaryNavigation from '@/components/common/SecondaryNavigation.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton } from '@fkui/vue'
@@ -69,7 +68,6 @@ const testimonials = [
 </script>
 
 <template>
-    <SecondaryNavigation />
     <div class="page">
         <div class="page__narrow">
             <h1 class="karriar__title">Karriärvägar</h1>
@@ -84,8 +82,10 @@ const testimonials = [
                     <h2 class="karriar__ladder-title">Karriärsteg för läkare</h2>
                     <ol class="karriar__steps">
                         <li v-for="step in physicianSteps" :key="step.title" class="karriar__step">
-                            <h3 class="karriar__step-title">{{ step.title }}</h3>
-                            <p class="karriar__step-description">{{ step.description }}</p>
+                            <div class="karriar__step-body">
+                                <h3 class="karriar__step-title">{{ step.title }}</h3>
+                                <p class="karriar__step-description">{{ step.description }}</p>
+                            </div>
                         </li>
                     </ol>
                 </div>
@@ -94,8 +94,10 @@ const testimonials = [
                     <h2 class="karriar__ladder-title">Karriärsteg för sjuksköterskor</h2>
                     <ol class="karriar__steps">
                         <li v-for="step in nurseSteps" :key="step.title" class="karriar__step">
-                            <h3 class="karriar__step-title">{{ step.title }}</h3>
-                            <p class="karriar__step-description">{{ step.description }}</p>
+                            <div class="karriar__step-body">
+                                <h3 class="karriar__step-title">{{ step.title }}</h3>
+                                <p class="karriar__step-description">{{ step.description }}</p>
+                            </div>
                         </li>
                     </ol>
                 </div>
@@ -188,28 +190,35 @@ const testimonials = [
     gap: 1rem;
 }
 
+// Numbered step: the counter badge sits in flow beside the text so it can
+// never collide with the surrounding card the way an absolutely positioned
+// badge did.
 .karriar__step {
     counter-increment: karriar-step;
-    border-left: 4px solid var(--fkds-color-action-border-primary-default);
-    padding-left: 1rem;
-    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
 
     &::before {
         content: counter(karriar-step);
-        position: absolute;
-        left: -1.625rem;
-        top: 0;
-        display: flex;
+        flex-shrink: 0;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-top: 0.125rem;
         border-radius: 999px;
         background-color: var(--fkds-color-action-background-primary-default);
         color: var(--fkds-color-action-text-inverted-default);
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         font-weight: 600;
     }
+}
+
+.karriar__step-body {
+    flex: 1;
+    min-width: 0;
 }
 
 .karriar__step-title {

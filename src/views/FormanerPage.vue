@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SecondaryNavigation from '@/components/common/SecondaryNavigation.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton, FExpandableParagraph } from '@fkui/vue'
@@ -80,7 +79,6 @@ const otherBenefits = [
 </script>
 
 <template>
-    <SecondaryNavigation />
     <div class="page">
         <div class="page__narrow">
             <h1 class="formaner__title">Förmåner</h1>

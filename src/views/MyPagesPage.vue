@@ -31,7 +31,7 @@ const services = [
         title: 'Mina recept',
         description: 'Se dina aktuella recept och förnya recept om det behövs.',
         action: 'Se mina recept',
-        icon: 'file'
+        icon: 'receipt'
     },
     {
         title: 'Mina kontakter',
