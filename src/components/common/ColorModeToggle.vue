@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { FIcon } from '@fkui/vue'
 import { currentColorMode, toggleColorMode } from '@/color-mode'
 
 const isDark = computed(() => currentColorMode.value === 'dark')
-const label = computed(() =>
-    isDark.value ? 'Växla till ljust läge' : 'Växla till mörkt läge'
-)
+const label = computed(() => (isDark.value ? 'Växla till ljust läge' : 'Växla till mörkt läge'))
 </script>
 
 <template>
-    <!-- Hand-drawn glyphs: the default icon library ships no sun/moon. The
-         visible icon shows the mode a click would leave (sun while light). -->
+    <!-- Phosphor sun/moon (f-library extension, src/icons/phosphor-spritesheet.ts).
+         The visible icon shows the mode a click would leave (sun while light). -->
     <button
         type="button"
         class="color-mode-toggle"
@@ -18,37 +17,7 @@ const label = computed(() =>
         :title="label"
         @click="toggleColorMode()"
     >
-        <svg
-            v-if="isDark"
-            class="color-mode-toggle__icon"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-        >
-            <path
-                d="M20.6 14.4A8.9 8.9 0 1 1 9.6 3.4a7.2 7.2 0 0 0 11 11z"
-                fill="currentColor"
-            />
-        </svg>
-        <svg
-            v-else
-            class="color-mode-toggle__icon"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-        >
-            <circle cx="12" cy="12" r="4" fill="currentColor" />
-            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <line x1="12" y1="2.5" x2="12" y2="5" />
-                <line x1="12" y1="19" x2="12" y2="21.5" />
-                <line x1="2.5" y1="12" x2="5" y2="12" />
-                <line x1="19" y1="12" x2="21.5" y2="12" />
-                <line x1="5.3" y1="5.3" x2="7" y2="7" />
-                <line x1="17" y1="17" x2="18.7" y2="18.7" />
-                <line x1="5.3" y1="18.7" x2="7" y2="17" />
-                <line x1="17" y1="7" x2="18.7" y2="5.3" />
-            </g>
-        </svg>
+        <f-icon :name="isDark ? 'moon' : 'sun'" class="color-mode-toggle__icon" />
     </button>
 </template>
 

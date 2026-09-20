@@ -16,7 +16,7 @@ The content is carried over verbatim from the source demo site, with one excepti
 - Vue Router 4 (history mode)
 - FKUI 6.57.1 (`@fkui/vue`, `@fkui/design`, `@fkui/date`, `@fkui/logic`, `@fkui/icon-lib-default`; `@fkui/theme-default` comes in transitively with felix-ds and is loaded by the felix theme layer)
 - felix-ds as a pinned git dependency (the dark-theme commit)
-- No Tailwind, no icon CDN: layout SCSS uses felix/FKUI tokens only, icons come from the FKUI default icon library, fonts are self-hosted
+- No Tailwind, no icon CDN: layout SCSS uses felix/FKUI tokens only, icons come from the FKUI default library plus a small Phosphor extension (see [Icons](#icons)), fonts are self-hosted
 
 ## Run it
 
@@ -36,16 +36,32 @@ bun run preview      # serve dist/ at the production base path
 
 The build prerenders every route to static HTML (light mode snapshots; the dark mode is applied at runtime by the inline pre-paint script and the color-mode module).
 
+## Icons
+
+The site does not deviate from the `FIcon` component – every icon renders through `<f-icon name="...">` – but it does extend the icon _library_ behind it:
+
+- UI chrome icons (search, bars, carets, the logo cross, arrows) come from the FKUI default library (`@fkui/icon-lib-default`, 31 utility icons).
+- Content icons (service cards, Mina Sidor lists, the color-mode toggle) are [Phosphor](https://phosphoricons.com) glyphs – the same icons the sibling [swedish-healthcare-demo-site](https://github.com/pattespatte/swedish-healthcare-demo-site) uses for the same concepts. The FKUI defaults have no medical or content glyphs (no stethoscope, baby, prescription, …), which previously forced hand-drawn inline SVGs scattered through components.
+
+The Phosphor set is injected as extra `f-icon-*` symbols in the same `"f"` spritesheet library, which is FKUI's documented pattern for icons beyond the defaults ("Skapa eget ikonbibliotek" in the FKUI docs, normally built with `@fkui/icon-lib-builder`). Names that exist in the default library are deliberately not duplicated.
+
+| File                                        | Role                                                                                                                                                    |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/icons/phosphor-spritesheet.ts`         | Generated symbols (Phosphor MIT license), injected on load                                                                                              |
+| `scripts/generate-phosphor-spritesheet.mjs` | Regenerates the file above (`bun run generate:icons`) by server-rendering `@phosphor-icons/vue` (a devDependency, pinned to the sibling site's version) |
+
+Note: the sibling site writes `<PhChild>` for the BVC card, but `@phosphor-icons/vue` 2.x has no such icon (it renders nothing there). This site uses `baby-carriage` for that concept instead.
+
 ## Update the theme
 
 `felix-ds` is a git dependency pinned to an exact commit. `bun run felix` shows and upgrades it:
 
-| Command | Description |
-|---------|-------------|
-| `bun run felix version` | Show the pinned commit, the installed package and the latest commit on the default branch |
-| `bun run felix upgrade -n` | Dry run: show the upgrade plan, change nothing |
-| `bun run felix upgrade` | Pin the latest commit and run `bun install` |
-| `bun run felix upgrade <ref>` | As above, but to a chosen sha, branch or tag |
+| Command                       | Description                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------- |
+| `bun run felix version`       | Show the pinned commit, the installed package and the latest commit on the default branch |
+| `bun run felix upgrade -n`    | Dry run: show the upgrade plan, change nothing                                            |
+| `bun run felix upgrade`       | Pin the latest commit and run `bun install`                                               |
+| `bun run felix upgrade <ref>` | As above, but to a chosen sha, branch or tag                                              |
 
 ## Deploy
 

@@ -24,7 +24,7 @@ import ServiceCard from '@/components/display/ServiceCard.vue'
                 <ServiceCard
                     title="E-tjänster"
                     description="Få tillgång till dina journaler, provsvar och recept."
-                    icon="file"
+                    icon="computer-tower"
                 />
             </router-link>
 
@@ -32,7 +32,7 @@ import ServiceCard from '@/components/display/ServiceCard.vue'
                 <ServiceCard
                     title="Kontakta oss"
                     description="Ställ frågor eller kontakta vården via 1177 Vårdguiden."
-                    icon="envelope"
+                    icon="headset"
                 />
             </router-link>
         </div>

@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import '@fkui/icon-lib-default/dist/f'
+import './icons/phosphor-spritesheet'
 import '@fkui/design/lib/fkui.css'
 import '@fkui/design/lib/fonts.css'
 import './assets/main.scss'

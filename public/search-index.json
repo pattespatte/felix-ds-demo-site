@@ -1,13 +1,14 @@
 [
   {
     "id": "/",
-    "title": "Vårdcentralen Vårdportalen - Start",
+    "title": "Vårdcentralen Vårdportalen DEMOWEBB - Start",
     "url": "/",
-    "content": "Välkommen till Vårdportalen Här kan du enkelt boka tider, kontakta vården och hantera dina vårdärenden.",
+    "content": "Välkommen till Vårdportalen DEMOWEBB Här kan du enkelt boka tider, kontakta vården och hantera dina vårdärenden.",
     "description": "Boka tid, kontakta vården och hantera dina vårdärenden",
     "keywords": [
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "start",
       "välkommen",
       "till",
@@ -23,13 +24,14 @@
   },
   {
     "id": "/om-oss",
-    "title": "Om Oss - Vårdcentralen Vårdportalen",
+    "title": "Om Oss - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/om-oss",
     "content": "Om oss Detta är en exempelsida för svensk vårdportal. Vi strävar efter att göra svensk vård mer tillgänglig och effektiv för alla medborgare. Genom vår digitala plattform kan du enkelt hantera dina vårdkontakter och få tillgång till viktig information när du behöver den.",
     "description": "Information om Vårdcentralen Vårdportalen och vår verksamhet",
     "keywords": [
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "detta",
       "exempelsida",
       "svensk",
@@ -45,13 +47,12 @@
       "genom",
       "digitala",
       "plattform",
-      "enkelt",
-      "hantera"
+      "enkelt"
     ]
   },
   {
     "id": "/om-oss/jobba-hos-oss",
-    "title": "Jobba Hos Oss - Vårdcentralen Vårdportalen",
+    "title": "Jobba Hos Oss - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/om-oss/jobba-hos-oss",
     "content": "Jobba hos oss Vill du bli en del av vårt team? Här hittar du information om lediga tjänster och vad det innebär att arbeta hos oss. Varför välja oss? Utvecklande arbetsmiljö Konkurrenskraftiga villkor Möjlighet till fortbildning Moderna lokaler och utrustning Lediga tjänster Just nu söker vi: Specialistsjuksköterskor Läkare inom olika specialiteter Undersköterskor Administrativ personal Se alla lediga jobb",
     "description": "Lediga tjänster och karriärmöjligheter inom vården",
@@ -59,6 +60,7 @@
       "jobba",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "vill",
       "vårt",
       "team",
@@ -73,13 +75,12 @@
       "utvecklande",
       "arbetsmiljö",
       "konkurrenskraftiga",
-      "villkor",
-      "möjlighet"
+      "villkor"
     ]
   },
   {
     "id": "/om-oss/lediga-tjanster",
-    "title": "Lediga Tjänster - Vårdcentralen Vårdportalen",
+    "title": "Lediga Tjänster - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/om-oss/lediga-tjanster",
     "content": "Lediga tjänster Vi söker ständig nya medarbetare som vill vara med och utveckla vården. Här hittar du våra lediga tjänster för specialistläkare och annan vårdpersonal. Aktuella tjänster Vi erbjuder Konkurrenskraftig lön Förmånlig arbetstid Möjlighet till forskning Intern fortbildning Moderne arbetslokaler Subventionerad lunch Kvalifikationer Legitimerad läkare Specialistkompetens Svenska språket flytande Engelska språket goda kunskaper Samarbetförmåga Patientfokus Ansökan Välkommen att skicka in din ansökan via vår e-post: rekrytering@vardcentral.se. Ange vilken tjänst du söker i ämnesraden. Din ansökan ska innehålla CV, personligt brev och kopior på relevanta intyg och legitimationer. Vi tillämpar löpande urval och kan komma att kalla till intervju innan sista ansökningsdag. Kontakta oss Prenumerera på lediga jobb",
     "description": "Se alla lediga tjänster inom svensk vård",
@@ -88,6 +89,7 @@
       "tjänster",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "söker",
       "ständig",
       "medarbetare",
@@ -98,13 +100,12 @@
       "hittar",
       "våra",
       "specialistläkare",
-      "annan",
-      "vårdpersonal"
+      "annan"
     ]
   },
   {
     "id": "/om-oss/formaner",
-    "title": "Formaner - Vårdcentralen Vårdportalen",
+    "title": "Formaner - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/om-oss/formaner",
     "content": "Förmåner Som medarbetare hos oss får du tillgång till ett omfattande förmånspaket som är utformat för att ge dig trygghet och balans i livet. Andra förmåner Förmånshandbok Som ny medarbetare får du tillgång till vår förmånshandbok där alla förmåner beskrivs i detalj. Handboken uppdateras regelbundet och innehåller all information du behöver för att kunna nyttja dina förmåner på bästa sätt. Ladda ner förmånshandbok (PDF) Kontakta HR",
     "description": "Ansök till utbildningar och tjänster inom vården",
@@ -112,6 +113,7 @@
       "formaner",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "förmåner",
       "medarbetare",
       "tillgång",
@@ -128,7 +130,7 @@
   },
   {
     "id": "/om-oss/karriarvagar",
-    "title": "Karriär - Vårdcentralen Vårdportalen",
+    "title": "Karriär - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/om-oss/karriarvagar",
     "content": "Karriärvägar Hos oss finns det många möjligheter att utvecklas och växa i din karriär. Vi erbjuder tydliga karriärvägar och stöd för din professionella utveckling. Karriärsteg för läkare Karriärsteg för sjuksköterskor Kompetensutveckling Individuell utvecklingsplan Regelbundna utvecklingssamtal Internutbildningar Externa kurser och konferenser Mentorprogram Forskningsmöjligheter Ledarskapsutveckling Grundläggande ledarskapsutbildning Avancerad ledarskapsutbildning Coaching och handledning Nätverksträffar för chefer Internationella utbyten Projektledarutbildning Karriärberättelser Kontakta karriärrådgivare Läs mer om våra utbildningar",
     "description": "Karriärmöjligheter och utvecklingsmöjligheter",
@@ -136,6 +138,7 @@
       "karriär",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "karriärvägar",
       "finns",
       "många",
@@ -148,13 +151,12 @@
       "professionella",
       "utveckling",
       "karriärsteg",
-      "läkare",
-      "sjuksköterskor"
+      "läkare"
     ]
   },
   {
     "id": "/tjanster",
-    "title": "Tjänster - Vårdcentralen Vårdportalen",
+    "title": "Tjänster - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/tjanster",
     "content": "Våra Tjänster Här hittar du information om alla de tjänster och vårdinsatser som vi erbjuder på vår vårdcentral.",
     "description": "Våra tjänster och behandlingar",
@@ -162,6 +164,7 @@
       "tjänster",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "våra",
       "hittar",
       "information",
@@ -174,13 +177,12 @@
       "vuxna",
       "barn",
       "hjälp",
-      "vanliga",
-      "sjukdomar"
+      "vanliga"
     ]
   },
   {
     "id": "/tjanster/specialistmottagningar",
-    "title": "Specialistmottagningar - Vårdcentralen Vårdportalen",
+    "title": "Specialistmottagningar - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/tjanster/specialistmottagningar",
     "content": "Skicka ansökan? Du skickar en remissansökan för . Specialistmottagningar Våra specialistmottagningar erbjuder avancerad medicinsk vård inom olika områden. Alla våra specialister är erfarna och uppdaterade med den senaste kunskapen inom sina fält. Sök specialistmottagning Filtrera specialitet Status: Väntetid: Öppettider: Telefon: Specialister: Remiss krävs Ansök om remiss Våra specialister Alla mottagningar ligger på adressen Specialistmottagningen, 123 45 Stockholm. Specialister per specialistmottagning Remissinformation Ansök om remiss Du ansöker om remiss till: Anledning till remiss Nya symptom Uppföljning av tidigare behandling Andrahandsutlåtande Annat Fullständigt namn Personnummer Telefonnummer Beskriv dina symptom Nuvarande medicinering Kända allergier Granska din ansökan Kontrollera att all information är korrekt innan du skickar din ansökan. Mottagning: Anledning: Remiss för specialistvård Personuppgifter: [Dina uppgifter] Symptom: [Dina symptom] Föregående Avbryt Nästa Skick",
     "description": "Specialiserad vård och mottagning",
@@ -188,6 +190,7 @@
       "specialistmottagningar",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "skicka",
       "ansökan",
       "skickar",
@@ -200,13 +203,12 @@
       "inom",
       "olika",
       "områden",
-      "alla",
-      "specialister"
+      "alla"
     ]
   },
   {
     "id": "/tjanster/labbprov",
-    "title": "Labbprov - Vårdcentralen Vårdportalen",
+    "title": "Labbprov - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/tjanster/labbprov",
     "content": "Bekräfta bokning Vill du boka tid för ? Labbprov På vår laboratorieavdelning erbjuder vi ett brett utbud av provtagningstjänster. All personal är utbildad för att ta prover på ett säkert och professionellt sätt. Sök provtyp Filtrera kategori Kategori: Tid: Pris: Förberedelse: Fasta krävs Tillgänglighet: Boka tid Förberedelser inför provtagning Hämta dina provsvar Gå till 1177 08-123 456 00 Mån-fre: 8:00-16:00 Boka tid för provtagning Du bokar tid för: Fullständigt namn Personnummer Telefonnummer Önskad tid Förmiddag (8:00-12:00) Eftermiddag (12:00-16:00) Önskat datum Avbryt Boka tid",
     "description": "Information om laboratorieprov och analyser",
@@ -214,6 +216,7 @@
       "labbprov",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "bekräfta",
       "bokning",
       "vill",
@@ -228,13 +231,12 @@
       "prover",
       "säkert",
       "professionellt",
-      "sätt",
-      "provtyp"
+      "sätt"
     ]
   },
   {
     "id": "/tjanster/hemsjukvard",
-    "title": "Hemsjukvård - Vårdcentralen Vårdportalen",
+    "title": "Hemsjukvård - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/tjanster/hemsjukvard",
     "content": "Skicka meddelande? Du skickar ett kontaktformulär gällande . Hemsjukvård Sök tjänst Filtrera kategori Vår hemsjukvård erbjuder professionell vård och behandling i ditt hem. Vi arbetar för att du ska kunna få den vård du behöver med bibehållen självständighet och livskvalitet. Kategori: Personal: Pris: Tillgänglighet: Kontakta oss Behov & rättigheter Vad kostar hemsjukvård? För de flesta medicinska insatser gäller högkostnadsskyddet precis som vid besök på vårdcentralen. Vissa omsorgsinsatser kan vara avgiftsbelagda baserat på inkomst. Maxavgift: För medicinsk hemsjukvård gäller samma maxavgift som för övrig sjukvård, för närvarande 1 150 kr per år. Kontakta oss Specialisering: Akut hemsjukvård För akut hemsjukvård utanför ordinarie arbetstid, ring vår akutmottagning på 08-123 456 80. Vid livshotande tillstånd, ring alltid 112. Kontakta oss om hemsjukvård Du kontaktar oss gällande: Ditt namn Telefonnummer E-postadress Tjänst Meddelande Avbryt Skicka meddelande",
     "description": "Vård och behandling i hemmet",
@@ -242,6 +244,7 @@
       "hemsjukvård",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "skicka",
       "meddelande",
       "skickar",
@@ -255,13 +258,12 @@
       "vård",
       "behandling",
       "ditt",
-      "arbetar",
-      "kunna"
+      "arbetar"
     ]
   },
   {
     "id": "/kontakt",
-    "title": "Kontakt - Vårdcentralen Vårdportalen",
+    "title": "Kontakt - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/kontakt",
     "content": "Kontakt Här hittar du kontaktinformation till vår vårdcentral. Välkommen att kontakta oss för frågor eller för att boka tid. Meddelandet har skickats Tack för ditt meddelande. Vi återkommer så snart vi kan. För akuta ärenden utanför vår öppettid, kontakta: Fyll i formuläret nedan så kontaktar vi dig. Observera att detta formulär inte är för akuta ärenden. Fel i följande fält: Namn E-post Telefonnummer Meddelande Skicka meddelande Vår vårdcentral ligger centralt i Stockholm med goda kommunikationer. Karta över vår vårdcentral",
     "description": "Kontaktuppgifter och kontaktinformation",
@@ -269,6 +271,7 @@
       "kontakt",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "hittar",
       "kontaktinformation",
       "till",
@@ -283,19 +286,19 @@
       "tack",
       "ditt",
       "meddelande",
-      "återkommer",
-      "snart"
+      "återkommer"
     ]
   },
   {
     "id": "/fragor-och-svar",
-    "title": "FAQ - Vårdcentralen Vårdportalen",
+    "title": "FAQ - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/fragor-och-svar",
     "content": "Frågor och Svar Här har vi samlat vanliga frågor och svar om vår verksamhet. Hittar du inte svar på din fråga är du välkommen att kontakta oss. Kontakta oss så hjälper vi dig. Kontakta oss",
     "description": "Vanliga frågor och svar om vården",
     "keywords": [
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "frågor",
       "svar",
       "samlat",
@@ -311,7 +314,7 @@
   },
   {
     "id": "/vardguide",
-    "title": "Vårdguide - Vårdcentralen Vårdportalen",
+    "title": "Vårdguide - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/vardguide",
     "content": "Vårdguide I vår vårdguide hittar du information om vanliga sjukdomar och besvär, samt råd om när du ska söka vård. Informationen är ett komplement till 1177 Vårdguiden. Det kan vara svårt att veta när man ska söka vård och var man ska vända sig. Här är några riktlinjer: Sök vård om: För många vanliga besvär kan du själv göra mycket för att lindra symtomen: För mer detaljerad information om sjukdomar och besvär, besök 1177 Vårdguidens webbplats. Besök 1177 Vårdguiden (öppnas i nytt fönster)",
     "description": "Guide till svensk vård",
@@ -319,6 +322,7 @@
       "vårdguide",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "hittar",
       "information",
       "vanliga",
@@ -332,13 +336,12 @@
       "till",
       "1177",
       "vårdguiden",
-      "vara",
-      "svårt"
+      "vara"
     ]
   },
   {
     "id": "/boka-tid",
-    "title": "Boka Tid - Vårdcentralen Vårdportalen",
+    "title": "Boka Tid - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/boka-tid",
     "content": "Boka tid Här kan du boka tid för vårdbesök, vaccinationer och hälsokontroller. Välj den typ av tid du behöver boka. Ring oss nu Boka tid online Boka vaccinationstid Boka provtagning Ha ditt personnummer och bankID tillgängligt vid bokning Om du behöver avboka din tid, gör det senast 24 timmar innan Vid akuta besvär, ring oss istället för att boka online Medtag giltig legitimation vid ditt besök",
     "description": "Boka tid hos läkare och mottagningar",
@@ -346,6 +349,7 @@
       "boka",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "vårdbesök",
       "vaccinationer",
       "hälsokontroller",
@@ -355,13 +359,12 @@
       "online",
       "vaccinationstid",
       "provtagning",
-      "ditt",
-      "personnummer"
+      "ditt"
     ]
   },
   {
     "id": "/boka-tid/form",
-    "title": "Boka tid - Planerat besök - Vårdcentralen Vårdportalen",
+    "title": "Boka tid - Planerat besök - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/boka-tid/form",
     "content": "Boka tid &ndash; planerat besök Fyll i formuläret nedan för att boka en tid för ett planerat vårdbesök. Din tid har bokats! Du kommer att få en bekräftelse via e-post. Formulärdata som skulle skickas Personuppgifter: Namn: Personnummer: Telefon: E-post: Bokningsdetaljer: Typ av besök: Önskat datum: Önskad tid: Vårdcentral/mottagning: Prioritet: Medicinsk information: Anledning till besök: Symtom: Nuvarande mediciner: Kända allergier: Tidigare sjukdomar: Preferenser och särskilda behov: Språkpreferens: Behöver tolk: Specialbehov: Önskar digitalt möte: Meddelande: Samtycken: Integritetspolicy: Datahantering: SMS-påminnelse: Dokument: {{ documents.length > 0 ? `${documents.length} fil(er) uppladdade` : 'Inga dokument uppladdade' }} Stäng sammanfattningen Fel i följande fält: Personuppgifter Förnamn Efternamn Personnummer Telefonnummer E-postadress Bokningsdetaljer Typ av besök Önskat datum Önskad tid Vårdcentral/mottagning Prioritet Medicinsk information Anledning till besök Symtom Nuvara",
     "description": "Formulär för att boka en tid för ett planerat vårdbesök",
@@ -371,6 +374,7 @@
       "besök",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "ndash",
       "fyll",
       "formuläret",
@@ -379,13 +383,12 @@
       "bokats",
       "kommer",
       "bekräftelse",
-      "post",
-      "formulärdata"
+      "post"
     ]
   },
   {
     "id": "/mina-sidor",
-    "title": "Mina Sidor - Vårdcentralen Vårdportalen",
+    "title": "Mina Sidor - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/mina-sidor",
     "content": "Mina Sidor På Mina Sidor kan du hantera dina vårdärenden, boka tid och se dina journaler. Logga in med BankID för att komma åt dina personuppgifter. För att komma åt Mina Sidor behöver du logga in med BankID. Personnummer Engångskod Logga in med BankID –",
     "description": "Personlig vårdinformation och journaler",
@@ -394,6 +397,7 @@
       "sidor",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "hantera",
       "dina",
       "vårdärenden",
@@ -407,7 +411,7 @@
   },
   {
     "id": "/tillganglighet",
-    "title": "Tillgänglighet - Vårdcentralen Vårdportalen",
+    "title": "Tillgänglighet - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/tillganglighet",
     "content": "Tillgänglighet Vi strävar efter att vår webbplats och vår vårdcentral ska vara tillgänglig för alla. Här hittar du information om tillgängligheten på vår webbplats och i våra lokaler. Vi arbetar kontinuerligt för att förbättra tillgängligheten på vår webbplats och följer riktlinjerna för Web Content Accessibility Guidelines (WCAG) 2.1 på nivå AA. På vår webbplats kan du: Vi är medvetna om att det finns delar av vår webbplats som inte är fullt tillgängliga för alla användare. Vi arbetar för att åtgärda dessa brister. Kända brister: Om du upptäcker brister i webbplatsens tillgänglighet är vi tacksamma om du rapporterar det till oss. Beskriv så detaljerat som möjligt vilket innehåll det gäller och vilket problem du har upptäckt. Du kan kontakta oss via: Vår vårdcentral är anpassad för att vara tillgänglig för personer med funktionsnedsättning. Om du behöver tolk eller har behov av andra hjälpmedel vid ditt besök, meddela oss när du bokar tid så att vi kan förbereda detta. Vi kan hjälpa ti",
     "description": "Information om tillgänglighet och rättigheter",
@@ -415,6 +419,7 @@
       "tillgänglighet",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "strävar",
       "efter",
       "webbplats",
@@ -428,13 +433,12 @@
       "våra",
       "lokaler",
       "arbetar",
-      "kontinuerligt",
-      "förbättra"
+      "kontinuerligt"
     ]
   },
   {
     "id": "/mottagningar",
-    "title": "Mottagningar - Vårdcentralen Vårdportalen",
+    "title": "Mottagningar - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/mottagningar",
     "content": "Bekräfta bokning Vill du skicka en bokning för ? Mottagningar Här hittar du information om våra olika mottagningar och kliniker. Vi erbjuder specialistvård inom de flesta medicinska områden med erfarna läkare och sjuksköterskor. Status: Väntetid: Öppettider: Telefon: Boka tid Aktuella väntetider Väntetider per mottagning Kontaktinformation Alla mottagningar ligger på adressen Vårdcentralen, 123 45 Stockholm. Öppettider: Boka tid Du bokar tid för: Namn Telefonnummer Typ av besök Vanligt besök Uppföljning Akut Avbryt Boka tid",
     "description": "Våra mottagningar och specialistkliniker",
@@ -442,6 +446,7 @@
       "mottagningar",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "bekräfta",
       "bokning",
       "vill",
@@ -454,13 +459,12 @@
       "erbjuder",
       "specialistvård",
       "inom",
-      "flesta",
-      "medicinska"
+      "flesta"
     ]
   },
   {
     "id": "/patientinformation",
-    "title": "Patientinformation - Vårdcentralen Vårdportalen",
+    "title": "Patientinformation - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/patientinformation",
     "content": "Patientinformation Här hittar du viktig information för dig som patient hos oss.",
     "description": "Information om patientdata och journaler",
@@ -468,6 +472,7 @@
       "patientinformation",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "hittar",
       "viktig",
       "information",
@@ -480,7 +485,7 @@
   },
   {
     "id": "/patientinformation/vardgaranti",
-    "title": "Vårdgaranti - Vårdcentralen Vårdportalen",
+    "title": "Vårdgaranti - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/patientinformation/vardgaranti",
     "content": "Vårdgaranti Som patient i Sverige har du lagstadgad rätt till vård inom en viss tid. Här hittar du information om vad vårdgarantin innebär och vilka rättigheter du har. Viktigt: Vårdgarantin gäller från den dag du söker vård och fram till att du fått den vård du behöver. Spara alla remisser och journaler som bevis på när du sökte vård. Vårdgarantin är en del av hälso- och sjukvårdslagen och syftar till att säkerställa att alla patienter får vård i tid oavsett var i landet de bor. Garantin gäller från det att du söker vård tills du har fått behövlig behandling. Det är viktigt att veta att vårdgarantin inte gäller för alla typer av vård. Vissa planerade operationer och behandlingar kan ha längre väntetider. Din läkare eller vårdgivare kan ge dig mer information om vad som gäller för just ditt fall. Om du har frågor om vårdgarantin eller om du tror att dina rättigheter har åsidosatts kan du kontakta: Din vårdcentral för information om väntetider 1177 Vårdguiden för generell rådgivning om ",
     "description": "Information om vårdgaranti och dina rättigheter",
@@ -488,6 +493,7 @@
       "vårdgaranti",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "patient",
       "sverige",
       "lagstadgad",
@@ -507,7 +513,7 @@
   },
   {
     "id": "/patientinformation/avgifter",
-    "title": "Avgifter - Vårdcentralen Vårdportalen",
+    "title": "Avgifter - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/patientinformation/avgifter",
     "content": "Avgifter Här hittar du information om kostnader för vård och behandling. Sverige har ett högkostnadsskydd som innebär att du betalar högst en viss summa per år. Frikort: När du har nått högkostnadsskyddet får du frikort som ger fri vård under resterande del av perioden. Kortet skickas automatiskt till din folkbokföringsadress. Nedan ser du gällande avgifter för besök på vår vårdcentral. Alla priser är angivna i svenska kronor. Avgifter vårdcentral Nedan ser du gällande avgifter för specialistvård. Alla priser är angivna i svenska kronor. Avgifter specialistvård Högkostnadsskyddet innebär att du betalar högst en viss summa under en 12-månadersperiod. När du har nått gränsen får du frikort som ger fri vård under resterande del av perioden. Beloppsgränser högkostnadsskydd",
     "description": "Information om avgifter och kostnader",
@@ -515,6 +521,7 @@
       "avgifter",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "hittar",
       "information",
       "kostnader",
@@ -534,7 +541,7 @@
   },
   {
     "id": "/patientinformation/din-vardkontakt",
-    "title": "Din Vårdkontakt - Vårdcentralen Vårdportalen",
+    "title": "Din Vårdkontakt - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/patientinformation/din-vardkontakt",
     "content": "Din vårdkontakt Här hittar du information om hur du bäst förbereder dig för ditt besök och vilka olika vägar du kan ha för kontakt med vården. Viktigt: Kom alltid i tid till ditt besök. Om du behöver avboka, gör det minst 24 timmar i förväg så att någon annan kan få din tid. Vårdcentralen Kontakta din vårdcentral för att boka tid, få rådgivning för kända sjukdomar, förnya recept eller för uppföljning av tidigare behandlingar. 1177 Vårdguiden Ring 1177 för sjukvårdsrådgivning dygnet runt. Du kan få råd om symtom, hjälp att hitta rätt vårdmottagning och svar på medicinska frågor. Akutvård Vid livshotande tillstånd eller allvarliga skador, ring 112 direkt. För andra akuta besvär som inte kan vänta, kontakta närmaste akutmottagning. Med BankID kan du logga in på 1177.se för att: Många vårdcentraler erbjuder även digitala besök via videosamtal. Fråga din vårdcentral om detta är ett alternativ för ditt ärende.",
     "description": "Dina personliga vårdkontakter och journaler",
@@ -542,6 +549,7 @@
       "vårdkontakt",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "hittar",
       "information",
       "bäst",
@@ -560,7 +568,7 @@
   },
   {
     "id": "/integritetspolicy",
-    "title": "Integritetspolicy - Vårdcentralen Vårdportalen",
+    "title": "Integritetspolicy - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/integritetspolicy",
     "content": "Integritetspolicy Den här integritetspolicyn beskriver hur vi samlar in, använder och skyddar dina personuppgifter när du använder vår webbplats och våra tjänster. Vi samlar in olika typer av personuppgifter för att kunna erbjuda dig bästa möjliga vård och service. Vi använder dina personuppgifter för olika ändamål som är nödvändiga för att kunna erbjuda vårdtjänster. Vår behandling av dina personuppgifter baseras på olika rättsliga grunder enligt GDPR. Vi delar dina personuppgifter endast när det är nödvändigt för att kunna erbjuda vård och service. Vi vidtar lämpliga tekniska och organisatoriska åtgärder för att skydda dina personuppgifter. Som registrerad har du flera rättigheter enligt GDPR. Vår webbplats använder kakor för att förbättra användarupplevelsen och för webbanalys. Om du har frågor om vår integritetspolicy eller hur vi behandlar dina personuppgifter är du välkommen att kontakta oss. Senast uppdaterad: 2023-11-15",
     "description": "Policy för hantering av personuppgifter och integritet",
@@ -568,6 +576,7 @@
       "integritetspolicy",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "integritetspolicyn",
       "beskriver",
       "samlar",
@@ -579,13 +588,12 @@
       "våra",
       "tjänster",
       "olika",
-      "typer",
-      "kunna"
+      "typer"
     ]
   },
   {
     "id": "/cookies",
-    "title": "Cookies - Vårdcentralen Vårdportalen",
+    "title": "Cookies - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/cookies",
     "content": "Cookies Denna sida förklarar hur vår webbplats använder cookies (kakor) och vilka val du har gällande dem. Cookies är små textfiler som lagras på din enhet (dator, mobil eller surfplatta) när du besöker en webbplats. De hjälper webbplatsen att komma ihåg information om ditt besök och kan förbättra din användarupplevelse. Cookies används av de flesta webbplatser idag och är vanligtvis ofarliga. De kan inte innehålla virus eller skadlig kod och kan inte användas för att identifiera dig personligen. Vi använder olika typer av cookies för olika ändamål på vår webbplats: Nedan listas de specifika cookies som används på vår webbplats och deras syfte: Cookies på webbplatsen Du har flera alternativ när det gäller cookies på vår webbplats: Most web browsers allow you to control cookies through their settings. Here's how you can manage cookies in the most common browsers: Observera att om du blockerar eller raderar cookies kan vissa funktioner på vår webbplatis sluta fungera korrekt. Vi kan komm",
     "description": "Information om cookies och användarvillkor",
@@ -593,6 +601,7 @@
       "cookies",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "denna",
       "sida",
       "förklarar",
@@ -605,13 +614,12 @@
       "lagras",
       "enhet",
       "dator",
-      "mobil",
-      "eller"
+      "mobil"
     ]
   },
   {
     "id": "/sok",
-    "title": "Sökresultat - Vårdcentralen Vårdportalen",
+    "title": "Sökresultat - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/sok",
     "content": "Sökresultat för \"\" Söker... Inga sökresultat för \"\" Hittade resultat",
     "description": "Sökresultat för din sökning",
@@ -619,6 +627,7 @@
       "sökresultat",
       "vårdcentralen",
       "vårdportalen",
+      "demowebb",
       "söker",
       "inga",
       "hittade",

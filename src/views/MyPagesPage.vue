@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import {
-    FButton,
-    FPersonnummerTextField,
-    FTextField,
-    FValidationForm
-} from '@fkui/vue'
+import { FButton, FPersonnummerTextField, FTextField, FValidationForm } from '@fkui/vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ServiceCard from '@/components/display/ServiceCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
@@ -14,38 +9,46 @@ import ListItem from '@/components/display/ListItem.vue'
 const loginCode = ref('')
 const personalNumber = ref('')
 
+// Service icons: Phosphor glyphs (FIcon "f"-library extension, see
+// src/icons/phosphor-spritesheet.ts), same choices as the sibling
+// swedish-healthcare-demo-site makes for these cards.
 const services = [
     {
         title: 'Mina bokningar',
         description: 'Se dina kommande och tidigare besök. Boka om eller avboka dina tider.',
         action: 'Se mina bokningar',
-        icon: 'calendar'
+        icon: 'calendar-check'
     },
     {
         title: 'Mina journaler',
         description: 'Läs dina journalanteckningar och se dina provsvar.',
         action: 'Se mina journaler',
-        icon: 'file'
+        icon: 'file-text'
     },
     {
         title: 'Mina recept',
         description: 'Se dina aktuella recept och förnya recept om det behövs.',
         action: 'Se mina recept',
-        icon: 'receipt'
+        icon: 'prescription'
     },
     {
         title: 'Mina kontakter',
         description: 'Kontakta vården via e-tjänster och ställ frågor till vårdpersonal.',
         action: 'Kontakta vården',
-        icon: 'envelope'
+        icon: 'chat-circle'
     }
 ]
 
+// Phosphor glyphs (see services above) – more specific than the generic FKUI
+// set for these statements (close for "logga ut" read as an error cross).
 const infoItems = [
-    { text: 'Alla dina uppgifter är skyddade och krypterade', icon: 'success' },
-    { text: 'Du kan när som helst se vilka som har läst din journal', icon: 'i' },
-    { text: 'Du kan anmäla om du upptäcker felaktigheter i dina journaluppgifter', icon: 'alert' },
-    { text: 'Logga ut när du är klar, särskilt om du använder en delad dator', icon: 'close' }
+    { text: 'Alla dina uppgifter är skyddade och krypterade', icon: 'shield-check' },
+    { text: 'Du kan när som helst se vilka som har läst din journal', icon: 'eye' },
+    {
+        text: 'Du kan anmäla om du upptäcker felaktigheter i dina journaluppgifter',
+        icon: 'warning-circle'
+    },
+    { text: 'Logga ut när du är klar, särskilt om du använder en delad dator', icon: 'sign-out' }
 ]
 </script>
 
@@ -54,8 +57,8 @@ const infoItems = [
         <div class="page__intro">
             <h1 class="mina__title">Mina Sidor</h1>
             <p class="mina__intro">
-                På Mina Sidor kan du hantera dina vårdärenden, boka tid och se dina journaler.
-                Logga in med BankID för att komma åt dina personuppgifter.
+                På Mina Sidor kan du hantera dina vårdärenden, boka tid och se dina journaler. Logga
+                in med BankID för att komma åt dina personuppgifter.
             </p>
         </div>
 
@@ -71,10 +74,17 @@ const infoItems = [
                 >
                     Personnummer
                 </f-personnummer-text-field>
-                <f-text-field id="mina-kod" v-model="loginCode" v-validation.required :maxlength="20">
+                <f-text-field
+                    id="mina-kod"
+                    v-model="loginCode"
+                    v-validation.required
+                    :maxlength="20"
+                >
                     Engångskod
                 </f-text-field>
-                <f-button type="submit" size="medium" variant="primary"> Logga in med BankID </f-button>
+                <f-button type="submit" size="medium" variant="primary">
+                    Logga in med BankID
+                </f-button>
             </f-validation-form>
         </AppCard>
 

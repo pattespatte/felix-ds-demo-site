@@ -18,7 +18,7 @@ import ListItem from '@/components/display/ListItem.vue'
             <ServiceCard
                 title="Akut tid"
                 description="För akuta besvär som inte kan vänta. Ring oss direkt på telefonnummer 08-123 456 78."
-                icon="warning"
+                icon="warning-circle-fill"
             >
                 <a href="tel:+46812345678" class="boka__action boka__action--alert">
                     Ring oss nu
@@ -38,7 +38,7 @@ import ListItem from '@/components/display/ListItem.vue'
             <ServiceCard
                 title="Vaccination"
                 description="Boka tid för vaccination, inklusive influensa- och COVID-19-vaccin."
-                icon="shield"
+                icon="syringe"
             >
                 <button type="button" class="boka__action boka__action--primary">
                     Boka vaccinationstid
@@ -48,7 +48,7 @@ import ListItem from '@/components/display/ListItem.vue'
             <ServiceCard
                 title="Laboratorieprov"
                 description="Boka tid för provtagning. Observera att vissa prover kräver faste."
-                icon="flask"
+                icon="test-tube"
             >
                 <button type="button" class="boka__action boka__action--primary">
                     Boka provtagning
@@ -58,14 +58,18 @@ import ListItem from '@/components/display/ListItem.vue'
 
         <AppCard title="Information vid bokning" class="boka__info">
             <ul class="stack-list">
-                <ListItem icon="file">
+                <ListItem icon="identification-card">
                     Ha ditt personnummer och bankID tillgängligt vid bokning
                 </ListItem>
                 <ListItem icon="calendar">
                     Om du behöver avboka din tid, gör det senast 24 timmar innan
                 </ListItem>
-                <ListItem icon="alert"> Vid akuta besvär, ring oss istället för att boka online </ListItem>
-                <ListItem icon="file"> Medtag giltig legitimation vid ditt besök </ListItem>
+                <ListItem icon="warning-circle-fill">
+                    Vid akuta besvär, ring oss istället för att boka online
+                </ListItem>
+                <ListItem icon="identification-card">
+                    Medtag giltig legitimation vid ditt besök
+                </ListItem>
             </ul>
         </AppCard>
     </div>
