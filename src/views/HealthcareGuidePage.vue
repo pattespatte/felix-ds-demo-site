@@ -186,7 +186,10 @@ const selfCareAdvice = [
     font-weight: 600;
     text-decoration: none;
 
+    // Restate the colour on hover: the theme's `:root a:hover` outranks the
+    // base rule and would paint the dark link colour on this dark fill.
     &:hover {
+        color: var(--fkds-color-action-text-inverted-default);
         background-color: var(--fkds-color-action-background-primary-hover);
     }
 

@@ -167,6 +167,12 @@ const formatPhoneLink = (phone: string): string => {
 // Dark navy footer on the theme's primary action surface (near-identical to
 // the reference navy). Text and links use the inverted tokens, so the footer
 // keeps its dark look in both color modes while every value stays a token.
+//
+// Every link restates its colour on hover: the theme's `:root a:hover`
+// (0,2,1) outranks the scoped base rule (0,2,0) and would otherwise paint
+// the dark link colour on this dark surface. The scoped hover rule ties on
+// specificity and wins by load order (component styles come after the
+// entry stylesheet in dev and production alike).
 .app-footer {
     background-color: var(--fkds-color-action-background-primary-default);
     color: var(--fkds-color-text-inverted);
@@ -223,6 +229,7 @@ const formatPhoneLink = (phone: string): string => {
     color: var(--fkds-color-text-inverted);
 
     &:hover {
+        color: var(--fkds-color-text-inverted);
         text-decoration: underline;
     }
 
@@ -246,6 +253,7 @@ const formatPhoneLink = (phone: string): string => {
     color: var(--fkds-color-text-inverted);
 
     &:hover {
+        color: var(--fkds-color-text-inverted);
         text-decoration: underline;
     }
 
@@ -303,6 +311,7 @@ const formatPhoneLink = (phone: string): string => {
     color: var(--fkds-color-text-inverted);
 
     &:hover {
+        color: var(--fkds-color-text-inverted);
         text-decoration: underline;
     }
 
@@ -346,6 +355,7 @@ const formatPhoneLink = (phone: string): string => {
     text-decoration: none;
 
     &:hover {
+        color: var(--fkds-color-text-inverted);
         text-decoration: underline;
     }
 

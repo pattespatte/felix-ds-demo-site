@@ -106,7 +106,10 @@ import ListItem from '@/components/display/ListItem.vue'
     background-color: var(--fkds-color-action-background-primary-default);
     color: var(--fkds-color-action-text-inverted-default);
 
+    // Restate the colour on hover: the theme's `:root a:hover` outranks the
+    // base rule and would paint the dark link colour on this dark fill.
     &:hover {
+        color: var(--fkds-color-action-text-inverted-default);
         background-color: var(--fkds-color-action-background-primary-hover);
     }
 
@@ -120,6 +123,7 @@ import ListItem from '@/components/display/ListItem.vue'
         color: var(--fkds-color-text-inverted, #ffffff);
 
         &:hover {
+            color: var(--fkds-color-text-inverted, #ffffff);
             background-color: var(--fkds-color-feedback-background-negative-strong);
             filter: brightness(1.1);
         }
