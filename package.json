@@ -1,36 +1,36 @@
 {
-    "name": "felix-ds-demo-site",
-    "version": "0.0.0",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "generate-search-index": "node scripts/generate-search-index.js",
-        "build:spa": "vue-tsc && vite build",
-        "build": "node scripts/generate-search-index.js && vue-tsc && vite build && node scripts/prerender.mjs",
-        "preview": "vite preview"
-    },
-    "dependencies": {
-        "@fkui/date": "6.57.1",
-        "@fkui/design": "6.57.1",
-        "@fkui/icon-lib-default": "6.57.1",
-        "@fkui/logic": "6.57.1",
-        "@fkui/theme-default": "6.57.1",
-        "@fkui/vue": "6.57.1",
-        "felix-ds": "github:pattespatte/felix-ds#d63c9f2737747a9ece381aad94a4b4a8f4bd03ac",
-        "vue": "^3.5.34",
-        "vue-router": "^4.3.0"
-    },
-    "devDependencies": {
-        "@types/node": "^22.20.3",
-        "@vitejs/plugin-vue": "^6.0.9",
-        "@vue/compiler-sfc": "^3.5.34",
-        "axe-playwright": "^2.2.2",
-        "playwright": "^1.57.0",
-        "prettier": "^3.6.2",
-        "sass": "^1.104.1",
-        "typescript": "~5.9.0",
-        "vite": "^8.3.0",
-        "vue-tsc": "^3.3.11"
-    }
+  "name": "felix-ds-demo-site",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "generate-search-index": "node scripts/generate-search-index.js",
+    "build:spa": "vue-tsc && vite build",
+    "build": "node scripts/generate-search-index.js && vue-tsc && vite build && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "felix": "bun scripts/felix.ts"
+  },
+  "dependencies": {
+    "@fkui/date": "6.57.1",
+    "@fkui/design": "6.57.1",
+    "@fkui/icon-lib-default": "6.57.1",
+    "@fkui/logic": "6.57.1",
+    "@fkui/vue": "6.57.1",
+    "felix-ds": "github:pattespatte/felix-ds#b482856d1862f48c6b1298e75a0d2b3e7346bf7b",
+    "vue": "^3.5.34",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "@vitejs/plugin-vue": "^6.0.9",
+    "@vue/compiler-sfc": "^3.5.34",
+    "axe-playwright": "^2.2.2",
+    "playwright": "^1.57.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.104.1",
+    "typescript": "~5.9.0",
+    "vite": "^8.3.0",
+    "vue-tsc": "^3.3.11"
+  }
 }

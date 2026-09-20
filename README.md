@@ -14,7 +14,7 @@ The content is carried over verbatim from the source demo site, with one excepti
 
 - Vue 3 (`<script setup lang="ts">`) + TypeScript + Vite
 - Vue Router 4 (history mode)
-- FKUI 6.57.1 (`@fkui/vue`, `@fkui/design`, `@fkui/theme-default`, `@fkui/date`, `@fkui/logic`, `@fkui/icon-lib-default`)
+- FKUI 6.57.1 (`@fkui/vue`, `@fkui/design`, `@fkui/date`, `@fkui/logic`, `@fkui/icon-lib-default`; `@fkui/theme-default` comes in transitively with felix-ds and is loaded by the felix theme layer)
 - felix-ds as a pinned git dependency (the dark-theme commit)
 - No Tailwind, no icon CDN: layout SCSS uses felix/FKUI tokens only, icons come from the FKUI default icon library, fonts are self-hosted
 
@@ -35,6 +35,17 @@ bun run preview      # serve dist/ at the production base path
 ```
 
 The build prerenders every route to static HTML (light mode snapshots; the dark mode is applied at runtime by the inline pre-paint script and the color-mode module).
+
+## Update the theme
+
+`felix-ds` is a git dependency pinned to an exact commit. `bun run felix` shows and upgrades it:
+
+| Command | Description |
+|---------|-------------|
+| `bun run felix version` | Show the pinned commit, the installed package and the latest commit on the default branch |
+| `bun run felix upgrade -n` | Dry run: show the upgrade plan, change nothing |
+| `bun run felix upgrade` | Pin the latest commit and run `bun install` |
+| `bun run felix upgrade <ref>` | As above, but to a chosen sha, branch or tag |
 
 ## Deploy
 
