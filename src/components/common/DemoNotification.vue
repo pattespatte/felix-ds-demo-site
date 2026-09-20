@@ -37,8 +37,8 @@ const watermarkCount = 200
                 </p>
                 <f-button
                     class="demo-notification__dismiss"
-                    variant="tertiary"
-                    size="small"
+                    variant="primary"
+                    size="medium"
                     icon-left="close"
                     @click="dismiss"
                 >
@@ -90,6 +90,11 @@ const watermarkCount = 200
 
 .demo-notification {
     display: block;
+    position: relative;
+    /* Must stay above .demo-watermark (z-index 10000) so the opaque
+       message-box background hides the watermark strings behind the banner. */
+    z-index: 10001;
+    border-radius: 0;
 }
 
 .demo-notification__body {
