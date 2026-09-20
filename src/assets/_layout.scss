@@ -4,6 +4,8 @@
 //
 // Provided helpers:
 //   .page / .page__intro / .page__narrow – routed view containers
+//   .page--sidebar                       – page with right-hand related-links
+//                                          sidebar (RelatedLinksSidebar)
 //   .section                            – vertical rhythm between sections
 //   .grid / .grid--2 / .grid--3 / .grid--4 – responsive card grids
 //   .stack / .stack--tight              – vertical flow lists
@@ -23,6 +25,19 @@
 // Narrow reading measure for long-form policy pages.
 .page__narrow {
     max-width: 46rem;
+}
+
+// Page with a right-hand sidebar (see RelatedLinksSidebar). Two columns from
+// the FKUI large breakpoint; below it the sidebar stacks under the content.
+// The 46rem reading measure, 18rem sidebar and 3rem gutter fill the 70rem
+// content box almost exactly, like the e-halsomyndigheten page grid.
+.page--sidebar {
+    @media (min-width: 64rem) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 18rem;
+        column-gap: 3rem;
+        align-items: start;
+    }
 }
 
 .section {

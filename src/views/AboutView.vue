@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
 import AppCard from '@/components/display/AppCard.vue'
+import { omOssSectionLinks } from '@/data/omOssSection'
 </script>
 
 <template>
-    <div class="page">
+    <div class="page page--sidebar">
         <div class="page__narrow">
             <h1 class="about__title">Om oss</h1>
             <p class="about__intro">Detta är en exempelsida för svensk vårdportal.</p>
@@ -19,6 +21,8 @@ import AppCard from '@/components/display/AppCard.vue'
                 </p>
             </AppCard>
         </div>
+
+        <RelatedLinksSidebar :links="omOssSectionLinks" />
     </div>
 </template>
 

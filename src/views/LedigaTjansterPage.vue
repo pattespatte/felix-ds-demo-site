@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton } from '@fkui/vue'
+import { omOssSectionLinks } from '@/data/omOssSection'
 
 const jobs = [
     {
@@ -32,7 +34,7 @@ const jobs = [
 </script>
 
 <template>
-    <div class="page">
+    <div class="page page--sidebar">
         <div class="page__narrow">
             <h1 class="lediga__title">Lediga tjänster</h1>
 
@@ -116,6 +118,8 @@ const jobs = [
                 </div>
             </AppCard>
         </div>
+
+        <RelatedLinksSidebar :links="omOssSectionLinks" />
     </div>
 </template>
 

@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton } from '@fkui/vue'
+import { omOssSectionLinks } from '@/data/omOssSection'
 </script>
 
 <template>
-    <div class="page">
+    <div class="page page--sidebar">
         <div class="page__narrow">
             <h1 class="jobba__title">Jobba hos oss</h1>
             <AppCard>
@@ -51,6 +53,8 @@ import { FButton } from '@fkui/vue'
                 </div>
             </AppCard>
         </div>
+
+        <RelatedLinksSidebar :links="omOssSectionLinks" />
     </div>
 </template>
 
