@@ -118,9 +118,9 @@ const isDropdownActive = (item: NavItem) =>
                 <router-link to="/" class="app-header__logo">
                     <span class="app-header__logo-mark">
                         <f-icon name="cross" class="app-header__logo-icon" />
-                        <span class="sr-only">Vårdportalen, till startsidan</span>
+                        <span class="sr-only">Vårdportalen DEMOWEBB, till startsidan</span>
                     </span>
-                    <span class="app-header__logo-text">Vårdportalen</span>
+                    <span class="app-header__logo-text">Vårdportalen DEMOWEBB</span>
                 </router-link>
 
                 <!-- Right side: search and color mode -->

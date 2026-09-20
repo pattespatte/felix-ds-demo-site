@@ -131,7 +131,7 @@ const formatPhoneLink = (phone: string): string => {
             <!-- Bottom Section -->
             <div class="app-footer__bottom">
                 <div class="app-footer__copyright">
-                    &copy; {{ currentYear }} Vårdportalen. Alla rättigheter förbehålls.
+                    &copy; {{ currentYear }} Vårdportalen DEMOWEBB. Alla rättigheter förbehålls.
                 </div>
                 <ul class="app-footer__legal">
                     <li>

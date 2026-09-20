@@ -5,7 +5,7 @@ import ServiceCard from '@/components/display/ServiceCard.vue'
 <template>
     <div class="page">
         <div class="page__narrow">
-            <h1 class="home__title">Välkommen till Vårdportalen</h1>
+            <h1 class="home__title">Välkommen till Vårdportalen DEMOWEBB</h1>
             <p class="home__intro">
                 Här kan du enkelt boka tider, kontakta vården och hantera dina vårdärenden.
             </p>
