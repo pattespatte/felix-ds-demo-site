@@ -30,20 +30,26 @@ const dismiss = () => {
 <template>
     <f-message-box v-if="isVisible && components.length > 0" type="info" class="component-note">
         <template #default="{ headingSlotClass }">
-            <p :class="headingSlotClass" class="component-note__heading">
-                Den här sidan använder följande komponenter:
-            </p>
-            <ul class="component-note__list">
-                <li v-for="component in components" :key="component.name">
-                    <a :href="component.url" class="component-note__link">
-                        {{ component.name }}
-                    </a>
-                    <span class="component-note__title">{{ component.title }}</span>
-                </li>
-            </ul>
-            <div class="component-note__actions">
-                <f-button variant="secondary" size="small" icon-left="close" @click="dismiss">
-                    Stäng meddelande
+            <div class="component-note__body">
+                <p :class="headingSlotClass" class="component-note__heading">
+                    Den här sidan använder följande komponenter:
+                </p>
+                <ul class="component-note__list">
+                    <li v-for="component in components" :key="component.name">
+                        <a :href="component.url" class="component-note__link">
+                            {{ component.name }}
+                        </a>
+                        <span class="component-note__title">{{ component.title }}</span>
+                    </li>
+                </ul>
+                <f-button
+                    class="component-note__dismiss"
+                    variant="primary"
+                    size="small"
+                    icon-left="close"
+                    @click="dismiss"
+                >
+                    Stäng
                 </f-button>
             </div>
         </template>
@@ -63,8 +69,14 @@ const dismiss = () => {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.component-note__body {
+    position: relative;
+}
+
 .component-note__heading {
     margin: 0 0 0.5rem;
+    /* Keep the first lines clear of the dismiss button docked top-right. */
+    padding-right: 6rem;
 }
 
 /* Long lists (the booking form uses 15 components) stay inside the note. */
@@ -77,12 +89,14 @@ const dismiss = () => {
 }
 
 .component-note__title {
+    padding-left: 0.5rem;
+    font-weight: 600;
     color: var(--fkds-color-text-secondary);
 }
 
-.component-note__actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 0.75rem;
+.component-note__dismiss {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 </style>
