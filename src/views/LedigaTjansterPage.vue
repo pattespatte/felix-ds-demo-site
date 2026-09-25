@@ -31,6 +31,14 @@ const jobs = [
         deadline: 'Sista ansökningsdag: 2025-12-31'
     }
 ]
+const qualifications = [
+    'Legitimerad läkare',
+    'Specialistkompetens',
+    'Svenska språket flytande',
+    'Engelska språket goda kunskaper',
+    'Samarbetsförmåga',
+    'Patientfokus'
+]
 </script>
 
 <template>
@@ -74,12 +82,12 @@ const jobs = [
                     <div class="lediga__panel lediga__panel--qualifications">
                         <h2 class="lediga__panel-title">Kvalifikationer</h2>
                         <ul class="stack-list">
-                            <ListItem>Legitimerad läkare</ListItem>
-                            <ListItem>Specialistkompetens</ListItem>
-                            <ListItem>Svenska språket flytande</ListItem>
-                            <ListItem>Engelska språket goda kunskaper</ListItem>
-                            <ListItem>Samarbetförmåga</ListItem>
-                            <ListItem>Patientfokus</ListItem>
+                            <ListItem
+                                v-for="qualification in qualifications"
+                                :key="qualification"
+                            >
+                                {{ qualification }}
+                            </ListItem>
                         </ul>
                     </div>
                 </div>
