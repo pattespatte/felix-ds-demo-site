@@ -34,6 +34,8 @@ const watermarkCount = 200
                     <strong>Detta är en demowebbplats</strong>
                     och inte en faktisk vårdcentral. Ingen information på denna
                     sida är verklig och ingen medicinsk rådgivning erbjuds.
+                    Syftet med webbplatsen är istället att testa
+                    <a href="https://github.com/pattespatte/felix-ds">designsystemet felix-ds</a>.
                 </p>
                 <f-button
                     class="demo-notification__dismiss"

@@ -2,6 +2,7 @@
 import AppHeader from './components/common/AppHeader.vue'
 import AppFooter from './components/common/AppFooter.vue'
 import DemoNotification from './components/common/DemoNotification.vue'
+import ComponentNote from './components/common/ComponentNote.vue'
 import AppBreadcrumbs from './components/common/AppBreadcrumbs.vue'
 </script>
 
@@ -14,6 +15,7 @@ import AppBreadcrumbs from './components/common/AppBreadcrumbs.vue'
             <router-view />
         </main>
         <AppFooter />
+        <ComponentNote />
     </div>
 </template>
 

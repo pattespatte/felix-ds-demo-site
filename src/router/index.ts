@@ -1,8 +1,20 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
+declare module 'vue-router' {
+    interface RouteMeta {
+        title: string
+        description: string
+        /** FKUI components rendered by the view (see ComponentNote.vue). */
+        components?: string[]
+    }
+}
+
 // Routes and meta copied verbatim from the source site; the four internal
 // styleguide routes (/components, /colors, /phosphor-icons, /health-icons)
-// are dropped – the felix-ds playground fills that role.
+// are dropped – the felix-ds playground fills that role. The `components`
+// meta lists the FKUI components each page renders, including those inside
+// the shared display components (AppCard → FCard and so on); it drives the
+// per-page component note.
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -10,7 +22,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/HomeView.vue'),
         meta: {
             title: 'Vårdcentralen Vårdportalen DEMOWEBB - Start',
-            description: 'Boka tid, kontakta vården och hantera dina vårdärenden'
+            description: 'Boka tid, kontakta vården och hantera dina vårdärenden',
+            components: ['FCard', 'FIcon']
         }
     },
     {
@@ -19,7 +32,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/AboutView.vue'),
         meta: {
             title: 'Om Oss - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Information om Vårdcentralen Vårdportalen och vår verksamhet'
+            description: 'Information om Vårdcentralen Vårdportalen och vår verksamhet',
+            components: ['FCard']
         }
     },
     {
@@ -28,7 +42,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/JobbaHosOssPage.vue'),
         meta: {
             title: 'Jobba Hos Oss - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Lediga tjänster och karriärmöjligheter inom vården'
+            description: 'Lediga tjänster och karriärmöjligheter inom vården',
+            components: ['FButton', 'FCard', 'FIcon']
         }
     },
     {
@@ -37,7 +52,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/LedigaTjansterPage.vue'),
         meta: {
             title: 'Lediga Tjänster - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Se alla lediga tjänster inom svensk vård'
+            description: 'Se alla lediga tjänster inom svensk vård',
+            components: ['FButton', 'FCard', 'FIcon']
         }
     },
     {
@@ -46,7 +62,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/FormanerPage.vue'),
         meta: {
             title: 'Formaner - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Ansök till utbildningar och tjänster inom vården'
+            description: 'Ansök till utbildningar och tjänster inom vården',
+            components: ['FButton', 'FCard', 'FExpandableParagraph', 'FIcon']
         }
     },
     {
@@ -55,7 +72,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/KarriarvagarPage.vue'),
         meta: {
             title: 'Karriär - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Karriärmöjligheter och utvecklingsmöjligheter'
+            description: 'Karriärmöjligheter och utvecklingsmöjligheter',
+            components: ['FButton', 'FCard', 'FIcon']
         }
     },
     {
@@ -64,7 +82,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/ServicesPage.vue'),
         meta: {
             title: 'Tjänster - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Våra tjänster och behandlingar'
+            description: 'Våra tjänster och behandlingar',
+            components: ['FCard', 'FIcon']
         }
     },
     {
@@ -73,7 +92,20 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/SpecialistmottagningarPage.vue'),
         meta: {
             title: 'Specialistmottagningar - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Specialiserad vård och mottagning'
+            description: 'Specialiserad vård och mottagning',
+            components: [
+                'FBadge',
+                'FButton',
+                'FCard',
+                'FConfirmModal',
+                'FDataTable',
+                'FIcon',
+                'FModal',
+                'FProgressbar',
+                'FSelectField',
+                'FTextField',
+                'FValidationForm'
+            ]
         }
     },
     {
@@ -82,7 +114,20 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/LabbprovPage.vue'),
         meta: {
             title: 'Labbprov - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Information om laboratorieprov och analyser'
+            description: 'Information om laboratorieprov och analyser',
+            components: [
+                'FBadge',
+                'FButton',
+                'FCard',
+                'FConfirmModal',
+                'FDatepickerField',
+                'FIcon',
+                'FModal',
+                'FPaginator',
+                'FSelectField',
+                'FTextField',
+                'FValidationForm'
+            ]
         }
     },
     {
@@ -91,7 +136,21 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/HemsjukvardPage.vue'),
         meta: {
             title: 'Hemsjukvård - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Vård och behandling i hemmet'
+            description: 'Vård och behandling i hemmet',
+            components: [
+                'FBadge',
+                'FButton',
+                'FCard',
+                'FConfirmModal',
+                'FEmailTextField',
+                'FIcon',
+                'FModal',
+                'FPhoneTextField',
+                'FSelectField',
+                'FTextField',
+                'FTextareaField',
+                'FValidationForm'
+            ]
         }
     },
     {
@@ -100,7 +159,17 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/ContactPage.vue'),
         meta: {
             title: 'Kontakt - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Kontaktuppgifter och kontaktinformation'
+            description: 'Kontaktuppgifter och kontaktinformation',
+            components: [
+                'FButton',
+                'FCard',
+                'FEmailTextField',
+                'FMessageBox',
+                'FPhoneTextField',
+                'FTextField',
+                'FTextareaField',
+                'FValidationForm'
+            ]
         }
     },
     {
@@ -109,7 +178,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/FaqPage.vue'),
         meta: {
             title: 'FAQ - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Vanliga frågor och svar om vården'
+            description: 'Vanliga frågor och svar om vården',
+            components: ['FButton', 'FCard', 'FExpandableParagraph']
         }
     },
     {
@@ -118,7 +188,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/HealthcareGuidePage.vue'),
         meta: {
             title: 'Vårdguide - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Guide till svensk vård'
+            description: 'Guide till svensk vård',
+            components: ['FCard', 'FIcon']
         }
     },
     {
@@ -127,7 +198,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/BookAppointmentPage.vue'),
         meta: {
             title: 'Boka Tid - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Boka tid hos läkare och mottagningar'
+            description: 'Boka tid hos läkare och mottagningar',
+            components: ['FCard', 'FIcon']
         }
     },
     {
@@ -136,7 +208,24 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/BookingFormPage.vue'),
         meta: {
             title: 'Boka tid - Planerat besök - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Formulär för att boka en tid för ett planerat vårdbesök'
+            description: 'Formulär för att boka en tid för ett planerat vårdbesök',
+            components: [
+                'FButton',
+                'FCheckboxField',
+                'FDatepickerField',
+                'FEmailTextField',
+                'FFieldset',
+                'FFileItem',
+                'FFileSelector',
+                'FMessageBox',
+                'FPersonnummerTextField',
+                'FPhoneTextField',
+                'FRadioField',
+                'FSelectField',
+                'FTextField',
+                'FTextareaField',
+                'FValidationForm'
+            ]
         }
     },
     {
@@ -145,7 +234,15 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/MyPagesPage.vue'),
         meta: {
             title: 'Mina Sidor - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Personlig vårdinformation och journaler'
+            description: 'Personlig vårdinformation och journaler',
+            components: [
+                'FButton',
+                'FCard',
+                'FIcon',
+                'FPersonnummerTextField',
+                'FTextField',
+                'FValidationForm'
+            ]
         }
     },
     {
@@ -154,7 +251,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/AccessibilityPage.vue'),
         meta: {
             title: 'Tillgänglighet - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Information om tillgänglighet och rättigheter'
+            description: 'Information om tillgänglighet och rättigheter',
+            components: ['FCard', 'FIcon']
         }
     },
     {
@@ -163,7 +261,20 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/MottagningarPage.vue'),
         meta: {
             title: 'Mottagningar - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Våra mottagningar och specialistkliniker'
+            description: 'Våra mottagningar och specialistkliniker',
+            components: [
+                'FBadge',
+                'FButton',
+                'FCard',
+                'FConfirmModal',
+                'FDataTable',
+                'FIcon',
+                'FModal',
+                'FPhoneTextField',
+                'FSelectField',
+                'FTextField',
+                'FValidationForm'
+            ]
         }
     },
     {
@@ -172,7 +283,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/PatientinformationPage.vue'),
         meta: {
             title: 'Patientinformation - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Information om patientdata och journaler'
+            description: 'Information om patientdata och journaler',
+            components: ['FCard', 'FIcon']
         }
     },
     {
@@ -181,7 +293,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/VardgarantiPage.vue'),
         meta: {
             title: 'Vårdgaranti - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Information om vårdgaranti och dina rättigheter'
+            description: 'Information om vårdgaranti och dina rättigheter',
+            components: ['FCard', 'FExpandableParagraph', 'FIcon']
         }
     },
     {
@@ -190,7 +303,15 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/AvgifterPage.vue'),
         meta: {
             title: 'Avgifter - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Information om avgifter och kostnader'
+            description: 'Information om avgifter och kostnader',
+            components: [
+                'FButton',
+                'FCard',
+                'FDataTable',
+                'FIcon',
+                'FMessageBox',
+                'FSortFilterDataset'
+            ]
         }
     },
     {
@@ -199,7 +320,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/DinVardkontaktPage.vue'),
         meta: {
             title: 'Din Vårdkontakt - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Dina personliga vårdkontakter och journaler'
+            description: 'Dina personliga vårdkontakter och journaler',
+            components: ['FCard', 'FExpandableParagraph', 'FIcon']
         }
     },
     {
@@ -208,7 +330,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/IntegritetspolicyPage.vue'),
         meta: {
             title: 'Integritetspolicy - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Policy för hantering av personuppgifter och integritet'
+            description: 'Policy för hantering av personuppgifter och integritet',
+            components: ['FCard', 'FIcon']
         }
     },
     {
@@ -217,7 +340,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/CookiesPage.vue'),
         meta: {
             title: 'Cookies - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Information om cookies och användarvillkor'
+            description: 'Information om cookies och användarvillkor',
+            components: ['FCard', 'FDataTable', 'FIcon']
         }
     },
     {
@@ -226,7 +350,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/SearchResultsPage.vue'),
         meta: {
             title: 'Sökresultat - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Sökresultat för din sökning'
+            description: 'Sökresultat för din sökning',
+            components: ['FSearchTextField']
         }
     },
     {
@@ -236,7 +361,8 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/NotFoundPage.vue'),
         meta: {
             title: 'Sidan hittades inte - Vårdcentralen Vårdportalen DEMOWEBB',
-            description: 'Sidan du letar efter kunde inte hittas'
+            description: 'Sidan du letar efter kunde inte hittas',
+            components: ['FButton', 'FCard', 'FIcon', 'FSearchTextField']
         }
     }
 ]

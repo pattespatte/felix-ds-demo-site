@@ -133,6 +133,13 @@ const formatPhoneLink = (phone: string): string => {
                 <div class="app-footer__copyright">
                     &copy; {{ currentYear }} Vårdportalen DEMOWEBB. Alla rättigheter förbehålls.
                 </div>
+                <p class="app-footer__ds-note">
+                    Här testas
+                    <a href="https://github.com/pattespatte/felix-ds" class="app-footer__ds-link">
+                        designsystemet felix-ds
+                    </a>
+                    .
+                </p>
                 <ul class="app-footer__legal">
                     <li>
                         <a
@@ -339,6 +346,29 @@ const formatPhoneLink = (phone: string): string => {
 .app-footer__copyright {
     font-size: 0.75rem;
     color: var(--fkds-color-text-inverted);
+}
+
+/* Discrete centre slot in the bottom bar: points visitors to the design
+   system under test. Same restated-colour pattern as the links above. */
+.app-footer__ds-note {
+    margin: 0;
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--fkds-color-text-inverted);
+}
+
+.app-footer__ds-link {
+    color: var(--fkds-color-text-inverted);
+    text-decoration: underline;
+
+    &:hover {
+        color: var(--fkds-color-text-inverted);
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: var(--f-focus-box-shadow);
+    }
 }
 
 .app-footer__legal {
