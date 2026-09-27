@@ -249,7 +249,7 @@ const isDropdownActive = (item: NavItem) =>
 .app-header__brand {
     background-color: var(--fkds-color-header-background-primary);
     color: var(--fkds-color-header-text-primary);
-    border-bottom: 1px solid var(--fkds-color-border-primary);
+    border-bottom: 1px solid var(--fkds-color-border-weak);
 }
 
 .app-header__inner {
@@ -345,7 +345,8 @@ const isDropdownActive = (item: NavItem) =>
 //
 .app-header__nav {
     display: none;
-    background-color: var(--fkds-color-feedback-background-info);
+    background-color: var(--fkds-color-background-secondary);
+    border-bottom: 1px solid var(--fkds-color-border-weak);
     color: var(--fkds-color-text-primary);
 
     @media (min-width: 48rem) {
