@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
@@ -78,6 +79,13 @@ const otherBenefits = [
         items: ['Modern arbetsutrustning', 'Mobiltelefon och surfplatta', 'Hemarbetsplatser']
     }
 ]
+
+// One group open at a time (accordion behaviour).
+const openTitle = ref<string | null>(null)
+
+const toggle = (title: string) => {
+    openTitle.value = openTitle.value === title ? null : title
+}
 </script>
 
 <template>
@@ -107,7 +115,12 @@ const otherBenefits = [
 
                 <div class="formaner__other">
                     <h2 class="formaner__other-title">Andra förmåner</h2>
-                    <f-expandable-paragraph v-for="group in otherBenefits" :key="group.title">
+                    <f-expandable-paragraph
+                        v-for="group in otherBenefits"
+                        :key="group.title"
+                        :expanded="openTitle === group.title"
+                        @toggle="toggle(group.title)"
+                    >
                         <template #title>{{ group.title }}</template>
                         <template #default>
                             <ul class="stack-list">

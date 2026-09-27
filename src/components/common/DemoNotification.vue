@@ -93,6 +93,7 @@ const watermarkCount = 200
 .demo-notification {
     display: block;
     position: relative;
+    margin: 1rem;
     /* Must stay above .demo-watermark (z-index 10000) so the opaque
        message-box background hides the watermark strings behind the banner. */
     z-index: 10001;

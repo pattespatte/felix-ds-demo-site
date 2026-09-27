@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { FExpandableParagraph } from '@fkui/vue'
 import InfoCard from '@/components/display/InfoCard.vue'
 import AppCard from '@/components/display/AppCard.vue'
@@ -30,6 +31,13 @@ const accordionItems = [
             'Vårdgarantin gäller för de flesta typer av specialiserad vård inom landstingets hälso- och sjukvård. Den omfattar bland annat läkarbesök, operationer och vissa undersökningar. Vissa specifika behandlingar kan ha egna väntetider som inte omfattas av garantin. Din vårdgivare kan ge dig mer information om vad som gäller för just ditt fall.'
     }
 ]
+
+// One item open at a time (accordion behaviour).
+const openId = ref<string | null>(null)
+
+const toggle = (id: string) => {
+    openId.value = openId.value === id ? null : id
+}
 </script>
 
 <template>
@@ -75,6 +83,8 @@ const accordionItems = [
                 v-for="item in accordionItems"
                 :key="item.id"
                 header-tag="h3"
+                :expanded="openId === item.id"
+                @toggle="toggle(item.id)"
             >
                 <template #title>{{ item.title }}</template>
                 <template #default>

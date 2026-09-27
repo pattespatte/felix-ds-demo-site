@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { FExpandableParagraph } from '@fkui/vue'
 import InfoCard from '@/components/display/InfoCard.vue'
 import AppCard from '@/components/display/AppCard.vue'
@@ -47,6 +48,13 @@ const patientRights = [
     'Du har rätt att ta med dig en anhörig vid besöket',
     'Du har rätt att få information på ett språk du förstår'
 ]
+
+// One item open at a time (accordion behaviour).
+const openId = ref<string | null>(null)
+
+const toggle = (id: string) => {
+    openId.value = openId.value === id ? null : id
+}
 </script>
 
 <template>
@@ -117,6 +125,8 @@ const patientRights = [
                 v-for="item in accordionItems"
                 :key="item.id"
                 header-tag="h3"
+                :expanded="openId === item.id"
+                @toggle="toggle(item.id)"
             >
                 <template #title>{{ item.title }}</template>
                 <template #default>
