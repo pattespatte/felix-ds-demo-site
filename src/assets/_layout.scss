@@ -30,7 +30,8 @@
 // Page with a right-hand sidebar (see RelatedLinksSidebar). Two columns from
 // the FKUI large breakpoint; below it the sidebar stacks under the content.
 // The 46rem reading measure, 18rem sidebar and 3rem gutter fill the 70rem
-// content box almost exactly, like the e-halsomyndigheten page grid.
+// content box almost exactly, mirroring the public-sector page grid the
+// layout is modelled on.
 .page--sidebar {
     @media (min-width: 64rem) {
         display: grid;
