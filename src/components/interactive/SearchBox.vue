@@ -167,8 +167,11 @@ defineExpose({
     position: relative;
 }
 
+/* flex-basis instead of a fixed width: the header box targets 21rem but may
+   shrink when doubled text leaves the brand row too little room. */
 .search-box--medium {
-    width: 21rem;
+    flex: 0 1 21rem;
+    min-width: 0;
 }
 
 .search-box--large {

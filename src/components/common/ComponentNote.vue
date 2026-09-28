@@ -65,6 +65,10 @@ const dismiss = () => {
     bottom: 1rem;
     z-index: 10001;
     max-width: min(20rem, calc(100vw - 2rem));
+    /* Doubled text grows the note into the demo notice banner at the top of
+       the viewport; cap the height and scroll the note internally instead. */
+    max-height: 40vh;
+    overflow-y: auto;
     border-radius: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

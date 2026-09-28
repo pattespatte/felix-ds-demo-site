@@ -245,8 +245,8 @@ defineExpose({
 }
 
 :deep(mark) {
-    padding: 0 1px;
-    border-radius: 2px;
+    padding: 0 0.0625em;
+    border-radius: 0.125em;
     background-color: var(--fkds-color-feedback-background-info);
     color: var(--fkds-color-text-primary);
 }

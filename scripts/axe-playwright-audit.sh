@@ -127,14 +127,14 @@ function discoverRoutes() {
 	<meta charset="UTF-8">
 	<title>Accessibility Report</title>
 	<style>
-		body { font-family: system-ui, sans-serif; max-width: 1200px; margin: 40px auto; padding: 20px; }
+		body { font-family: system-ui, sans-serif; max-width: 75rem; margin: 2.5rem auto; padding: 1.25rem; }
 		h1 { color: #1e40af; }
-		.summary { background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0; display: flex; gap: 30px; }
+		.summary { background: #f3f4f6; padding: 1.25rem; border-radius: 0.5rem; margin: 1.25rem 0; display: flex; gap: 1.875rem; }
 		.stat { text-align: center; }
 		.stat-value { font-size: 3em; font-weight: bold; }
-		.stat-label { color: #6b7280; margin-top: 5px; }
+		.stat-label { color: #6b7280; margin-top: 0.3125rem; }
 		table { width: 100%; border-collapse: collapse; background: white; }
-		th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e5e7eb; }
+		th, td { text-align: left; padding: 0.75rem; border-bottom: 1px solid #e5e7eb; }
 		th { background: #f9fafb; font-weight: 600; }
 		.pass { color: #059669; font-weight: bold; }
 		.fail { color: #dc2626; font-weight: bold; }
@@ -163,7 +163,7 @@ function discoverRoutes() {
             .join('')}
 		</tbody>
 	</table>
-	<p style="margin-top: 40px; color: #6b7280;">
+	<p style="margin-top: 2.5rem; color: #6b7280;">
 		Generated: ${new Date().toLocaleString()}<br>
 		Detailed JSON: results.json
 	</p>

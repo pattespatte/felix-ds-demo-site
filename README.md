@@ -18,6 +18,18 @@ The content is carried over verbatim from the source demo site, with one excepti
 - felix-ds as a pinned git dependency (the dark-theme commit)
 - No Tailwind, no icon CDN: layout SCSS uses felix/FKUI tokens only, icons come from the FKUI default library plus a small Phosphor extension (see [Icons](#icons)), fonts are self-hosted
 
+## Styling conventions
+
+Relative units (`rem`, `em`, `%`, viewport units) are used everywhere they affect text scaling – typography, spacing, element dimensions and rem-based media queries – so text and layout scale cleanly with user font-size preferences (WCAG 1.4.4 Resize Text). The few intentional `px` values left in the source are values that must *not* scale with text:
+
+- hairline borders and rule weights (`1px`–`4px`), which would turn blurry or misaligned if expressed in `rem`
+- the sr-only clip pattern (`width: 1px; height: 1px; margin: -1px`)
+- decorative `box-shadow` offsets and blur radii
+- the header dropdown's `margin-top: -20px`, which must match FKUI's pixel-based popup positioning
+- the `0px` height targets in `fkui-patches.ts`, which are JavaScript transition endpoints, not CSS
+
+Pill/circle shapes use `border-radius: 50%` (square boxes) or `999em` (text capsules) instead of the classic `999px`.
+
 ## Run it
 
 ```bash

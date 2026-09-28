@@ -103,7 +103,7 @@ const isInternal = computed(() => Boolean(props.link && props.link.startsWith('/
     justify-content: center;
     width: 4rem;
     height: 4rem;
-    border-radius: 999px;
+    border-radius: 50%;
     background-color: var(--fkds-color-feedback-background-info);
     color: var(--fkds-color-text-primary);
 }
@@ -150,7 +150,8 @@ const isInternal = computed(() => Boolean(props.link && props.link.startsWith('/
     display: inline-flex;
     align-items: center;
     padding: 0.125rem 0.625rem;
-    border-radius: 999px;
+    /* capsule: any radius above half the height collapses to a pill, in em so it follows text scaling */
+    border-radius: 999em;
     background-color: var(--fkds-color-feedback-background-info);
     font-size: 0.75rem;
     font-weight: 600;

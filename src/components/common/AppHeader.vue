@@ -308,6 +308,7 @@ const isDropdownActive = (item: NavItem) =>
     display: none;
     align-items: center;
     gap: 1rem;
+    min-width: 0;
 
     @media (min-width: 48rem) {
         display: flex;
@@ -367,6 +368,7 @@ const isDropdownActive = (item: NavItem) =>
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
+    flex-wrap: wrap;
     align-items: stretch;
     gap: 1.5rem;
     list-style: none;

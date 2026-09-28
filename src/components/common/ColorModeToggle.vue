@@ -30,7 +30,7 @@ const label = computed(() => (isDark.value ? 'Växla till ljust läge' : 'Växla
     height: 2.5rem;
     padding: 0;
     border: 1px solid currentColor;
-    border-radius: 999px;
+    border-radius: 50%;
     background: transparent;
     color: inherit;
     cursor: pointer;

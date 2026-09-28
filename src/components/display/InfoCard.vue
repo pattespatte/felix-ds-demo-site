@@ -55,7 +55,7 @@ withDefaults(defineProps<Props>(), {
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    border-radius: 999px;
+    border-radius: 50%;
     background-color: var(--fkds-color-feedback-background-info);
     color: var(--fkds-color-text-primary);
 }

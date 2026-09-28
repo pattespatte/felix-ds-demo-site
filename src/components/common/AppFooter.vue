@@ -195,15 +195,10 @@ const formatPhoneLink = (phone: string): string => {
 .app-footer__grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: 1fr;
-
-    @media (min-width: 48rem) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 64rem) {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    /* auto-fit with a rem floor lets the columns reflow (4 → 2 → 1) as text
+       or viewport grows, instead of forcing the page wider than the viewport
+       (plain 1fr tracks never shrink below their content). */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 }
 
 .app-footer__heading {
@@ -298,6 +293,7 @@ const formatPhoneLink = (phone: string): string => {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 
     @media (min-width: 64rem) {
@@ -311,7 +307,8 @@ const formatPhoneLink = (phone: string): string => {
     justify-content: center;
     min-width: 2rem;
     padding: 0.25rem 0.5rem;
-    border-radius: 999px;
+    /* capsule: any radius above half the height collapses to a pill, in em so it follows text scaling */
+    border-radius: 999em;
     border: 1px solid var(--fkds-color-border-inverted);
     font-size: 0.75rem;
     text-decoration: none;

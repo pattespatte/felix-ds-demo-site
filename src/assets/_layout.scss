@@ -31,11 +31,12 @@
 // the FKUI large breakpoint; below it the sidebar stacks under the content.
 // The 46rem reading measure, 18rem sidebar and 3rem gutter fill the 70rem
 // content box almost exactly, mirroring the public-sector page grid the
-// layout is modelled on.
+// layout is modelled on. The percentage cap keeps the sidebar from scaling
+// past its share when user text scaling doubles the rem value.
 .page--sidebar {
     @media (min-width: 64rem) {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 18rem;
+        grid-template-columns: minmax(0, 1fr) min(18rem, 30%);
         column-gap: 3rem;
         align-items: start;
     }
@@ -50,37 +51,53 @@
 }
 
 // Responsive card grid: single column on small viewports, N columns from
-// the given breakpoint up.
+// the given breakpoint up. minmax(0, 1fr) keeps the tracks at their equal
+// share even when doubled text raises a card's minimum content width, so
+// large text can never push the grid past the page edge.
 .grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     margin: 0;
     padding: 0;
 }
 
 .grid--2 {
     @media (min-width: 40rem) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 .grid--3 {
     @media (min-width: 40rem) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     @media (min-width: 60rem) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
 .grid--4 {
     @media (min-width: 40rem) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     @media (min-width: 60rem) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+}
+
+// Long Swedish compounds ("specialistsjuksköterska", "ledarskapsutbildning")
+// must never spill past their container when text scaling or a narrow column
+// leaves a word too little room – hyphenate instead (page lang is "sv"), with
+// a hard break as fallback when no hyphenation point exists. No effect at
+// normal sizes, where every word already fits its line.
+body {
+    hyphens: auto;
+    overflow-wrap: break-word;
+}
+
+.grid > * {
+    min-width: 0;
 }
 
 // Vertical flow: children spaced apart without margin-collapsed lists.

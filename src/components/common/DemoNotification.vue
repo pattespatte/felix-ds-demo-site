@@ -98,6 +98,10 @@ const watermarkCount = 200
        message-box background hides the watermark strings behind the banner. */
     z-index: 10001;
     border-radius: 0;
+    /* Doubled text makes the notice tall enough to collide with the fixed
+       component note; cap it and let it scroll instead. */
+    max-height: 35vh;
+    overflow-y: auto;
 }
 
 .demo-notification__body {

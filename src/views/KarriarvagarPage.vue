@@ -212,7 +212,7 @@ const testimonials = [
         width: 1.75rem;
         height: 1.75rem;
         margin-top: 0.125rem;
-        border-radius: 999px;
+        border-radius: 50%;
         background-color: var(--fkds-color-action-background-primary-default);
         color: var(--fkds-color-action-text-inverted-default);
         font-size: 0.875rem;

@@ -80,7 +80,7 @@ const stepStatus = (index: number): 'done' | 'current' | 'todo' => {
         display: inline-block;
         width: 0.625rem;
         height: 0.625rem;
-        border-radius: 999px;
+        border-radius: 50%;
         border: 2px solid var(--fkds-color-border-strong);
         background-color: transparent;
     }
