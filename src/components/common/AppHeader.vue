@@ -73,7 +73,10 @@ const navLinks: NavItem[] = [
     }
 ]
 
-// Desktop dropdown state: one FContextMenu per section, keyed by name.
+// Desktop dropdown state: one FContextMenu per section, keyed by name. The
+// popup anchor is the whole level-one nav item (link + caret), so FKUI's
+// below-left placement left-aligns the popup with the level-one item and puts
+// its bottom edge at the nav bar's.
 const openDropdown = ref<string | null>(null)
 const dropdownAnchors = new Map<string, HTMLElement>()
 
@@ -151,7 +154,12 @@ const isDropdownActive = (item: NavItem) =>
         <!-- Row 2: navigation links (desktop) -->
         <nav class="app-header__nav" aria-label="Huvudnavigering">
             <ul class="app-header__nav-list">
-                <li v-for="link in navLinks" :key="link.path" class="app-header__nav-item">
+                <li
+                    v-for="link in navLinks"
+                    :key="link.path"
+                    class="app-header__nav-item"
+                    :ref="link.hasDropdown ? setAnchor(link.name) : undefined"
+                >
                     <template v-if="link.hasDropdown">
                         <router-link
                             :to="link.path"
@@ -161,7 +169,6 @@ const isDropdownActive = (item: NavItem) =>
                             {{ link.name }}
                         </router-link>
                         <button
-                            :ref="setAnchor(link.name)"
                             type="button"
                             class="app-header__dropdown-toggle"
                             :aria-expanded="openDropdown === link.name"
@@ -178,6 +185,7 @@ const isDropdownActive = (item: NavItem) =>
                             />
                         </button>
                         <f-context-menu
+                            class="app-header__menu-popup"
                             :is-open="openDropdown === link.name"
                             :items="menuItemsFor(link)"
                             :anchor="anchorFor(link.name)"
@@ -494,5 +502,44 @@ const isDropdownActive = (item: NavItem) =>
 
 .app-header__mobile-tools {
     margin-top: 1rem;
+}
+</style>
+
+<style lang="scss">
+// The context menu popup is teleported to <body>, outside the reach of the
+// scoped styles above. The class set on <f-context-menu> falls through to the
+// teleported .popup root element and scopes these overrides to the header's
+// menus only – other FKUI popups are untouched.
+//
+// FKUI anchors the popup to the level-one nav item and always leaves a 20px
+// gap below it (its internal POPUP_SPACING constant). Pulling the wrapper up
+// by the same amount hangs the menu flush against the nav bar's bottom edge.
+.app-header__menu-popup > .popup__wrapper {
+    margin-top: -20px;
+}
+
+// Menu rows fill the popup edge-to-edge: FKUI's list padding and item margins
+// would otherwise leave white around the hover highlight and the row shading.
+.app-header__menu-popup .contextmenu__list {
+    padding: 0;
+}
+
+.app-header__menu-popup .contextmenu__list__item {
+    margin: 0;
+
+    // The theme's global anchor underline is out of place inside the menu.
+    a {
+        text-decoration: none;
+    }
+}
+
+// Alternating row shading. Kept on the <li> so the hover highlight on the
+// inner div paints over it without a specificity fight.
+.app-header__menu-popup .contextmenu li:nth-child(odd) {
+    background-color: var(--fkds-color-header-background-primary);
+}
+
+.app-header__menu-popup .contextmenu li:nth-child(even) {
+    background-color: var(--fkds-color-background-secondary);
 }
 </style>
