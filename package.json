@@ -18,7 +18,7 @@
     "@fkui/icon-lib-default": "6.59.0",
     "@fkui/logic": "6.59.0",
     "@fkui/vue": "6.59.0",
-    "felix-ds": "github:pattespatte/felix-ds#b7da1a5c7dcf51a2a813ecbd556980e1b6cfd3bd",
+    "felix-ds": "github:pattespatte/felix-ds#7e3cff7ad99cfbbe73a6407f52df43094979daca",
     "vue": "^3.5.43",
     "vue-router": "^5.3.1"
   },
