@@ -3,3 +3,7 @@ dist/
 accessibility-report/
 .DS_Store
 *.local
+
+# Sveltia CMS bundle, copied from node_modules by scripts/sync-sveltia-cms.mjs
+public/admin/sveltia-cms.js
+public/admin/chunks/

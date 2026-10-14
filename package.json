@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/sync-sveltia-cms.mjs && vite dev",
+    "sync:sveltia-cms": "node scripts/sync-sveltia-cms.mjs",
     "generate-search-index": "node scripts/generate-search-index.js",
     "generate:icons": "node scripts/generate-phosphor-spritesheet.mjs",
     "build:spa": "vue-tsc && vite build",
-    "build": "node scripts/generate-search-index.js && vue-tsc && vite build && node scripts/prerender.mjs",
+    "build": "node scripts/sync-sveltia-cms.mjs && node scripts/generate-search-index.js && vue-tsc && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "felix": "bun scripts/felix.ts"
   },
@@ -19,11 +20,16 @@
     "@fkui/logic": "6.59.0",
     "@fkui/vue": "6.59.0",
     "felix-ds": "github:pattespatte/felix-ds#7e3cff7ad99cfbbe73a6407f52df43094979daca",
+    "js-yaml": "^5.4.3",
+    "markdown-it": "^15.0.2",
     "vue": "^3.5.43",
     "vue-router": "^5.3.1"
   },
   "devDependencies": {
     "@phosphor-icons/vue": "2.2.1",
+    "@sveltia/cms": "0.238.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/markdown-it": "^14.2.0",
     "@types/node": "^26.6.3",
     "@vitejs/plugin-vue": "^6.0.9",
     "@vue/compiler-sfc": "^3.5.43",

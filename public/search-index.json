@@ -26,7 +26,7 @@
     "id": "/om-oss",
     "title": "Om Oss - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/om-oss",
-    "content": "Om oss Detta är en exempelsida för svensk vårdportal. Vi strävar efter att göra svensk vård mer tillgänglig och effektiv för alla medborgare. Genom vår digitala plattform kan du enkelt hantera dina vårdkontakter och få tillgång till viktig information när du behöver den.",
+    "content": "Om oss Detta är en exempelsida för svensk vårdportal. Vårt uppdrag Vi strävar efter att göra svensk vård mer tillgänglig och effektiv för alla medborgare. Genom vår digitala plattform kan du enkelt hantera dina vårdkontakter och få tillgång till viktig information när du behöver den.",
     "description": "Information om Vårdcentralen Vårdportalen och vår verksamhet",
     "keywords": [
       "vårdcentralen",
@@ -36,6 +36,8 @@
       "exempelsida",
       "svensk",
       "vårdportal",
+      "vårt",
+      "uppdrag",
       "strävar",
       "efter",
       "göra",
@@ -45,9 +47,7 @@
       "alla",
       "medborgare",
       "genom",
-      "digitala",
-      "plattform",
-      "enkelt"
+      "digitala"
     ]
   },
   {
@@ -293,7 +293,7 @@
     "id": "/fragor-och-svar",
     "title": "FAQ - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/fragor-och-svar",
-    "content": "Frågor och Svar Här har vi samlat vanliga frågor och svar om vår verksamhet. Hittar du inte svar på din fråga är du välkommen att kontakta oss. Kontakta oss så hjälper vi dig. Kontakta oss",
+    "content": "Frågor och Svar Här har vi samlat vanliga frågor och svar om vår verksamhet. Hittar du inte svar på din fråga är du välkommen att kontakta oss. Hur bokar jag en tid? Du kan boka tid på flera sätt: via vår webbplats under \"Boka tid\", genom att ringa oss på 08-123 456 78, eller genom att besöka oss direkt under våra öppettider. För akuta ärenden, ring oss alltid direkt. Vad kostar ett besök? Priset för ett vårdbesök varierar beroende på typ av besök och din ålder. För vuxna (18 år och äldre) är det högkostnadsskydd som gäller. Barn och ungdomar under 18 år har fri vård. För mer detaljerad prisinformation, kontakta vår reception. Hur avbokar jag en tid? Du kan avboka din tid via Mina Sidor på vår webbplats, genom att ringa oss, eller genom att besöka oss. Observera att du måste avboka senast 24 timmar innan ditt besök för att undvika en avgift. Kan jag få mina recept förnyade? Ja, du kan förnya dina recept via Mina Sidor på vår webbplats. Vissa recept kräver dock ett nytt besök hos läkare",
     "description": "Vanliga frågor och svar om vården",
     "keywords": [
       "vårdcentralen",
@@ -309,7 +309,10 @@
       "fråga",
       "välkommen",
       "kontakta",
-      "hjälper"
+      "bokar",
+      "boka",
+      "flera",
+      "sätt"
     ]
   },
   {
@@ -413,7 +416,7 @@
     "id": "/tillganglighet",
     "title": "Tillgänglighet - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/tillganglighet",
-    "content": "Tillgänglighet Vi strävar efter att vår webbplats och vår vårdcentral ska vara tillgänglig för alla. Här hittar du information om tillgängligheten på vår webbplats och i våra lokaler. Vi arbetar kontinuerligt för att förbättra tillgängligheten på vår webbplats och följer riktlinjerna för Web Content Accessibility Guidelines (WCAG) 2.1 på nivå AA. På vår webbplats kan du: Vi är medvetna om att det finns delar av vår webbplats som inte är fullt tillgängliga för alla användare. Vi arbetar för att åtgärda dessa brister. Kända brister: Om du upptäcker brister i webbplatsens tillgänglighet är vi tacksamma om du rapporterar det till oss. Beskriv så detaljerat som möjligt vilket innehåll det gäller och vilket problem du har upptäckt. Du kan kontakta oss via: Vår vårdcentral är anpassad för att vara tillgänglig för personer med funktionsnedsättning. Om du behöver tolk eller har behov av andra hjälpmedel vid ditt besök, meddela oss när du bokar tid så att vi kan förbereda detta. Vi kan hjälpa ti",
+    "content": "Tillgänglighet Vi strävar efter att vår webbplats och vår vårdcentral ska vara tillgänglig för alla. Här hittar du information om tillgängligheten på vår webbplats och i våra lokaler. Tillgänglighet på webbplatsen Vi arbetar kontinuerligt för att förbättra tillgängligheten på vår webbplats och följer riktlinjerna för Web Content Accessibility Guidelines (WCAG) 2.1 på nivå AA. På vår webbplats kan du: Använda skärmläsare för att navigera Zooma in och ut på sidorna utan att innehållet försvinner Navigera med tangentbordet Få god kontrast mellan text och bakgrund Bristande tillgänglighet Vi är medvetna om att det finns delar av vår webbplats som inte är fullt tillgängliga för alla användare. Vi arbetar för att åtgärda dessa brister. Kända brister: Vissa PDF-dokument saknar text som kan läsas av skärmläsare Vissa bilder saknar alt-texter Vissa formulär kan vara svåra att navigera med tangentbordet Rapportera brister i tillgänglighet Om du upptäcker brister i webbplatsens tillgänglighet är ",
     "description": "Information om tillgänglighet och rättigheter",
     "keywords": [
       "tillgänglighet",
@@ -432,8 +435,7 @@
       "tillgängligheten",
       "våra",
       "lokaler",
-      "arbetar",
-      "kontinuerligt"
+      "webbplatsen"
     ]
   },
   {
@@ -466,7 +468,7 @@
     "id": "/patientinformation",
     "title": "Patientinformation - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/patientinformation",
-    "content": "Patientinformation Här hittar du viktig information för dig som patient hos oss.",
+    "content": "Patientinformation Här hittar du viktig information för dig som patient hos oss. Inför ditt besök Vad du behöver tänka på innan din vårdkontakt Dina rättigheter Information om patientlagstiftning och dina rättigheter Journal och information Hur du får tillgång till din journal och hälsodata Priser och avgifter Information om kostnader för vård och behandling",
     "description": "Information om patientdata och journaler",
     "keywords": [
       "patientinformation",
@@ -477,17 +479,23 @@
       "viktig",
       "information",
       "patient",
+      "inför",
+      "ditt",
+      "besök",
       "behöver",
       "tänka",
       "innan",
-      "vårdkontakt"
+      "vårdkontakt",
+      "dina",
+      "rättigheter",
+      "patientlagstiftning"
     ]
   },
   {
     "id": "/patientinformation/vardgaranti",
     "title": "Vårdgaranti - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/patientinformation/vardgaranti",
-    "content": "Vårdgaranti Som patient i Sverige har du lagstadgad rätt till vård inom en viss tid. Här hittar du information om vad vårdgarantin innebär och vilka rättigheter du har. Viktigt: Vårdgarantin gäller från den dag du söker vård och fram till att du fått den vård du behöver. Spara alla remisser och journaler som bevis på när du sökte vård. Vårdgarantin är en del av hälso- och sjukvårdslagen och syftar till att säkerställa att alla patienter får vård i tid oavsett var i landet de bor. Garantin gäller från det att du söker vård tills du har fått behövlig behandling. Det är viktigt att veta att vårdgarantin inte gäller för alla typer av vård. Vissa planerade operationer och behandlingar kan ha längre väntetider. Din läkare eller vårdgivare kan ge dig mer information om vad som gäller för just ditt fall. Om du har frågor om vårdgarantin eller om du tror att dina rättigheter har åsidosatts kan du kontakta: Din vårdcentral för information om väntetider 1177 Vårdguiden för generell rådgivning om ",
+    "content": "Vårdgaranti Som patient i Sverige har du lagstadgad rätt till vård inom en viss tid. Här hittar du information om vad vårdgarantin innebär och vilka rättigheter du har. **Viktigt:** Vårdgarantin gäller från den dag du söker vård och fram till att du fått den vård du behöver. Spara alla remisser och journaler som bevis på när du sökte vård. Noll dagar Kontakt med vårdcentral 3 dagar Medicinsk bedömning 90 dagar Specialistvård 90 dagar Behandling efter diagnos Vad innebär vårdgarantin för dig? Vårdgarantin är en del av hälso- och sjukvårdslagen och syftar till att säkerställa att alla patienter får vård i tid oavsett var i landet de bor. Garantin gäller från det att du söker vård tills du har fått behövlig behandling. Det är viktigt att veta att vårdgarantin inte gäller för alla typer av vård. Vissa planerade operationer och behandlingar kan ha längre väntetider. Din läkare eller vårdgivare kan ge dig mer information om vad som gäller för just ditt fall. Vanliga frågor om vårdgaranti Vad",
     "description": "Information om vårdgaranti och dina rättigheter",
     "keywords": [
       "vårdgaranti",
@@ -543,7 +551,7 @@
     "id": "/patientinformation/din-vardkontakt",
     "title": "Din Vårdkontakt - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/patientinformation/din-vardkontakt",
-    "content": "Din vårdkontakt Här hittar du information om hur du bäst förbereder dig för ditt besök och vilka olika vägar du kan ha för kontakt med vården. Viktigt: Kom alltid i tid till ditt besök. Om du behöver avboka, gör det minst 24 timmar i förväg så att någon annan kan få din tid. Vårdcentralen Kontakta din vårdcentral för att boka tid, få rådgivning för kända sjukdomar, förnya recept eller för uppföljning av tidigare behandlingar. 1177 Vårdguiden Ring 1177 för sjukvårdsrådgivning dygnet runt. Du kan få råd om symtom, hjälp att hitta rätt vårdmottagning och svar på medicinska frågor. Akutvård Vid livshotande tillstånd eller allvarliga skador, ring 112 direkt. För andra akuta besvär som inte kan vänta, kontakta närmaste akutmottagning. Med BankID kan du logga in på 1177.se för att: Många vårdcentraler erbjuder även digitala besök via videosamtal. Fråga din vårdcentral om detta är ett alternativ för ditt ärende.",
+    "content": "Din vårdkontakt Här hittar du information om hur du bäst förbereder dig för ditt besök och vilka olika vägar du kan ha för kontakt med vården. **Viktigt:** Kom alltid i tid till ditt besök. Om du behöver avboka, gör det minst 24 timmar i förväg så att någon annan kan få din tid. Direktkontakt Telefon 08-123 456 78 1177 Sjukvårdsrådgivning 112 Akuta situationer Kontaktvägar Vårdcentralen Kontakta din vårdcentral för att boka tid, få rådgivning för kända sjukdomar, förnya recept eller för uppföljning av tidigare behandlingar. 1177 Vårdguiden Ring 1177 för sjukvårdsrådgivning dygnet runt. Du kan få råd om symtom, hjälp att hitta rätt vårdmottagning och svar på medicinska frågor. Akutvård Vid livshotande tillstånd eller allvarliga skador, ring 112 direkt. För andra akuta besvär som inte kan vänta, kontakta närmaste akutmottagning. Digitala tjänster Med BankID kan du logga in på 1177.se för att: Boka och avboka tider Förnya recept Se dina provsvar Läsa din journal Kommunicera säkert med din",
     "description": "Dina personliga vårdkontakter och journaler",
     "keywords": [
       "vårdkontakt",
@@ -570,7 +578,7 @@
     "id": "/integritetspolicy",
     "title": "Integritetspolicy - Vårdcentralen Vårdportalen DEMOWEBB",
     "url": "/integritetspolicy",
-    "content": "Integritetspolicy Den här integritetspolicyn beskriver hur vi samlar in, använder och skyddar dina personuppgifter när du använder vår webbplats och våra tjänster. Vi samlar in olika typer av personuppgifter för att kunna erbjuda dig bästa möjliga vård och service. Vi använder dina personuppgifter för olika ändamål som är nödvändiga för att kunna erbjuda vårdtjänster. Vår behandling av dina personuppgifter baseras på olika rättsliga grunder enligt GDPR. Vi delar dina personuppgifter endast när det är nödvändigt för att kunna erbjuda vård och service. Vi vidtar lämpliga tekniska och organisatoriska åtgärder för att skydda dina personuppgifter. Som registrerad har du flera rättigheter enligt GDPR. Vår webbplats använder kakor för att förbättra användarupplevelsen och för webbanalys. Om du har frågor om vår integritetspolicy eller hur vi behandlar dina personuppgifter är du välkommen att kontakta oss. Senast uppdaterad: 2023-11-15",
+    "content": "Integritetspolicy Den här integritetspolicyn beskriver hur vi samlar in, använder och skyddar dina personuppgifter när du använder vår webbplats och våra tjänster. Vilken information samlar vi in? Vi samlar in olika typer av personuppgifter för att kunna erbjuda dig bästa möjliga vård och service. Personuppgifter: Namn, personnummer, kontaktuppgifter (telefonnummer, e-postadress, adress) Hälsoinformation: Meddelande till vården, bokningar, besökshistorik, medicinsk information Användardata: IP-adress, webbläsartyp, enhetsinformation, tid och datum för användning Kommunikation: Korrespondens med oss, samtycken, feedback och klagomål Hur använder vi din information? Vi använder dina personuppgifter för olika ändamål som är nödvändiga för att kunna erbjuda vårdtjänster. För att kunna diagnostisera, behandla och vårda dig För att boka och administrera dina besök hos oss För att kommunicera med dig om din vård För att utveckla och förbättra våra tjänster För att uppfylla lagkrav inom hälso-",
     "description": "Policy för hantering av personuppgifter och integritet",
     "keywords": [
       "integritetspolicy",
@@ -587,8 +595,8 @@
       "webbplats",
       "våra",
       "tjänster",
-      "olika",
-      "typer"
+      "vilken",
+      "information"
     ]
   },
   {

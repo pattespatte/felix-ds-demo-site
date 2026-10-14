@@ -1,0 +1,52 @@
+# Din vårdkontakt (/patientinformation/din-vardkontakt) — redigeras i Sveltia CMS.
+title: Din vårdkontakt
+intro: Här hittar du information om hur du bäst förbereder dig för ditt besök och vilka olika vägar du kan ha för kontakt med vården.
+notice: '**Viktigt:** Kom alltid i tid till ditt besök. Om du behöver avboka, gör det minst 24 timmar i förväg så att någon annan kan få din tid.'
+sections:
+    - title: Direktkontakt
+      infoCards:
+          - title: Telefon
+            content: 08-123 456 78
+          - title: '1177'
+            content: Sjukvårdsrådgivning
+          - title: '112'
+            content: Akuta situationer
+    - title: Kontaktvägar
+      routes:
+          - tone: clinic
+            title: Vårdcentralen
+            text: Kontakta din vårdcentral för att boka tid, få rådgivning för kända sjukdomar, förnya recept eller för uppföljning av tidigare behandlingar.
+          - tone: guide
+            title: 1177 Vårdguiden
+            text: Ring 1177 för sjukvårdsrådgivning dygnet runt. Du kan få råd om symtom, hjälp att hitta rätt vårdmottagning och svar på medicinska frågor.
+          - tone: acute
+            title: Akutvård
+            text: Vid livshotande tillstånd eller allvarliga skador, ring 112 direkt. För andra akuta besvär som inte kan vänta, kontakta närmaste akutmottagning.
+    - title: Digitala tjänster
+      paragraphs:
+          - text: 'Med BankID kan du logga in på 1177.se för att:'
+      list:
+          - text: Boka och avboka tider
+          - text: Förnya recept
+          - text: Se dina provsvar
+          - text: Läsa din journal
+          - text: Kommunicera säkert med din vårdgivare
+      closing: Många vårdcentraler erbjuder även digitala besök via videosamtal. Fråga din vårdcentral om detta är ett alternativ för ditt ärende.
+    - title: Vanliga frågor om din vårdkontakt
+      accordion:
+          - title: Hur förbereder jag mig inför mitt besök?
+            content: Inför ditt besök är det bra att tänka igenom dina frågor och symtom. Skriv gärna ner dem i förväg så du inte glömmer något viktigt. Ta med dig giltig legitimation, eventuella mediciner du använder och tidigare journaler om det är relevant för besöket. Om du har en remiss, ta med den också.
+          - title: När ska jag kontakta 1177 och när vårdcentralen?
+            content: Kontakta 1177 för sjukvårdsrådgivning när du är osäker på var du ska söka vård, behöver råd om symtom eller har frågor om mediciner. Kontakta din vårdcentral för att boka tid, få vård för kända sjukdomar eller för uppföljning. Vid livshotande tillstånd, ring alltid 112.
+          - title: Vad ingår i ett läkarbesök?
+            content: Ett läkarbesök innefattar vanligtvis en samtal om dina besvär, en undersökning, diagnos och behandlingsplan. Läkaren kan skriva ut recept, remittera till specialist eller boka återbesök. Besöket varar vanligtvis 15-30 minuter beroende på ärende.
+          - title: Hur fungerar e-tjänster och digital vårdkontakt?
+            content: Genom 1177.se kan du logga in med BankID för att boka och avboka tider, förnya recept, se dina provsvar och läsa din journal. Vissa vårdcentraler erbjuder även digitala besök via videosamtal. Kontakta din vårdcentral för att veta vilka e-tjänster som erbjuds.
+    - title: Dina rättigheter som patient
+      list:
+          - text: Du har rätt att få information om din hälsa och vård
+          - text: Du har rätt att välja vårdcentral i hela landet
+          - text: Du har rätt till en fast läkarkontakt
+          - text: Du har rätt att få en andra medicinsk bedömning
+          - text: Du har rätt att ta med dig en anhörig vid besöket
+          - text: Du har rätt att få information på ett språk du förstår

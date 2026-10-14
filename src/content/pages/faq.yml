@@ -1,0 +1,29 @@
+# Frågor och svar (/fragor-och-svar) — redigeras i Sveltia CMS.
+# Struktur: rubrik, introduktion, accordion (en öppen i taget), CTA-kort.
+title: Frågor och Svar
+width: narrow
+intro: Här har vi samlat vanliga frågor och svar om vår verksamhet. Hittar du inte svar på din fråga är du välkommen att kontakta oss.
+accordion:
+    - title: Hur bokar jag en tid?
+      content: 'Du kan boka tid på flera sätt: via vår webbplats under "Boka tid", genom att ringa oss på 08-123 456 78, eller genom att besöka oss direkt under våra öppettider. För akuta ärenden, ring oss alltid direkt.'
+    - title: Vad kostar ett besök?
+      content: Priset för ett vårdbesök varierar beroende på typ av besök och din ålder. För vuxna (18 år och äldre) är det högkostnadsskydd som gäller. Barn och ungdomar under 18 år har fri vård. För mer detaljerad prisinformation, kontakta vår reception.
+    - title: Hur avbokar jag en tid?
+      content: Du kan avboka din tid via Mina Sidor på vår webbplats, genom att ringa oss, eller genom att besöka oss. Observera att du måste avboka senast 24 timmar innan ditt besök för att undvika en avgift.
+    - title: Kan jag få mina recept förnyade?
+      content: Ja, du kan förnya dina recept via Mina Sidor på vår webbplats. Vissa recept kräver dock ett nytt besök hos läkare. Om du är osäker, kontakta oss via telefon eller e-post.
+    - title: Hur får jag tillgång till mina journaler?
+      content: Du kan logga in på Mina Sidor med BankID för att läsa dina journaler. Du kan också beställa en utskrift av din journal genom att kontakta oss. Observera att det kan ta upp till 7 dagar att få en utskrift.
+    - title: Erbjuder ni vaccinationer?
+      content: Ja, vi erbjuder vaccinationer mot influensa, COVID-19 och andra sjukdomar enligt nationella vaccinationsprogrammet. Vissa vaccinationer är gratis medan andra kostar. Kontakta oss för mer information och för att boka tid.
+    - title: Vad gör jag om jag blir sjuk på kvällen eller helgen?
+      content: Om du blir akut sjuk utanför våra öppettider, kontakta 1177 Vårdguiden för rådgivning. För livshotande tillstånd, ring 112. Du kan också besöka en akutmottagning eller jourcentral.
+    - title: Kan jag byta vårdcentral?
+      content: Ja, du har rätt att byta vårdcentral när du vill. Du kan göra det direkt via 1177 Vårdguidens e-tjänster eller genom att kontakta din nya vårdcentral. Observera att det kan ta några dagar innan bytet är registrerat i systemet.
+sections:
+    - title: Har du fler frågor?
+      paragraphs:
+          - text: Kontakta oss så hjälper vi dig.
+      cta:
+          label: Kontakta oss
+          to: /kontakt

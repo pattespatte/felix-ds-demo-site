@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import ContentPage from '@/views/ContentPage.vue'
 
 declare module 'vue-router' {
     interface RouteMeta {
@@ -27,9 +28,11 @@ const routes: Array<RouteRecordRaw> = [
         }
     },
     {
+        // CMS-edited page (src/content/pages/om-oss.yml)
         path: '/om-oss',
         name: 'About',
-        component: () => import('@/views/AboutView.vue'),
+        component: ContentPage,
+        props: { content: 'om-oss' },
         meta: {
             title: 'Om Oss - Vårdcentralen Vårdportalen DEMOWEBB',
             description: 'Information om Vårdcentralen Vårdportalen och vår verksamhet',
@@ -173,9 +176,11 @@ const routes: Array<RouteRecordRaw> = [
         }
     },
     {
+        // CMS-edited page (src/content/pages/faq.yml)
         path: '/fragor-och-svar',
         name: 'FAQ',
-        component: () => import('@/views/FaqPage.vue'),
+        component: ContentPage,
+        props: { content: 'faq' },
         meta: {
             title: 'FAQ - Vårdcentralen Vårdportalen DEMOWEBB',
             description: 'Vanliga frågor och svar om vården',
@@ -246,9 +251,11 @@ const routes: Array<RouteRecordRaw> = [
         }
     },
     {
+        // CMS-edited page (src/content/pages/tillganglighet.yml)
         path: '/tillganglighet',
         name: 'Accessibility',
-        component: () => import('@/views/AccessibilityPage.vue'),
+        component: ContentPage,
+        props: { content: 'tillganglighet' },
         meta: {
             title: 'Tillgänglighet - Vårdcentralen Vårdportalen DEMOWEBB',
             description: 'Information om tillgänglighet och rättigheter',
@@ -278,9 +285,11 @@ const routes: Array<RouteRecordRaw> = [
         }
     },
     {
+        // CMS-edited page (src/content/pages/patientinformation.yml)
         path: '/patientinformation',
         name: 'Patientinformation',
-        component: () => import('@/views/PatientinformationPage.vue'),
+        component: ContentPage,
+        props: { content: 'patientinformation' },
         meta: {
             title: 'Patientinformation - Vårdcentralen Vårdportalen DEMOWEBB',
             description: 'Information om patientdata och journaler',
@@ -288,9 +297,11 @@ const routes: Array<RouteRecordRaw> = [
         }
     },
     {
+        // CMS-edited page (src/content/pages/vardgaranti.yml)
         path: '/patientinformation/vardgaranti',
         name: 'Vardgaranti',
-        component: () => import('@/views/VardgarantiPage.vue'),
+        component: ContentPage,
+        props: { content: 'vardgaranti' },
         meta: {
             title: 'Vårdgaranti - Vårdcentralen Vårdportalen DEMOWEBB',
             description: 'Information om vårdgaranti och dina rättigheter',
@@ -315,9 +326,11 @@ const routes: Array<RouteRecordRaw> = [
         }
     },
     {
+        // CMS-edited page (src/content/pages/din-vardkontakt.yml)
         path: '/patientinformation/din-vardkontakt',
         name: 'DinVardkontakt',
-        component: () => import('@/views/DinVardkontaktPage.vue'),
+        component: ContentPage,
+        props: { content: 'din-vardkontakt' },
         meta: {
             title: 'Din Vårdkontakt - Vårdcentralen Vårdportalen DEMOWEBB',
             description: 'Dina personliga vårdkontakter och journaler',
@@ -325,9 +338,11 @@ const routes: Array<RouteRecordRaw> = [
         }
     },
     {
+        // CMS-edited page (src/content/pages/integritetspolicy.yml)
         path: '/integritetspolicy',
         name: 'Integritetspolicy',
-        component: () => import('@/views/IntegritetspolicyPage.vue'),
+        component: ContentPage,
+        props: { content: 'integritetspolicy' },
         meta: {
             title: 'Integritetspolicy - Vårdcentralen Vårdportalen DEMOWEBB',
             description: 'Policy för hantering av personuppgifter och integritet',

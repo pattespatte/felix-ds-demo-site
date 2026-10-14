@@ -1,9 +1,90 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { parse } from '@vue/compiler-sfc'
+import { load } from 'js-yaml'
+import { parse as parseSfc } from '@vue/compiler-sfc'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+// Extract top-level route object blocks from the routes array. Brace-balanced
+// so route records containing nested object literals (meta, props) stay in
+// one piece — a naive split on `},{` would cut a record in two.
+function extractRouteBlocks(routerContent) {
+    const arrayStart = routerContent.indexOf('[', routerContent.indexOf('const routes'))
+    if (arrayStart === -1) {
+        return []
+    }
+    const blocks = []
+    let depth = 0
+    let blockStart = -1
+    for (let i = arrayStart; i < routerContent.length; i++) {
+        const char = routerContent[i]
+        if (char === '{') {
+            if (depth === 0) {
+                blockStart = i
+            }
+            depth++
+        } else if (char === '}') {
+            depth--
+            if (depth === 0) {
+                blocks.push(routerContent.slice(blockStart, i + 1))
+            }
+        } else if (char === ']' && depth === 0) {
+            break
+        }
+    }
+    return blocks
+}
+
+// Collect every prose string value from a parsed content page so the whole
+// editable text becomes searchable. Structural keys (layout, link targets)
+// are skipped.
+const STRUCTURAL_KEYS = new Set(['width', 'sidebar', 'to', 'tone', 'ctaCentered'])
+
+function collectStrings(value, acc) {
+    if (typeof value === 'string') {
+        acc.push(value)
+    } else if (Array.isArray(value)) {
+        value.forEach((item) => collectStrings(item, acc))
+    } else if (value && typeof value === 'object') {
+        for (const [key, item] of Object.entries(value)) {
+            if (!STRUCTURAL_KEYS.has(key)) {
+                collectStrings(item, acc)
+            }
+        }
+    }
+    return acc
+}
+
+// Extract searchable content from a CMS content page (src/content/pages)
+function extractContentFromPage(key, routePath, title) {
+    const filePath = path.join(__dirname, '../src/content/pages', `${key}.yml`)
+    const page = load(fs.readFileSync(filePath, 'utf-8'))
+    const strings = collectStrings(page, [])
+
+    const componentContent = strings.join(' ').replace(/\s+/g, ' ').trim()
+
+    const allText = `${title} ${componentContent}`
+    const keywords = [
+        ...new Set(
+            allText
+                .toLowerCase()
+                .replace(/[^\w\såäö]/g, ' ')
+                .split(/\s+/)
+                .filter((word) => word.length > 3)
+                .slice(0, 20)
+        )
+    ]
+
+    return {
+        id: routePath,
+        title,
+        url: routePath,
+        content: componentContent.substring(0, 1000),
+        description: '',
+        keywords
+    }
+}
 
 // Extract text content from Vue SFC template
 function extractTextFromTemplate(template) {
@@ -25,7 +106,7 @@ function extractTextFromTemplate(template) {
 // Extract meaningful content from a Vue component
 function extractContentFromComponent(filePath, routePath, title) {
     const content = fs.readFileSync(filePath, 'utf-8')
-    const { descriptor } = parse(content)
+    const { descriptor } = parseSfc(content)
 
     let componentContent = ''
     let description = ''
@@ -75,23 +156,34 @@ function generateSearchIndex() {
     // Read router configuration to get page information
     const routerContent = fs.readFileSync(routerFile, 'utf-8')
 
-    // Extract route information using regex
-    const routeMatches = routerContent.matchAll(
-        /path:\s*['"`]([^'"`]+)['"`][\s\S]*?component:\s*\(\)\s*=>\s*import\(['"`]([^'"`]+)['"`]\)[\s\S]*?meta:\s*{[\s\S]*?title:\s*['"`]([^'"`]+)['"`][\s\S]*?description:\s*['"`]([^'"`]+)['"`]/g
-    )
-
     const searchIndex = []
 
-    for (const match of routeMatches) {
-        const [, routePath, componentPath, title, description] = match
+    for (const block of extractRouteBlocks(routerContent)) {
+        const pathMatch = block.match(/path:\s*['"`]([^'"`]+)['"`]/)
+        if (!pathMatch || pathMatch[1].includes(':pathMatch')) {
+            continue
+        }
+        const [, routePath] = pathMatch
 
-        // Skip the catch-all 404 route: its URL pattern is not a real page
-        if (routePath.includes(':pathMatch')) {
+        const titleMatch = block.match(/title:\s*['"`]([^'"`]+)['"`]/)
+        const descriptionMatch = block.match(/description:\s*['"`]([^'"`]+)['"`]/)
+        const title = titleMatch ? titleMatch[1] : routePath
+        const description = descriptionMatch ? descriptionMatch[1] : ''
+
+        // CMS-edited route: content comes from src/content/pages/<key>.yml
+        const contentMatch = block.match(/props:\s*{\s*content:\s*['"`]([^'"`]+)['"`]\s*}/)
+        if (contentMatch) {
+            const searchItem = extractContentFromPage(contentMatch[1], routePath, title)
+            searchItem.description = description
+            searchIndex.push(searchItem)
             continue
         }
 
-        // Convert component path to file path
-        const filePath = path.join(__dirname, '..', componentPath.replace('@/', 'src/'))
+        const componentMatch = block.match(/import\(['"`]([^'"`]+)['"`]\)/)
+        if (!componentMatch) {
+            continue
+        }
+        const filePath = path.join(__dirname, '..', componentMatch[1].replace('@/', 'src/'))
 
         if (fs.existsSync(filePath)) {
             const searchItem = extractContentFromComponent(filePath, routePath, title)

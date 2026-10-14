@@ -1,0 +1,14 @@
+# Patientinformation (/patientinformation) — redigeras i Sveltia CMS.
+# sectionsGrid-renderar rutnätet med vänsterkantade sektioner i ett kort.
+title: Patientinformation
+sectionsGrid:
+    intro: Här hittar du viktig information för dig som patient hos oss.
+    sections:
+        - title: Inför ditt besök
+          text: Vad du behöver tänka på innan din vårdkontakt
+        - title: Dina rättigheter
+          text: Information om patientlagstiftning och dina rättigheter
+        - title: Journal och information
+          text: Hur du får tillgång till din journal och hälsodata
+        - title: Priser och avgifter
+          text: Information om kostnader för vård och behandling

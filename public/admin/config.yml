@@ -1,0 +1,233 @@
+# Sveltia CMS-konfiguration för webbplatsens innehållssidor.
+# Varje sida är en YAML-fil i src/content/pages/ som redigeras via
+# formulären här; sidan renderas av src/views/ContentPage.vue.
+# Fält- och nyckelnamn speglar innehållsmodellen i src/content/types.ts.
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+    name: github
+    repo: pattespatte/felix-ds-demo-site
+    branch: main
+
+site_url: https://pattespatte.github.io/felix-ds-demo-site/
+logo_url: https://pattespatte.github.io/felix-ds-demo-site/favicon.svg
+locale: sv
+
+media_folder: public/media
+public_folder: /felix-ds-demo-site/media
+
+collections:
+    - name: sidor
+      label: Sidor
+      label_singular: Sida
+      description: >
+          Textinnehållet på webbplatsens sidor. När du sparar en ändring
+          skickas den till repet och webbplatsen byggs om och publiceras
+          automatiskt inom någon minut.
+      editor:
+          preview: false
+      files:
+          - name: om-oss
+            label: Om oss
+            file: src/content/pages/om-oss.yml
+            fields: &page_fields
+                - label: Sidrubrik (H1)
+                  name: title
+                  widget: string
+                - label: Layoutbredd
+                  name: width
+                  widget: select
+                  required: false
+                  default: wide
+                  hint: narrow ger en smalare innehållskolumn, wide använder hela sidbredden.
+                  options:
+                      - label: Hela sidbredden
+                        value: wide
+                      - label: Smal kolumn
+                        value: narrow
+                - label: Introduktionstext
+                  name: intro
+                  widget: markdown
+                  required: false
+                  hint: Inledande text direkt under sidrubriken.
+                - label: Notisruta
+                  name: notice
+                  widget: markdown
+                  required: false
+                  hint: Blå informationsruta överst på sidan. Börja med **Viktigt:** för fetstilta inledningsord.
+                - label: Informationskort
+                  name: infoCards
+                  widget: list
+                  required: false
+                  hint: Rad av små kort överst på sidan (ursprungligen tidssiffror och kontaktvägar).
+                  fields: &info_card_fields
+                      - label: Kortrubrik
+                        name: title
+                        widget: string
+                      - label: Korttext
+                        name: content
+                        widget: string
+                - label: Dragspel
+                  name: accordion
+                  widget: list
+                  required: false
+                  hint: Utfällbara frågor direkt på sidan (utan kortram). Endast en fråga är öppen åt gången.
+                  fields: &accordion_fields
+                      - label: Fråga
+                        name: title
+                        widget: string
+                      - label: Svar
+                        name: content
+                        widget: text
+                - label: Sektioner
+                  name: sections
+                  widget: list
+                  required: false
+                  hint: Korten på sidan, i ordning från topp till botten.
+                  fields: &section_fields
+                      - label: Kortrubrik
+                        name: title
+                        widget: string
+                        required: false
+                      - label: Textstycken
+                        name: paragraphs
+                        widget: list
+                        required: false
+                        hint: Löptexten i kortet, ett stycke per rad i listan.
+                        fields:
+                            - label: Stycke
+                              name: text
+                              widget: markdown
+                      - label: Punktlista
+                        name: list
+                        widget: list
+                        required: false
+                        hint: Fyll antingen bara Text, eller Rubrik + Beskrivning per rad.
+                        fields:
+                            - label: Rubrik
+                              name: title
+                              widget: string
+                              required: false
+                            - label: Beskrivning
+                              name: description
+                              widget: text
+                              required: false
+                            - label: Text
+                              name: text
+                              widget: markdown
+                              required: false
+                      - label: Avslutande text
+                        name: closing
+                        widget: markdown
+                        required: false
+                        hint: Text som visas efter punktlistan.
+                      - label: Kontaktvägar
+                        name: routes
+                        widget: list
+                        required: false
+                        hint: Färgade rutor med kontaktalternativ (används på Din vårdkontakt).
+                        fields:
+                            - label: Färg
+                              name: tone
+                              widget: select
+                              required: false
+                              default: clinic
+                              options:
+                                  - label: Blå (vårdcentral)
+                                    value: clinic
+                                  - label: Grön (rådgivning)
+                                    value: guide
+                                  - label: Röd (akut)
+                                    value: acute
+                            - label: Rubrik
+                              name: title
+                              widget: string
+                            - label: Text
+                              name: text
+                              widget: markdown
+                      - label: Informationskort
+                        name: infoCards
+                        widget: list
+                        required: false
+                        hint: Rad av små kort inuti detta kortet.
+                        fields: *info_card_fields
+                      - label: Dragspel
+                        name: accordion
+                        widget: list
+                        required: false
+                        hint: Utfällbara frågor inuti detta kortet.
+                        fields: *accordion_fields
+                      - label: Knapplänk
+                        name: cta
+                        widget: object
+                        required: false
+                        hint: Knapp längst ner i kortet som leder till en annan sida.
+                        fields:
+                            - label: Knapptext
+                              name: label
+                              widget: string
+                            - label: Målsida
+                              name: to
+                              widget: string
+                              hint: Sökväg på webbplatsen, till exempel /kontakt.
+                      - label: Senast uppdaterad
+                        name: updated
+                        widget: string
+                        required: false
+                        hint: Liten grå textrad längst ner i kortet.
+                - label: Rutnät med sektioner
+                  name: sectionsGrid
+                  widget: object
+                  required: false
+                  hint: 'Alternativ layout: alla sektioner i ett kort som ett tvåkolumnsrutnät (används bara på Patientinformation).'
+                  fields:
+                      - label: Inledande text
+                        name: intro
+                        widget: markdown
+                        required: false
+                      - label: Sektioner
+                        name: sections
+                        widget: list
+                        fields:
+                            - label: Rubrik
+                              name: title
+                              widget: string
+                            - label: Text
+                              name: text
+                              widget: markdown
+                - label: Sidospalt
+                  name: sidebar
+                  widget: boolean
+                  required: false
+                  default: false
+                  hint: Visar om-oss-länklisten bredvid sidan (används bara på sidan Om oss).
+
+          - name: faq
+            label: Frågor och svar
+            file: src/content/pages/faq.yml
+            fields: *page_fields
+
+          - name: tillganglighet
+            label: Tillgänglighet
+            file: src/content/pages/tillganglighet.yml
+            fields: *page_fields
+
+          - name: patientinformation
+            label: Patientinformation
+            file: src/content/pages/patientinformation.yml
+            fields: *page_fields
+
+          - name: vardgaranti
+            label: Vårdgaranti
+            file: src/content/pages/vardgaranti.yml
+            fields: *page_fields
+
+          - name: din-vardkontakt
+            label: Din vårdkontakt
+            file: src/content/pages/din-vardkontakt.yml
+            fields: *page_fields
+
+          - name: integritetspolicy
+            label: Integritetspolicy
+            file: src/content/pages/integritetspolicy.yml
+            fields: *page_fields
