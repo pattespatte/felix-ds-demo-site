@@ -3,13 +3,6 @@
 // ContentPage view renders this structure; field names mirror the Sveltia
 // field names in public/admin/config.yml.
 
-/** Item in a section's bullet list: either plain text or title + description. */
-export interface ContentListItem {
-    title?: string
-    description?: string
-    text?: string
-}
-
 /** Accordion (FExpandableParagraph) item. */
 export interface ContentAccordionItem {
     title: string
@@ -38,9 +31,8 @@ export interface ContentCta {
 /** One AppCard section (or grid tile when the page uses sectionsGrid). */
 export interface ContentSection {
     title?: string
-    paragraphs?: { text: string }[]
-    list?: ContentListItem[]
-    closing?: string
+    /** Markdown body (paragraphs, bullet lists) rendered by mdBlock(). */
+    body?: string
     routes?: ContentRoute[]
     infoCards?: ContentInfoCard[]
     accordion?: ContentAccordionItem[]

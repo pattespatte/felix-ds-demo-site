@@ -23,15 +23,16 @@ sections:
             title: Akutvård
             text: Vid livshotande tillstånd eller allvarliga skador, ring 112 direkt. För andra akuta besvär som inte kan vänta, kontakta närmaste akutmottagning.
     - title: Digitala tjänster
-      paragraphs:
-          - text: 'Med BankID kan du logga in på 1177.se för att:'
-      list:
-          - text: Boka och avboka tider
-          - text: Förnya recept
-          - text: Se dina provsvar
-          - text: Läsa din journal
-          - text: Kommunicera säkert med din vårdgivare
-      closing: Många vårdcentraler erbjuder även digitala besök via videosamtal. Fråga din vårdcentral om detta är ett alternativ för ditt ärende.
+      body: |
+          Med BankID kan du logga in på 1177.se för att:
+
+          - Boka och avboka tider
+          - Förnya recept
+          - Se dina provsvar
+          - Läsa din journal
+          - Kommunicera säkert med din vårdgivare
+
+          Många vårdcentraler erbjuder även digitala besök via videosamtal. Fråga din vårdcentral om detta är ett alternativ för ditt ärende.
     - title: Vanliga frågor om din vårdkontakt
       accordion:
           - title: Hur förbereder jag mig inför mitt besök?
@@ -43,10 +44,10 @@ sections:
           - title: Hur fungerar e-tjänster och digital vårdkontakt?
             content: Genom 1177.se kan du logga in med BankID för att boka och avboka tider, förnya recept, se dina provsvar och läsa din journal. Vissa vårdcentraler erbjuder även digitala besök via videosamtal. Kontakta din vårdcentral för att veta vilka e-tjänster som erbjuds.
     - title: Dina rättigheter som patient
-      list:
-          - text: Du har rätt att få information om din hälsa och vård
-          - text: Du har rätt att välja vårdcentral i hela landet
-          - text: Du har rätt till en fast läkarkontakt
-          - text: Du har rätt att få en andra medicinsk bedömning
-          - text: Du har rätt att ta med dig en anhörig vid besöket
-          - text: Du har rätt att få information på ett språk du förstår
+      body: |
+          - Du har rätt att få information om din hälsa och vård
+          - Du har rätt att välja vårdcentral i hela landet
+          - Du har rätt till en fast läkarkontakt
+          - Du har rätt att få en andra medicinsk bedömning
+          - Du har rätt att ta med dig en anhörig vid besöket
+          - Du har rätt att få information på ett språk du förstår

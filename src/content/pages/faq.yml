@@ -22,8 +22,8 @@ accordion:
       content: Ja, du har rätt att byta vårdcentral när du vill. Du kan göra det direkt via 1177 Vårdguidens e-tjänster eller genom att kontakta din nya vårdcentral. Observera att det kan ta några dagar innan bytet är registrerat i systemet.
 sections:
     - title: Har du fler frågor?
-      paragraphs:
-          - text: Kontakta oss så hjälper vi dig.
+      body: |
+          Kontakta oss så hjälper vi dig.
       cta:
           label: Kontakta oss
           to: /kontakt

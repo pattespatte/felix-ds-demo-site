@@ -62,7 +62,15 @@ function extractContentFromPage(key, routePath, title) {
     const page = load(fs.readFileSync(filePath, 'utf-8'))
     const strings = collectStrings(page, [])
 
-    const componentContent = strings.join(' ').replace(/\s+/g, ' ').trim()
+    // Section bodies are markdown: reduce links to their text and drop
+    // emphasis/bullet markers so snippets read as plain prose.
+    const componentContent = strings
+        .join(' ')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/\s+[-*]\s+/g, ' ')
+        .replace(/[*_#>|`]+/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
 
     const allText = `${title} ${componentContent}`
     const keywords = [

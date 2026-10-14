@@ -13,9 +13,10 @@ infoCards:
       content: Behandling efter diagnos
 sections:
     - title: Vad innebär vårdgarantin för dig?
-      paragraphs:
-          - text: Vårdgarantin är en del av hälso- och sjukvårdslagen och syftar till att säkerställa att alla patienter får vård i tid oavsett var i landet de bor. Garantin gäller från det att du söker vård tills du har fått behövlig behandling.
-          - text: Det är viktigt att veta att vårdgarantin inte gäller för alla typer av vård. Vissa planerade operationer och behandlingar kan ha längre väntetider. Din läkare eller vårdgivare kan ge dig mer information om vad som gäller för just ditt fall.
+      body: |
+          Vårdgarantin är en del av hälso- och sjukvårdslagen och syftar till att säkerställa att alla patienter får vård i tid oavsett var i landet de bor. Garantin gäller från det att du söker vård tills du har fått behövlig behandling.
+
+          Det är viktigt att veta att vårdgarantin inte gäller för alla typer av vård. Vissa planerade operationer och behandlingar kan ha längre väntetider. Din läkare eller vårdgivare kan ge dig mer information om vad som gäller för just ditt fall.
     - title: Vanliga frågor om vårdgaranti
       accordion:
           - title: Vad innebär vårdgarantin?
@@ -27,10 +28,10 @@ sections:
           - title: Gäller garantin för alla typer av vård?
             content: Vårdgarantin gäller för de flesta typer av specialiserad vård inom landstingets hälso- och sjukvård. Den omfattar bland annat läkarbesök, operationer och vissa undersökningar. Vissa specifika behandlingar kan ha egna väntetider som inte omfattas av garantin. Din vårdgivare kan ge dig mer information om vad som gäller för just ditt fall.
     - title: Kontakt och mer information
-      paragraphs:
-          - text: 'Om du har frågor om vårdgarantin eller om du tror att dina rättigheter har åsidosatts kan du kontakta:'
-      list:
-          - text: Din vårdcentral för information om väntetider
-          - text: 1177 Vårdguiden för generell rådgivning om vårdgarantin
-          - text: Patientnämnden i ditt landsting för att framföra klagomål
-          - text: Inspektionen för vård och omsorg (IVO) för mer information om patienträttigheter
+      body: |
+          Om du har frågor om vårdgarantin eller om du tror att dina rättigheter har åsidosatts kan du kontakta:
+
+          - Din vårdcentral för information om väntetider
+          - 1177 Vårdguiden för generell rådgivning om vårdgarantin
+          - Patientnämnden i ditt landsting för att framföra klagomål
+          - Inspektionen för vård och omsorg (IVO) för mer information om patienträttigheter

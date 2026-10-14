@@ -4,60 +4,59 @@ width: narrow
 intro: Vi strävar efter att vår webbplats och vår vårdcentral ska vara tillgänglig för alla. Här hittar du information om tillgängligheten på vår webbplats och i våra lokaler.
 sections:
     - title: Tillgänglighet på webbplatsen
-      paragraphs:
-          - text: Vi arbetar kontinuerligt för att förbättra tillgängligheten på vår webbplats och följer riktlinjerna för Web Content Accessibility Guidelines (WCAG) 2.1 på nivå AA.
-          - text: 'På vår webbplats kan du:'
-      list:
-          - text: Använda skärmläsare för att navigera
-          - text: Zooma in och ut på sidorna utan att innehållet försvinner
-          - text: Navigera med tangentbordet
-          - text: Få god kontrast mellan text och bakgrund
+      body: |
+          Vi arbetar kontinuerligt för att förbättra tillgängligheten på vår webbplats och följer riktlinjerna för Web Content Accessibility Guidelines (WCAG) 2.1 på nivå AA.
+
+          På vår webbplats kan du:
+
+          - Använda skärmläsare för att navigera
+          - Zooma in och ut på sidorna utan att innehållet försvinner
+          - Navigera med tangentbordet
+          - Få god kontrast mellan text och bakgrund
     - title: Bristande tillgänglighet
-      paragraphs:
-          - text: Vi är medvetna om att det finns delar av vår webbplats som inte är fullt tillgängliga för alla användare. Vi arbetar för att åtgärda dessa brister.
-          - text: 'Kända brister:'
-      list:
-          - text: Vissa PDF-dokument saknar text som kan läsas av skärmläsare
-          - text: Vissa bilder saknar alt-texter
-          - text: Vissa formulär kan vara svåra att navigera med tangentbordet
+      body: |
+          Vi är medvetna om att det finns delar av vår webbplats som inte är fullt tillgängliga för alla användare. Vi arbetar för att åtgärda dessa brister.
+
+          Kända brister:
+
+          - Vissa PDF-dokument saknar text som kan läsas av skärmläsare
+          - Vissa bilder saknar alt-texter
+          - Vissa formulär kan vara svåra att navigera med tangentbordet
     - title: Rapportera brister i tillgänglighet
-      paragraphs:
-          - text: Om du upptäcker brister i webbplatsens tillgänglighet är vi tacksamma om du rapporterar det till oss. Beskriv så detaljerat som möjligt vilket innehåll det gäller och vilket problem du har upptäckt.
-          - text: 'Du kan kontakta oss via:'
-      list:
-          - text: 'E-post: tillganglighet@vardcentralen.se'
-          - text: 'Telefon: 08-123 456 78'
-          - text: 'Post: Vårdportalen, Storgatan 12, 123 45 Stockholm'
+      body: |
+          Om du upptäcker brister i webbplatsens tillgänglighet är vi tacksamma om du rapporterar det till oss. Beskriv så detaljerat som möjligt vilket innehåll det gäller och vilket problem du har upptäckt.
+
+          Du kan kontakta oss via:
+
+          - E-post: tillganglighet@vardcentralen.se
+          - Telefon: 08-123 456 78
+          - Post: Vårdportalen, Storgatan 12, 123 45 Stockholm
     - title: Tillgänglighet i våra lokaler
-      paragraphs:
-          - text: Vår vårdcentral är anpassad för att vara tillgänglig för personer med funktionsnedsättning.
-      list:
-          - title: 'Entré:'
-            description: Rullstolsanpassad ingång utan trappor
-          - title: 'Parkering:'
-            description: Handikapparkering finns nära ingången
-          - title: 'Toaletter:'
-            description: Handikappanpassad toalett finns i bottenvåningen
-          - title: 'Hiss:'
-            description: Hiss finns mellan våningarna
-          - title: 'Rullstol:'
-            description: Vi har rullstolar att låna ut vid behov
-          - title: 'Hörselslinga:'
-            description: Hörselslinga finns i receptionen och i några av våra mottagningsrum
+      body: |
+          Vår vårdcentral är anpassad för att vara tillgänglig för personer med funktionsnedsättning.
+
+          - **Entré:** Rullstolsanpassad ingång utan trappor
+          - **Parkering:** Handikapparkering finns nära ingången
+          - **Toaletter:** Handikappanpassad toalett finns i bottenvåningen
+          - **Hiss:** Hiss finns mellan våningarna
+          - **Rullstol:** Vi har rullstolar att låna ut vid behov
+          - **Hörselslinga:** Hörselslinga finns i receptionen och i några av våra mottagningsrum
     - title: Tolk och hjälpmedel
-      paragraphs:
-          - text: Om du behöver tolk eller har behov av andra hjälpmedel vid ditt besök, meddela oss när du bokar tid så att vi kan förbereda detta.
-          - text: 'Vi kan hjälpa till med:'
-      list:
-          - text: Tolk (teckenspråk eller andra språk)
-          - text: Texttelefon
-          - text: Material i punktskrift eller med förstorad text
+      body: |
+          Om du behöver tolk eller har behov av andra hjälpmedel vid ditt besök, meddela oss när du bokar tid så att vi kan förbereda detta.
+
+          Vi kan hjälpa till med:
+
+          - Tolk (teckenspråk eller andra språk)
+          - Texttelefon
+          - Material i punktskrift eller med förstorad text
     - title: Tillsynsmyndighet
-      paragraphs:
-          - text: Om du inte är nöjd med hur vi hanterar dina synpunkter på tillgänglighet kan du kontakta Myndigheten för digital förvaltning (DIGG) och påtala bristen.
-          - text: Myndigheten för digital förvaltning (DIGG)
-      list:
-          - text: Box 12345
-          - text: 123 45 Stockholm
-          - text: 'Telefon: 08-578 287 00'
-          - text: 'Webbplats: [digg.se](https://digg.se)'
+      body: |
+          Om du inte är nöjd med hur vi hanterar dina synpunkter på tillgänglighet kan du kontakta Myndigheten för digital förvaltning (DIGG) och påtala bristen.
+
+          Myndigheten för digital förvaltning (DIGG)
+
+          - Box 12345
+          - 123 45 Stockholm
+          - Telefon: 08-578 287 00
+          - Webbplats: [digg.se](https://digg.se)

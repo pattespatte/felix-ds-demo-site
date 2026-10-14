@@ -23,20 +23,28 @@ Tokenen sparas i din webbläsare – nästa gång loggas du in automatiskt. Krav
    - **Notisruta** – den blå informationsrutan överst på sidan.
    - **Informationskort** – små kort i rad, till exempel tidsgränser.
    - **Dragspel** – utfällbara frågor med svar. Klicka på ett objekt för att öppna det, använd knapparna för att lägga till, ta bort eller flytta frågor.
-   - **Sektioner** – korten på sidan, i ordning från topp till botten. Varje sektion kan innehålla textstycken, punktlista, dragspelsfrågor, kontaktvägar och en knapplänk.
+   - **Sektioner** – korten på sidan, i ordning från topp till botten. Varje sektion har en brödtext samt valfria dragspelsfrågor, kontaktvägar och en knapplänk.
 4. Klicka på ”Spara” (eller tangentbordsgenvägen Cmd+S/Ctrl+S).
 
 När du sparar skickas ändringen till GitHub. Webbplatsen byggs om automatiskt och den nya texten syns på <https://pattespatte.github.io/felix-ds-demo-site/> inom någon minut. Redigeringsverktyget visar också när byggningen är klar, med en länk direkt till sidan du ändrade.
 
 ## Formatera text
 
-I textfälten kan du använda enkel formatering:
+I fältet ”Brödtext” (och andra textfält) kan du använda enkel formatering:
 
-- `**fetstil**` ger **fetstil**
+- `**fetstil**` ger **fetstil** – bra för inledande ord i en listrad, till exempel `**E-post:** adress@exempel.se`
 - `[länktext](https://example.se)` ger en länk
-- punktlistor gör du i fältet ”Punktlista”, inte i löptexten
+- en tom rad ger nytt stycke
+- inled rader med `- ` för att göra en punktlista, till exempel:
 
-Länkar till andra sidor på webbplatsen gör du enklast med fältet ”Knapplänk” i en sektion.
+```text
+Du kan kontakta oss via:
+
+- E-post: tillganglighet@exempel.se
+- Telefon: 08-123 456 78
+```
+
+Rubriker behövs inte i brödtexten – varje korts rubrik skriver du i fältet ”Kortrubrik”. Länkar till andra sidor på webbplatsen gör du enklast med fältet ”Knapplänk” i en sektion.
 
 ## Vilka sidor kan redigeras?
 
@@ -56,6 +64,6 @@ Följande sida är anslutna till redigeringsverktyget:
 
 - **Versionshistorik.** Varje ändring sparas i Git på GitHub. Det går alltid att se vad som ändrats, när och av vem, och att återställa en tidigare version.
 - **Fliktiteln ändras inte i verktyget.** Rubriken i webbläsarfliken och sökningens sidbeskrivning styrs av koden. Behöver de ändras, kontakta den som sköter webbplatsen.
-- **Nya sidor.** Att lägga till en helt ny sida kräver en utvecklare – men att lägga till frågor, listrader och sektioner på befintliga sidor gör du själv i verktyget.
+- **Nya sidor.** Att lägga till en helt ny sida kräver en utvecklare – men att lägga till frågor, stycken och sektioner på befintliga sidor gör du själv i verktyget.
 - **Bilder.** Verktyget har ett mediebibliotek där bilder kan laddas upp, men sidornas innehåll använder ännu inga bilder.
 - **Innehållet är fiktivt.** Alla namn, priser och kontaktuppgifter på webbplatsen är påhittade. Skriv inte in verkliga personers uppgifter eller riktiga organisationers namn.

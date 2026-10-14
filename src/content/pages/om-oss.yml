@@ -4,6 +4,7 @@ sidebar: true
 intro: Detta är en exempelsida för svensk vårdportal.
 sections:
     - title: Vårt uppdrag
-      paragraphs:
-          - text: Vi strävar efter att göra svensk vård mer tillgänglig och effektiv för alla medborgare.
-          - text: Genom vår digitala plattform kan du enkelt hantera dina vårdkontakter och få tillgång till viktig information när du behöver den.
+      body: |
+          Vi strävar efter att göra svensk vård mer tillgänglig och effektiv för alla medborgare.
+
+          Genom vår digitala plattform kan du enkelt hantera dina vårdkontakter och få tillgång till viktig information när du behöver den.

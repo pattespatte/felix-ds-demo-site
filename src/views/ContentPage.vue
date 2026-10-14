@@ -3,11 +3,10 @@ import { ref } from 'vue'
 import { FButton, FExpandableParagraph } from '@fkui/vue'
 import AppCard from '@/components/display/AppCard.vue'
 import InfoCard from '@/components/display/InfoCard.vue'
-import ListItem from '@/components/display/ListItem.vue'
 import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
 import { omOssSectionLinks } from '@/data/omOssSection'
 import { getPage } from '@/content/pages'
-import { mdInline } from '@/content/markdown'
+import { mdInline, mdBlock } from '@/content/markdown'
 
 // Generic view for CMS-edited pages: the route passes the content key as a
 // prop (props: { content: 'faq' }) and the page structure renders from the
@@ -91,30 +90,10 @@ const accordionId = (groupIndex: number, itemIndex: number) => `${groupIndex}-${
                 :title="section.title"
                 class="content-page__section"
             >
-                <p
-                    v-for="(paragraph, index) in section.paragraphs"
-                    :key="index"
-                    class="content-page__paragraph"
-                    v-html="mdInline(paragraph.text)"
-                />
-
-                <ul v-if="section.list?.length" class="stack-list">
-                    <ListItem
-                        v-for="(item, index) in section.list"
-                        :key="index"
-                        :title="item.title"
-                        :description="item.description"
-                    >
-                        <template v-if="item.text && !item.title && !item.description">
-                            <span v-html="mdInline(item.text)" />
-                        </template>
-                    </ListItem>
-                </ul>
-
-                <p
-                    v-if="section.closing"
-                    class="content-page__paragraph"
-                    v-html="mdInline(section.closing)"
+                <div
+                    v-if="section.body"
+                    class="content-page__body"
+                    v-html="mdBlock(section.body)"
                 />
 
                 <div v-if="section.routes?.length" class="stack content-page__routes">
@@ -213,6 +192,34 @@ const accordionId = (groupIndex: number, itemIndex: number) => `${groupIndex}-${
     margin: 0 0 1rem;
 
     &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Markdown-rendered section body (v-html). Paragraph spacing mirrors
+// .content-page__paragraph; bullet lists mirror the global .stack-list look
+// (no markers, stacked with gap). Ordered lists keep their numbers so CMS
+// numbered lists degrade sanely.
+.content-page__body {
+    :deep(p) {
+        margin: 0 0 1rem;
+    }
+
+    :deep(ul) {
+        list-style: none;
+        margin: 0 0 1rem;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    :deep(ol) {
+        margin: 0 0 1rem;
+        padding-left: 1.5rem;
+    }
+
+    > :deep(:last-child) {
         margin-bottom: 0;
     }
 }

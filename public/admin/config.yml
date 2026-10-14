@@ -89,38 +89,11 @@ collections:
                         name: title
                         widget: string
                         required: false
-                      - label: Textstycken
-                        name: paragraphs
-                        widget: list
-                        required: false
-                        hint: Löptexten i kortet, ett stycke per rad i listan.
-                        fields:
-                            - label: Stycke
-                              name: text
-                              widget: markdown
-                      - label: Punktlista
-                        name: list
-                        widget: list
-                        required: false
-                        hint: Fyll antingen bara Text, eller Rubrik + Beskrivning per rad.
-                        fields:
-                            - label: Rubrik
-                              name: title
-                              widget: string
-                              required: false
-                            - label: Beskrivning
-                              name: description
-                              widget: text
-                              required: false
-                            - label: Text
-                              name: text
-                              widget: markdown
-                              required: false
-                      - label: Avslutande text
-                        name: closing
+                      - label: Brödtext
+                        name: body
                         widget: markdown
                         required: false
-                        hint: Text som visas efter punktlistan.
+                        hint: Löptexten i kortet. Tom rad ger nytt stycke, inled rader med - för punktlista, **text** ger fetstil (t.ex. **E-post:** adress). Rubriker behövs inte – använd kortrubriken ovan.
                       - label: Kontaktvägar
                         name: routes
                         widget: list
