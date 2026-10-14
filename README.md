@@ -39,10 +39,22 @@ bun run dev
 
 Then open the printed dev-server URL.
 
+## Content editing (CMS)
+
+Seven of the content pages are edited through [Sveltia CMS](https://github.com/sveltia/sveltia-cms) rather than in code, so non-coders can update the texts:
+
+- Om oss, Frågor och svar, Tillgänglighet, Patientinformation, Vårdgaranti, Din vårdkontakt, Integritetspolicy.
+- Each page is a YAML file in `src/content/pages/` following the model in `src/content/types.ts`, rendered by the generic `src/views/ContentPage.vue` (route prop `content: '<key>'`).
+- The admin UI lives at [`/admin/`](https://pattespatte.github.io/felix-ds-demo-site/admin/) (`public/admin/`). Authentication is a GitHub personal access token with Contents read/write on this repo – no OAuth server needed, which is why Sveltia over Decap on GitHub Pages.
+- The CMS bundle is self-hosted and version-pinned: `@sveltia/cms` is a devDependency, and `scripts/sync-sveltia-cms.mjs` (run by `dev` and `build`) copies it from `node_modules` into `public/admin/` (gitignored).
+- Editor instructions (Swedish): [docs/redigera-innehall.md](docs/redigera-innehall.md).
+
+Saving in the CMS commits to `main`, which triggers the deploy workflow – content changes go live after the usual rebuild.
+
 ## Build and preview
 
 ```bash
-bun run build        # search index + typecheck + vite build + prerender
+bun run build        # sveltia-cms bundle + search index + typecheck + vite build + prerender
 bun run preview      # serve dist/ at the production base path
 ```
 
