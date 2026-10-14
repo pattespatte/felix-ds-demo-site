@@ -28,8 +28,15 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const router = useRouter()
-const { searchQuery, searchResults, isLoading, hasResults, navigateToResult, clearSearch } =
-    useSearch()
+const {
+    searchQuery,
+    searchResults,
+    isLoading,
+    hasResults,
+    navigateToResult,
+    clearSearch,
+    loadSearchIndex
+} = useSearch()
 
 // Refs
 const root = ref<HTMLElement | null>(null)
@@ -42,6 +49,9 @@ const showDropdown = computed(() => isFocused.value && searchQuery.value.length 
 
 const handleFocus = () => {
     isFocused.value = true
+    // Fetch the search index on first focus so results are ready while the
+    // visitor types; useSearch no longer loads it at page load.
+    loadSearchIndex()
 }
 
 const handleBlur = () => {

@@ -31,10 +31,30 @@ export function useSearch() {
     const searchIndex = ref<SearchIndexItem[]>([])
     const isIndexLoaded = ref(false)
 
-    const loadSearchIndex = async () => {
-        if (isIndexLoaded.value) {
-            return
+    // The index is fetched on demand (first search-box focus or a /sok
+    // visit), not at page load: most visitors never search, and the 30 KB
+    // should not sit at the back of every initial waterfall.
+    let indexLoad: Promise<void> | null = null
+
+    const loadSearchIndex = async (): Promise<void> => {
+        if (!indexLoad) {
+            indexLoad = fetchSearchIndex().finally(() => {
+                // a failed fetch must stay retryable on the next focus
+                if (!isIndexLoaded.value) {
+                    indexLoad = null
+                }
+            })
         }
+        await indexLoad
+        // A query typed while the index was still loading left the dropdown
+        // empty (performSearch early-exits without the index) – re-run it
+        // now that the index is available.
+        if (isIndexLoaded.value && searchQuery.value.trim()) {
+            performSearch(searchQuery.value)
+        }
+    }
+
+    const fetchSearchIndex = async (): Promise<void> => {
         try {
             isLoading.value = true
 
@@ -204,9 +224,6 @@ export function useSearch() {
     watch(searchQuery, (newQuery) => {
         performSearch(newQuery)
     })
-
-    // Initialize search index
-    loadSearchIndex()
 
     // Computed property to check if there are results
     const hasResults = computed(() => searchResults.value.length > 0)
