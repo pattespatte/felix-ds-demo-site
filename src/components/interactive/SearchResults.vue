@@ -61,6 +61,17 @@ const selectResult = (result: SearchResult) => {
     emit('result-select', result)
 }
 
+// Left click routes through selectResult (the parent clears the query and
+// the list); modifier and middle clicks fall through to the browser so the
+// result opens in a new tab like any other link.
+const onResultClick = (event: MouseEvent, result: SearchResult) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return
+    }
+    event.preventDefault()
+    selectResult(result)
+}
+
 // View all results
 const viewAllResults = () => {
     emit('view-all-results')
@@ -117,27 +128,30 @@ defineExpose({
                 :class="{ 'search-results__item--active': selectedIndex === index }"
                 role="option"
                 :aria-selected="selectedIndex === index"
-                @click="selectResult(result)"
                 @mouseenter="selectedIndex = index"
             >
-                <div class="search-results__item-body">
+                <a
+                    class="search-results__item-body"
+                    :href="result.url"
+                    @click="onResultClick($event, result)"
+                >
                     <!-- Result title -->
-                    <div
+                    <span
                         class="search-results__item-title"
                         v-html="highlightText(result.title, searchQuery)"
                     />
 
                     <!-- Result snippet -->
-                    <div
+                    <span
                         class="search-results__item-snippet"
                         v-html="highlightText(result.snippet || result.description || '', searchQuery)"
                     />
 
                     <!-- Result URL -->
-                    <div class="search-results__item-url">
+                    <span class="search-results__item-url">
                         {{ result.url }}
-                    </div>
-                </div>
+                    </span>
+                </a>
             </li>
         </ul>
 
@@ -186,10 +200,6 @@ defineExpose({
 
 .search-results__item {
     position: relative;
-    padding: 0.5rem 0.75rem;
-    cursor: default;
-    user-select: none;
-    color: var(--fkds-color-text-primary);
 
     &:hover,
     &--active {
@@ -197,7 +207,24 @@ defineExpose({
     }
 }
 
+// The whole row is one link: the anchor fills the item so every part of it
+// (title, snippet, URL) is clickable, and inherits text colors instead of
+// the global anchor look. `text-decoration: none` also beats the site-wide
+// underline rules that the felix theme layers on plain anchors.
+a.search-results__item-body {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: inherit;
+    text-decoration: none;
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: var(--f-focus-box-shadow);
+    }
+}
+
 .search-results__item-title {
+    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -207,16 +234,17 @@ defineExpose({
 }
 
 .search-results__item-snippet {
+    display: -webkit-box;
     margin-top: 0.25rem;
     font-size: 0.75rem;
     color: var(--fkds-color-text-secondary);
-    display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .search-results__item-url {
+    display: block;
     margin-top: 0.25rem;
     font-size: 0.75rem;
     color: var(--fkds-color-text-secondary);
