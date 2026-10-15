@@ -78,14 +78,14 @@ Note: the sibling site writes `<PhChild>` for the BVC card, but `@phosphor-icons
 
 ## Update the theme
 
-`felix-ds` is a git dependency pinned to an exact commit. `bun run felix` shows and upgrades it:
+`@pattespatte/felix-ds` is installed from GitHub Packages (restricted visibility), declared with a semver range in `package.json` and locked in `bun.lockb`. The tracked `.npmrc` points the `@pattespatte` scope at the registry and reads its token from the `GITHUB_PACKAGES_TOKEN` environment variable (a PAT with `read:packages`; the Pages workflow maps `secrets.GITHUB_TOKEN` onto it).
 
-| Command                       | Description                                                                               |
-| ----------------------------- | ----------------------------------------------------------------------------------------- |
-| `bun run felix version`       | Show the pinned commit, the installed package and the latest commit on the default branch |
-| `bun run felix upgrade -n`    | Dry run: show the upgrade plan, change nothing                                            |
-| `bun run felix upgrade`       | Pin the latest commit and run `bun install`                                               |
-| `bun run felix upgrade <ref>` | As above, but to a chosen sha, branch or tag                                              |
+To upgrade – set the new range, install, and verify the full build:
+
+```bash
+bun add @pattespatte/felix-ds@^1.2.0   # example: next minor
+bun run build                          # search index + typecheck + build + prerender
+```
 
 ## Deploy
 

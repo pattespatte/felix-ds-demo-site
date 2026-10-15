@@ -10,6 +10,10 @@ on:
 
 permissions:
   contents: read
+  # packages:read lets bun install @pattespatte/felix-ds from GitHub Packages
+  # through the tracked .npmrc (its ${GITHUB_PACKAGES_TOKEN} picks up the
+  # workflow token).
+  packages: read
   pages: write
   id-token: write
 
@@ -26,6 +30,8 @@ jobs:
       - uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
+        env:
+          GITHUB_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bun install
 
       - name: Install Playwright Chromium
