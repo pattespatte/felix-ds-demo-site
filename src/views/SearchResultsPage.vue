@@ -157,62 +157,60 @@ const performFullSearch = (query: string) => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .sok__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .sok__state {
-    padding: 2rem 0;
-    text-align: center;
-    color: var(--fkds-color-text-secondary);
-
-    p {
-        margin: 0;
-    }
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--fkds-color-text-secondary);
+}
+.sok__state p {
+  margin: 0;
 }
 
 .sok__count {
-    margin: 0 0 1.5rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0 0 1.5rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .sok__result {
-    border: 1px solid var(--fkds-color-border-primary);
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-    background-color: var(--fkds-color-background-primary);
+  border: 1px solid var(--fkds-color-border-primary);
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+  background-color: var(--fkds-color-background-primary);
 }
 
 .sok__result-title {
-    margin: 0 0 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .sok__result-link {
-    color: var(--fkds-color-action-text-primary-default);
-    text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  color: var(--fkds-color-action-text-primary-default);
+  text-decoration: none;
+}
+.sok__result-link:hover {
+  text-decoration: underline;
+}
+.sok__result-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .sok__result-snippet {
-    margin: 0 0 0.75rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0 0 0.75rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .sok__result-url {
-    font-size: 0.875rem;
-    color: var(--fkds-color-text-secondary);
+  font-size: 0.875rem;
+  color: var(--fkds-color-text-secondary);
 }
+
 </style>

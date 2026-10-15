@@ -468,104 +468,102 @@ const onConfirmSend = () => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .labb__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .labb__alert {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .labb__success {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .labb__intro {
-    margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .labb__filter {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .labb__cards {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .labb__test-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .labb__meta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .labb__meta-value {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .labb__meta-line {
-    color: var(--fkds-color-text-secondary);
+  color: var(--fkds-color-text-secondary);
 }
 
 .labb__meta-label {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .labb__book {
-    margin-top: 0.5rem;
-    align-self: flex-start;
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
 .labb__pagination {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .labb__heading {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .labb__preparations {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .labb__results {
-    list-style: none;
-    margin: 0 0 1.5rem;
-    padding: 0;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
 }
 
-.labb__result {
-    :deep(.list-item__extra) {
-        margin-top: 0.5rem;
-    }
+.labb__result :deep(.list-item__extra) {
+  margin-top: 0.5rem;
 }
 
 .labb__wizard-notice {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-feedback-background-info);
-    padding: 1rem;
-    margin-bottom: 1rem;
-
-    p {
-        margin: 0;
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-feedback-background-info);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.labb__wizard-notice p {
+  margin: 0;
 }
 
 .labb__modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }
+
 </style>

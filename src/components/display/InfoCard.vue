@@ -37,50 +37,50 @@ withDefaults(defineProps<Props>(), {
     </f-card>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .info-card {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 }
 
 .info-card__body {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .info-card__icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background-color: var(--fkds-color-feedback-background-info);
-    color: var(--fkds-color-text-primary);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--fkds-color-feedback-background-info);
+  color: var(--fkds-color-text-primary);
 }
 
 .info-card__glyph {
-    width: 1.5rem;
-    height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .info-card__content {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .info-card__title {
-    margin: 0 0 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
 }
 
 .info-card__text {
-    font-size: 0.9375rem;
-
-    p {
-        margin: 0;
-    }
+  font-size: 0.9375rem;
 }
+.info-card__text p {
+  margin: 0;
+}
+
 </style>

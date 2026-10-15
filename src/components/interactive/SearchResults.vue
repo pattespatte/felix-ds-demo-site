@@ -164,118 +164,115 @@ defineExpose({
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .search-results {
-    position: absolute;
-    z-index: 60;
-    margin-top: 0.25rem;
-    max-height: 24rem;
-    width: 100%;
-    overflow: auto;
-    border: 1px solid var(--fkds-color-border-primary);
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-background-primary);
-    box-shadow: var(--f-card-box-shadow, 0 2px 8px rgb(0 0 0 / 20%));
+  position: absolute;
+  z-index: 60;
+  margin-top: 0.25rem;
+  max-height: 24rem;
+  width: 100%;
+  overflow: auto;
+  border: 1px solid var(--fkds-color-border-primary);
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-background-primary);
+  box-shadow: var(--f-card-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.2));
 }
 
 .search-results__heading {
-    padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid var(--fkds-color-border-weak);
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--fkds-color-text-secondary);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--fkds-color-border-weak);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--fkds-color-text-secondary);
 }
 
 .search-results__state {
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
-    color: var(--fkds-color-text-secondary);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .search-results__list {
-    list-style: none;
-    margin: 0;
-    padding: 0.25rem 0;
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
 }
 
 .search-results__item {
-    position: relative;
-
-    &:hover,
-    &--active {
-        background-color: var(--fkds-color-background-secondary);
-    }
+  position: relative;
+}
+.search-results__item:hover, .search-results__item--active {
+  background-color: var(--fkds-color-background-secondary);
 }
 
-// The whole row is one link: the anchor fills the item so every part of it
-// (title, snippet, URL) is clickable, and inherits text colors instead of
-// the global anchor look. `text-decoration: none` also beats the site-wide
-// underline rules that the felix theme layers on plain anchors.
+/* The whole row is one link: the anchor fills the item so every part of it
+   (title, snippet, URL) is clickable, and inherits text colors instead of
+   the global anchor look. `text-decoration: none` also beats the site-wide
+   underline rules that the felix theme layers on plain anchors. */
 a.search-results__item-body {
-    display: block;
-    padding: 0.5rem 0.75rem;
-    color: inherit;
-    text-decoration: none;
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: inherit;
+  text-decoration: none;
+}
+a.search-results__item-body:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .search-results__item-title {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--fkds-color-text-primary);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--fkds-color-text-primary);
 }
 
 .search-results__item-snippet {
-    display: -webkit-box;
-    margin-top: 0.25rem;
-    font-size: 0.75rem;
-    color: var(--fkds-color-text-secondary);
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  display: -webkit-box;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--fkds-color-text-secondary);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .search-results__item-url {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.75rem;
-    color: var(--fkds-color-text-secondary);
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .search-results__footer {
-    padding: 0.5rem 0.75rem;
-    border-top: 1px solid var(--fkds-color-border-weak);
-    text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--fkds-color-border-weak);
+  text-align: center;
 }
 
 .search-results__all {
-    padding: 0;
-    border: none;
-    background: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--fkds-color-text-primary);
-    text-decoration: underline;
-    cursor: pointer;
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--fkds-color-text-primary);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.search-results__all:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 :deep(mark) {
-    padding: 0 0.0625em;
-    border-radius: 0.125em;
-    background-color: var(--fkds-color-feedback-background-info);
-    color: var(--fkds-color-text-primary);
+  padding: 0 0.0625em;
+  border-radius: 0.125em;
+  background-color: var(--fkds-color-feedback-background-info);
+  color: var(--fkds-color-text-primary);
 }
+
 </style>

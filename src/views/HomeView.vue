@@ -39,35 +39,34 @@ import ServiceCard from '@/components/display/ServiceCard.vue'
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .home__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .home__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .home__cards {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .home__card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-
-    &:focus-visible {
-        outline: none;
-    }
-
-    &:focus-visible :deep(.card) {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
 }
+.home__card-link:focus-visible {
+  outline: none;
+}
+.home__card-link:focus-visible :deep(.card) {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+
 </style>

@@ -56,51 +56,52 @@ const dismiss = () => {
     </f-message-box>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 /* Floating per-page note. Sits above the decorative watermark (z-index
    10000) so the opaque message-box background keeps the text readable. */
 .component-note {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 10001;
-    max-width: min(20rem, calc(100vw - 2rem));
-    /* Doubled text grows the note into the demo notice banner at the top of
-       the viewport; cap the height and scroll the note internally instead. */
-    max-height: 40vh;
-    overflow-y: auto;
-    border-radius: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 10001;
+  max-width: min(20rem, 100vw - 2rem);
+  /* Doubled text grows the note into the demo notice banner at the top of
+     the viewport; cap the height and scroll the note internally instead. */
+  max-height: 40vh;
+  overflow-y: auto;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .component-note__body {
-    position: relative;
+  position: relative;
 }
 
 .component-note__heading {
-    margin: 0 0 0.5rem;
-    /* Keep the first lines clear of the dismiss button docked top-right. */
-    padding-right: 6rem;
+  margin: 0 0 0.5rem;
+  /* Keep the first lines clear of the dismiss button docked top-right. */
+  padding-right: 6rem;
 }
 
 /* Long lists (the booking form uses 15 components) stay inside the note. */
 .component-note__list {
-    margin: 0;
-    padding-left: 1.25rem;
-    font-size: 0.875rem;
-    max-height: 40vh;
-    overflow-y: auto;
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  max-height: 40vh;
+  overflow-y: auto;
 }
 
 .component-note__title {
-    padding-left: 0.5rem;
-    font-weight: 600;
-    color: var(--fkds-color-text-secondary);
+  padding-left: 0.5rem;
+  font-weight: 600;
+  color: var(--fkds-color-text-secondary);
 }
 
 .component-note__dismiss {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
+
 </style>

@@ -58,45 +58,46 @@ import { omOssSectionLinks } from '@/data/omOssSection'
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .jobba__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .jobba__intro {
-    margin: 0 0 2rem;
+  margin: 0 0 2rem;
 }
 
 .jobba__columns {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .jobba__panel {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
 }
 
 .jobba__panel--why {
-    background-color: var(--fkds-color-feedback-background-info);
+  background-color: var(--fkds-color-feedback-background-info);
 }
 
 .jobba__panel--jobs {
-    background-color: var(--fkds-color-feedback-background-positive);
+  background-color: var(--fkds-color-feedback-background-positive);
 }
 
 .jobba__panel-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .jobba__panel-text {
-    margin: 0 0 0.75rem;
+  margin: 0 0 0.75rem;
 }
 
 .jobba__cta {
-    text-align: center;
+  text-align: center;
 }
+
 </style>

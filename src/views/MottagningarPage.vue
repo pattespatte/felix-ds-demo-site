@@ -365,99 +365,99 @@ const onConfirmSend = () => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .mott__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .mott__alert {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .mott__success {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .mott__intro {
-    margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .mott__cards {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .mott__clinic-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .mott__meta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .mott__meta-value {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .mott__meta-line {
-    color: var(--fkds-color-text-secondary);
+  color: var(--fkds-color-text-secondary);
 }
 
 .mott__meta-label {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .mott__book {
-    margin-top: 0.5rem;
-    align-self: flex-start;
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
 .mott__heading {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .mott__table-note {
-    margin: 0 0 1rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0 0 1rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .mott__contacts {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .mott__contact-details {
-    margin: 0 0 0.5rem;
-    font-size: 0.875rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
 }
 
 .mott__contact-hours {
-    margin: 0;
-    font-size: 0.875rem;
+  margin: 0;
+  font-size: 0.875rem;
 }
 
 .mott__modal-notice {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-feedback-background-info);
-    padding: 1rem;
-    margin-bottom: 1rem;
-
-    p {
-        margin: 0;
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-feedback-background-info);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.mott__modal-notice p {
+  margin: 0;
 }
 
 .mott__modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }
+
 </style>

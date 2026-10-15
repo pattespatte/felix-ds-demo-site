@@ -154,80 +154,77 @@ const toggle = (title: string) => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .formaner__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .formaner__intro {
-    margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .formaner__columns {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .formaner__panel {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-
-    &--info {
-        background-color: var(--fkds-color-feedback-background-info);
-    }
-
-    &--positive {
-        background-color: var(--fkds-color-feedback-background-positive);
-    }
-
-    &--warning {
-        background-color: var(--fkds-color-feedback-background-warning);
-    }
-
-    &--neutral {
-        background-color: var(--fkds-color-feedback-background-neutral);
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+}
+.formaner__panel--info {
+  background-color: var(--fkds-color-feedback-background-info);
+}
+.formaner__panel--positive {
+  background-color: var(--fkds-color-feedback-background-positive);
+}
+.formaner__panel--warning {
+  background-color: var(--fkds-color-feedback-background-warning);
+}
+.formaner__panel--neutral {
+  background-color: var(--fkds-color-feedback-background-neutral);
 }
 
 .formaner__panel-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .formaner__other {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    background-color: var(--fkds-color-background-secondary);
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--fkds-color-background-secondary);
 }
 
 .formaner__other-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .formaner__handbook {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-    background-color: var(--fkds-color-feedback-background-info);
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+  background-color: var(--fkds-color-feedback-background-info);
 }
 
 .formaner__handbook-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .formaner__handbook-text {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .formaner__handbook-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
+
 </style>

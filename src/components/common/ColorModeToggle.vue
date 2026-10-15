@@ -21,32 +21,33 @@ const label = computed(() => (isDark.value ? 'Växla till ljust läge' : 'Växla
     </button>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .color-mode-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    border: 1px solid currentColor;
-    border-radius: 50%;
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
 }
 
 .color-mode-toggle:hover {
-    background: var(--fkds-color-background-secondary);
+  background: var(--fkds-color-background-secondary);
 }
 
 .color-mode-toggle:focus-visible {
-    outline: none;
-    box-shadow: var(--f-focus-box-shadow);
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .color-mode-toggle__icon {
-    width: 1.25rem;
-    height: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
+
 </style>

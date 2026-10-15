@@ -24,9 +24,10 @@ withDefaults(defineProps<Props>(), {})
     </f-card>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .app-card {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 }
+
 </style>

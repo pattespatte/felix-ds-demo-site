@@ -153,132 +153,128 @@ const testimonials = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .karriar__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .karriar__intro {
-    margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .karriar__ladder {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-
-    &--physician {
-        background-color: var(--fkds-color-feedback-background-info);
-    }
-
-    &--nurse {
-        background-color: var(--fkds-color-feedback-background-positive);
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.karriar__ladder--physician {
+  background-color: var(--fkds-color-feedback-background-info);
+}
+.karriar__ladder--nurse {
+  background-color: var(--fkds-color-feedback-background-positive);
 }
 
 .karriar__ladder-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .karriar__steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    counter-reset: karriar-step;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: karriar-step;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-// Numbered step: the counter badge sits in flow beside the text so it can
-// never collide with the surrounding card the way an absolutely positioned
-// badge did.
+/* Numbered step: the counter badge sits in flow beside the text so it can
+   never collide with the surrounding card the way an absolutely positioned
+   badge did. */
 .karriar__step {
-    counter-increment: karriar-step;
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-
-    &::before {
-        content: counter(karriar-step);
-        flex-shrink: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 1.75rem;
-        height: 1.75rem;
-        margin-top: 0.125rem;
-        border-radius: 50%;
-        background-color: var(--fkds-color-action-background-primary-default);
-        color: var(--fkds-color-action-text-inverted-default);
-        font-size: 0.875rem;
-        font-weight: 600;
-    }
+  counter-increment: karriar-step;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.karriar__step::before {
+  content: counter(karriar-step);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: 0.125rem;
+  border-radius: 50%;
+  background-color: var(--fkds-color-action-background-primary-default);
+  color: var(--fkds-color-action-text-inverted-default);
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .karriar__step-body {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .karriar__step-title {
-    margin: 0 0 0.25rem;
-    font-weight: 600;
+  margin: 0 0 0.25rem;
+  font-weight: 600;
 }
 
 .karriar__step-description {
-    margin: 0;
+  margin: 0;
 }
 
 .karriar__columns {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .karriar__panel {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-
-    &--competence {
-        background-color: var(--fkds-color-feedback-background-warning);
-    }
-
-    &--leadership {
-        background-color: var(--fkds-color-feedback-background-neutral);
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+}
+.karriar__panel--competence {
+  background-color: var(--fkds-color-feedback-background-warning);
+}
+.karriar__panel--leadership {
+  background-color: var(--fkds-color-feedback-background-neutral);
 }
 
 .karriar__panel-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .karriar__stories {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    background-color: var(--fkds-color-background-secondary);
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--fkds-color-background-secondary);
 }
 
 .karriar__stories-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .karriar__story-quote {
-    margin: 0;
-    font-style: italic;
+  margin: 0;
+  font-style: italic;
 }
 
 .karriar__actions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
+
 </style>

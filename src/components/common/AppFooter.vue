@@ -170,225 +170,218 @@ const formatPhoneLink = (phone: string): string => {
     </footer>
 </template>
 
-<style scoped lang="scss">
-// Dark navy footer on the theme's primary action surface (near-identical to
-// the reference navy). Text and links use the inverted tokens, so the footer
-// keeps its dark look in both color modes while every value stays a token.
-//
-// Every link restates its colour on hover: the theme's `:root a:hover`
-// (0,2,1) outranks the scoped base rule (0,2,0) and would otherwise paint
-// the dark link colour on this dark surface. The scoped hover rule ties on
-// specificity and wins by load order (component styles come after the
-// entry stylesheet in dev and production alike).
+<style scoped>
+/* Dark navy footer on the theme's primary action surface (near-identical to
+   the reference navy). Text and links use the inverted tokens, so the footer
+   keeps its dark look in both color modes while every value stays a token.
+
+   Every link restates its colour on hover: the theme's `:root a:hover`
+   (0,2,1) outranks the scoped base rule (0,2,0) and would otherwise paint
+   the dark link colour on this dark surface. The scoped hover rule ties on
+   specificity and wins by load order (component styles come after the
+   entry stylesheet in dev and production alike). */
 .app-footer {
-    background-color: var(--fkds-color-action-background-primary-default);
-    color: var(--fkds-color-text-inverted);
-    margin-top: auto;
+  background-color: var(--fkds-color-action-background-primary-default);
+  color: var(--fkds-color-text-inverted);
+  margin-top: auto;
 }
 
 .app-footer__inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 1.5rem 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
 }
 
 .app-footer__grid {
-    display: grid;
-    gap: 1.5rem;
-    /* auto-fit with a rem floor lets the columns reflow (4 → 2 → 1) as text
-       or viewport grows, instead of forcing the page wider than the viewport
-       (plain 1fr tracks never shrink below their content). */
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  display: grid;
+  gap: 1.5rem;
+  /* auto-fit with a rem floor lets the columns reflow (4 → 2 → 1) as text
+     or viewport grows, instead of forcing the page wider than the viewport
+     (plain 1fr tracks never shrink below their content). */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
 }
 
 .app-footer__heading {
-    margin: 0 0 0.75rem;
-    font-size: 1rem;
-    font-weight: 600;
-
-    &--right {
-        @media (min-width: 64rem) {
-            text-align: right;
-        }
-    }
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+@media (min-width: 64rem) {
+  .app-footer__heading--right {
+    text-align: right;
+  }
 }
 
 .app-footer__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    @media (min-width: 64rem) {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem 1rem;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 64rem) {
+  .app-footer__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+  }
 }
 
 .app-footer__nav-link {
-    font-size: 0.875rem;
-    text-decoration: none;
-    color: var(--fkds-color-text-inverted);
-
-    &:hover {
-        color: var(--fkds-color-text-inverted);
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: var(--fkds-color-text-inverted);
+}
+.app-footer__nav-link:hover {
+  color: var(--fkds-color-text-inverted);
+  text-decoration: underline;
+}
+.app-footer__nav-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-footer__address {
-    font-style: normal;
-    margin: 0;
+  font-style: normal;
+  margin: 0;
 }
 
 .app-footer__contact-row {
-    margin: 0 0 0.5rem;
-    font-size: 0.875rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
 }
 
 .app-footer__contact-link {
-    color: var(--fkds-color-text-inverted);
-
-    &:hover {
-        color: var(--fkds-color-text-inverted);
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  color: var(--fkds-color-text-inverted);
+}
+.app-footer__contact-link:hover {
+  color: var(--fkds-color-text-inverted);
+  text-decoration: underline;
+}
+.app-footer__contact-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-footer__hours-title {
-    margin: 0 0 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .app-footer__hours {
-    margin: 0;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.25rem 1rem;
-    font-size: 0.875rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  font-size: 0.875rem;
 }
 
 .app-footer__hours-day {
-    margin: 0;
+  margin: 0;
 }
 
 .app-footer__hours-time {
-    margin: 0;
-    text-align: right;
+  margin: 0;
+  text-align: right;
 }
 
 .app-footer__social {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    @media (min-width: 64rem) {
-        justify-content: flex-end;
-    }
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+@media (min-width: 64rem) {
+  .app-footer__social {
+    justify-content: flex-end;
+  }
 }
 
 .app-footer__social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 2rem;
-    padding: 0.25rem 0.5rem;
-    /* capsule: any radius above half the height collapses to a pill, in em so it follows text scaling */
-    border-radius: 999em;
-    border: 1px solid var(--fkds-color-border-inverted);
-    font-size: 0.75rem;
-    text-decoration: none;
-    color: var(--fkds-color-text-inverted);
-
-    &:hover {
-        color: var(--fkds-color-text-inverted);
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  padding: 0.25rem 0.5rem;
+  /* capsule: any radius above half the height collapses to a pill, in em so it follows text scaling */
+  border-radius: 999em;
+  border: 1px solid var(--fkds-color-border-inverted);
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--fkds-color-text-inverted);
+}
+.app-footer__social-link:hover {
+  color: var(--fkds-color-text-inverted);
+  text-decoration: underline;
+}
+.app-footer__social-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-footer__bottom {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--fkds-color-border-inverted);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-
-    @media (min-width: 48rem) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--fkds-color-border-inverted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+@media (min-width: 48rem) {
+  .app-footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .app-footer__copyright {
-    font-size: 0.75rem;
-    color: var(--fkds-color-text-inverted);
+  font-size: 0.75rem;
+  color: var(--fkds-color-text-inverted);
 }
 
 /* Discrete centre slot in the bottom bar: points visitors to the design
    system under test. Same restated-colour pattern as the links above. */
 .app-footer__ds-note {
-    margin: 0;
-    font-size: 0.75rem;
-    text-align: center;
-    color: var(--fkds-color-text-inverted);
+  margin: 0;
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--fkds-color-text-inverted);
 }
 
 .app-footer__ds-link {
-    color: var(--fkds-color-text-inverted);
-    text-decoration: underline;
-
-    &:hover {
-        color: var(--fkds-color-text-inverted);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  color: var(--fkds-color-text-inverted);
+  text-decoration: underline;
+}
+.app-footer__ds-link:hover {
+  color: var(--fkds-color-text-inverted);
+}
+.app-footer__ds-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-footer__legal {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .app-footer__legal-link {
-    font-size: 0.75rem;
-    color: var(--fkds-color-text-inverted);
-    text-decoration: none;
-
-    &:hover {
-        color: var(--fkds-color-text-inverted);
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  font-size: 0.75rem;
+  color: var(--fkds-color-text-inverted);
+  text-decoration: none;
 }
+.app-footer__legal-link:hover {
+  color: var(--fkds-color-text-inverted);
+  text-decoration: underline;
+}
+.app-footer__legal-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+
 </style>

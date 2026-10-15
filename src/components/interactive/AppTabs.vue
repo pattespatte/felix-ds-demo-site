@@ -112,47 +112,44 @@ const onKeydown = (event: KeyboardEvent) => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .app-tabs__list {
-    display: flex;
-    gap: 0;
-    border-bottom: 1px solid var(--fkds-color-border-primary);
-    overflow-x: auto;
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--fkds-color-border-primary);
+  overflow-x: auto;
 }
 
 .app-tabs__tab {
-    padding: 0.75rem 1rem;
-    border: none;
-    border-bottom: 3px solid transparent;
-    background: transparent;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--fkds-color-text-secondary);
-    cursor: pointer;
-    white-space: nowrap;
-
-    &:hover {
-        color: var(--fkds-color-text-primary);
-        border-bottom-color: var(--fkds-color-border-strong);
-    }
-
-    &--active {
-        color: var(--fkds-color-action-text-primary-default);
-        border-bottom-color: var(--fkds-color-action-border-primary-default);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  padding: 0.75rem 1rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--fkds-color-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.app-tabs__tab:hover {
+  color: var(--fkds-color-text-primary);
+  border-bottom-color: var(--fkds-color-border-strong);
+}
+.app-tabs__tab--active {
+  color: var(--fkds-color-action-text-primary-default);
+  border-bottom-color: var(--fkds-color-action-border-primary-default);
+}
+.app-tabs__tab:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-tabs__panel {
-    padding-top: 1.5rem;
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  padding-top: 1.5rem;
 }
+.app-tabs__panel:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+
 </style>

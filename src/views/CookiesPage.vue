@@ -237,32 +237,33 @@ const contactDetails = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .ck__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .ck__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .ck__section {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .ck__paragraph {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .ck__note {
-    margin: 1rem 0 0;
+  margin: 1rem 0 0;
 }
 
 .ck__updated {
-    margin: 1rem 0 0;
-    color: var(--fkds-color-text-secondary);
+  margin: 1rem 0 0;
+  color: var(--fkds-color-text-secondary);
 }
+
 </style>

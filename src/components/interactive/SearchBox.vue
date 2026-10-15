@@ -172,122 +172,117 @@ defineExpose({
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .search-box {
-    position: relative;
+  position: relative;
 }
 
 /* flex-basis instead of a fixed width: the header box targets 21rem but may
    shrink when doubled text leaves the brand row too little room. */
 .search-box--medium {
-    flex: 0 1 21rem;
-    min-width: 0;
+  flex: 0 1 21rem;
+  min-width: 0;
 }
 
 .search-box--large {
-    width: 100%;
+  width: 100%;
 }
 
 .search-box--small {
-    width: 15rem;
+  width: 15rem;
 }
 
 .search-box__field :deep(.text-field) {
-    width: 100%;
-    // FKUI spaces stacked form fields with a 24px bottom margin; inside the
-    // header composite it is dead weight below the field that made the tools
-    // row center the box instead of the visible field, so the field rode
-    // high against the logo and the color-mode toggle.
-    margin-bottom: 0;
+  width: 100%;
+  /* FKUI spaces stacked form fields with a 24px bottom margin; inside the
+     header composite it is dead weight below the field that made the tools
+     row center the box instead of the visible field, so the field rode
+     high against the logo and the color-mode toggle. */
+  margin-bottom: 0;
 }
 
-// Header variant: the label stays in the accessibility tree but not in the
-// tight header band.
+/* Header variant: the label stays in the accessibility tree but not in the
+   tight header band. */
 .search-box__field--hide-label :deep(label.label) {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    white-space: nowrap;
-    padding: 0;
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  padding: 0;
+  border: 0;
 }
 
-// The field container: one white rounded surface holding magnifier, input,
-// clear button and the Sök button – the reference look. Tokens only, so the
-// surface flips with the color mode.
+/* The field container: one white rounded surface holding magnifier, input,
+   clear button and the Sök button – the reference look. Tokens only, so the
+   surface flips with the color mode. */
 .search-box__field :deep(.text-field__input-wrapper) {
-    align-items: center;
-    background-color: var(--fkds-color-background-primary);
-    border: 1px solid var(--fkds-color-border-primary);
-    border-radius: 0.5rem;
-    padding: 0.25rem;
-
-    &:focus-within {
-        border-color: var(--fkds-color-action-border-primary-default);
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  align-items: center;
+  background-color: var(--fkds-color-background-primary);
+  border: 1px solid var(--fkds-color-border-primary);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+.search-box__field :deep(.text-field__input-wrapper):focus-within {
+  border-color: var(--fkds-color-action-border-primary-default);
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .search-box__field :deep(.text-field__icon-wrapper) {
-    flex: 1 1 auto;
-    min-width: 0;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .search-box__field :deep(.text-field__input) {
-    border: none;
-    background: transparent;
-    border-radius: 0.375rem;
-    height: auto;
-    padding-block: 0.5rem;
-    padding-right: 2.5rem;
-    font-size: 1rem;
-
-    &:focus {
-        outline: none;
-        box-shadow: none;
-    }
-
-    &::placeholder {
-        color: var(--fkds-color-text-secondary);
-        opacity: 1;
-    }
+  border: none;
+  background: transparent;
+  border-radius: 0.375rem;
+  height: auto;
+  padding-block: 0.5rem;
+  padding-right: 2.5rem;
+  font-size: 1rem;
+}
+.search-box__field :deep(.text-field__input):focus {
+  outline: none;
+  box-shadow: none;
+}
+.search-box__field :deep(.text-field__input)::placeholder {
+  color: var(--fkds-color-text-secondary);
+  opacity: 1;
 }
 
 .search-box__magnifier {
-    flex-shrink: 0;
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-left: 0.75rem;
-    color: var(--fkds-color-text-secondary);
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.75rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .search-box__submit {
-    flex-shrink: 0;
-    border: none;
-    border-radius: 0.375rem;
-    padding: 0.5rem 1.25rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    background-color: var(--fkds-color-action-background-primary-default);
-    color: var(--fkds-color-action-text-inverted-default);
-    cursor: pointer;
-
-    // Always navy like the reference; an empty query simply does nothing.
-    &:hover {
-        background-color: var(--fkds-color-action-background-primary-hover);
-    }
-
-    &:active {
-        background-color: var(--fkds-color-action-background-primary-active);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  flex-shrink: 0;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  background-color: var(--fkds-color-action-background-primary-default);
+  color: var(--fkds-color-action-text-inverted-default);
+  cursor: pointer;
+  /* Always navy like the reference; an empty query simply does nothing. */
 }
+.search-box__submit:hover {
+  background-color: var(--fkds-color-action-background-primary-hover);
+}
+.search-box__submit:active {
+  background-color: var(--fkds-color-action-background-primary-active);
+}
+.search-box__submit:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+
 </style>

@@ -145,62 +145,61 @@ const selfCareAdvice = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .guide__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .guide__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .guide__section {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .guide__conditions {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .guide__paragraph {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .guide__seek-care-label {
-    margin: 0 0 0.5rem;
-    font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
 }
 
 .guide__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.5rem 1rem;
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-action-background-primary-default);
-    color: var(--fkds-color-action-text-inverted-default);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-
-    // Restate the colour on hover: the theme's `:root a:hover` outranks the
-    // base rule and would paint the dark link colour on this dark fill.
-    &:hover {
-        color: var(--fkds-color-action-text-inverted-default);
-        background-color: var(--fkds-color-action-background-primary-hover);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-action-background-primary-default);
+  color: var(--fkds-color-action-text-inverted-default);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  /* Restate the colour on hover: the theme's `:root a:hover` outranks the
+     base rule and would paint the dark link colour on this dark fill. */
+}
+.guide__link:hover {
+  color: var(--fkds-color-action-text-inverted-default);
+  background-color: var(--fkds-color-action-background-primary-hover);
+}
+.guide__link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .guide__link-icon {
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 }
+
 </style>

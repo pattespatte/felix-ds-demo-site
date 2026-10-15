@@ -75,66 +75,63 @@ import ListItem from '@/components/display/ListItem.vue'
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .boka__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .boka__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .boka__cards {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-// The source used colored action buttons per card; FKUI buttons are themed,
-// so the actions render as theme buttons with the alert variant standing in
-// for the red phone action.
+/* The source used colored action buttons per card; FKUI buttons are themed,
+   so the actions render as theme buttons with the alert variant standing in
+   for the red phone action. */
 .boka__action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    align-self: flex-start;
-    margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    background-color: var(--fkds-color-action-background-primary-default);
-    color: var(--fkds-color-action-text-inverted-default);
-
-    // Restate the colour on hover: the theme's `:root a:hover` outranks the
-    // base rule and would paint the dark link colour on this dark fill.
-    &:hover {
-        color: var(--fkds-color-action-text-inverted-default);
-        background-color: var(--fkds-color-action-background-primary-hover);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
-
-    &--alert {
-        background-color: var(--fkds-color-feedback-background-negative-strong);
-        color: var(--fkds-color-text-inverted, #ffffff);
-
-        &:hover {
-            color: var(--fkds-color-text-inverted, #ffffff);
-            background-color: var(--fkds-color-feedback-background-negative-strong);
-            filter: brightness(1.1);
-        }
-    }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background-color: var(--fkds-color-action-background-primary-default);
+  color: var(--fkds-color-action-text-inverted-default);
+  /* Restate the colour on hover: the theme's `:root a:hover` outranks the
+     base rule and would paint the dark link colour on this dark fill. */
+}
+.boka__action:hover {
+  color: var(--fkds-color-action-text-inverted-default);
+  background-color: var(--fkds-color-action-background-primary-hover);
+}
+.boka__action:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+.boka__action--alert {
+  background-color: var(--fkds-color-feedback-background-negative-strong);
+  color: var(--fkds-color-text-inverted, #ffffff);
+}
+.boka__action--alert:hover {
+  color: var(--fkds-color-text-inverted, #ffffff);
+  background-color: var(--fkds-color-feedback-background-negative-strong);
+  filter: brightness(1.1);
 }
 
 .boka__info {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
+
 </style>

@@ -19,14 +19,15 @@ import AppBreadcrumbs from './components/common/AppBreadcrumbs.vue'
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .app-shell {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-shell__main {
-    flex: 1;
+  flex: 1;
 }
+
 </style>

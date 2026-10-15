@@ -120,126 +120,123 @@ const navigateToPage = (path: string) => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .nf__narrow {
-    text-align: center;
+  text-align: center;
 }
 
 .nf__header {
-    margin: 2.5rem 0 2rem;
+  margin: 2.5rem 0 2rem;
 }
 
 .nf__icon {
-    width: 5rem;
-    height: 5rem;
-    margin-bottom: 1.5rem;
-    color: var(--fkds-color-action-text-primary-default);
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1.5rem;
+  color: var(--fkds-color-action-text-primary-default);
 }
 
 .nf__title {
-    margin: 0 0 1rem;
-    font-size: 2.25rem;
-    font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 2.25rem;
+  font-weight: 600;
 }
 
 .nf__subtitle {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
 }
 
 .nf__text {
-    margin: 0 auto;
-    max-width: 42rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0 auto;
+  max-width: 42rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .nf__search {
-    margin: 0 auto 2rem;
-    text-align: left;
+  margin: 0 auto 2rem;
+  text-align: left;
 }
 
 .nf__home {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .nf__popular {
-    text-align: left;
+  text-align: left;
 }
 
 .nf__popular-title {
-    margin: 0 0 1.5rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .nf__page {
-    display: block;
-    border: 1px solid var(--fkds-color-border-primary);
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1rem;
-    text-decoration: none;
-    color: inherit;
-
-    &:hover {
-        border-color: var(--fkds-color-action-border-primary-hover);
-        box-shadow: var(--f-card-box-shadow, 0 2px 8px rgb(0 0 0 / 20%));
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: block;
+  border: 1px solid var(--fkds-color-border-primary);
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+.nf__page:hover {
+  border-color: var(--fkds-color-action-border-primary-hover);
+  box-shadow: var(--f-card-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.2));
+}
+.nf__page:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .nf__page-name {
-    margin: 0 0 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--fkds-color-action-text-primary-default);
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fkds-color-action-text-primary-default);
 }
 
 .nf__page-description {
-    margin: 0;
-    font-size: 0.875rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .nf__help {
-    margin-top: 2.5rem;
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    background-color: var(--fkds-color-feedback-background-info);
-    padding: 1.5rem;
+  margin-top: 2.5rem;
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  background-color: var(--fkds-color-feedback-background-info);
+  padding: 1.5rem;
 }
 
 .nf__help-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .nf__help-text {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .nf__help-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .nf__help-link {
-    font-weight: 600;
-    color: var(--fkds-color-action-text-primary-default);
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  font-weight: 600;
+  color: var(--fkds-color-action-text-primary-default);
 }
+.nf__help-link:hover {
+  text-decoration: underline;
+}
+.nf__help-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+
 </style>

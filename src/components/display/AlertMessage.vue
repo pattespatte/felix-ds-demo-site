@@ -53,28 +53,27 @@ const dismiss = () => {
     </f-message-box>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .alert-message {
-    display: block;
+  display: block;
 }
 
 .alert-message__body {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .alert-message__content {
-    flex: 1;
+  flex: 1;
 }
 
-.alert-message__text {
-    p {
-        margin: 0;
-    }
+.alert-message__text p {
+  margin: 0;
 }
 
 .alert-message__dismiss {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
+
 </style>

@@ -148,155 +148,142 @@ const accordionId = (groupIndex: number, itemIndex: number) => `${groupIndex}-${
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .content-page__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .content-page__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .content-page__notice {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    border: 2px solid var(--fkds-color-feedback-border-info);
-    background-color: var(--fkds-color-feedback-background-info);
-    padding: 1rem;
-    margin-bottom: 2rem;
-
-    p {
-        margin: 0;
-        font-size: 0.875rem;
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  border: 2px solid var(--fkds-color-feedback-border-info);
+  background-color: var(--fkds-color-feedback-background-info);
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.content-page__notice p {
+  margin: 0;
+  font-size: 0.875rem;
 }
 
 .content-page__stats {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .content-page__faq {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .content-page__section {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .content-page__paragraph {
-    margin: 0 0 1rem;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
+  margin: 0 0 1rem;
+}
+.content-page__paragraph:last-child {
+  margin-bottom: 0;
 }
 
-// Markdown-rendered section body (v-html). Paragraph spacing mirrors
-// .content-page__paragraph; bullet lists mirror the global .stack-list look
-// (no markers, stacked with gap). Ordered lists keep their numbers so CMS
-// numbered lists degrade sanely.
-.content-page__body {
-    :deep(p) {
-        margin: 0 0 1rem;
-    }
-
-    :deep(ul) {
-        list-style: none;
-        margin: 0 0 1rem;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    :deep(ol) {
-        margin: 0 0 1rem;
-        padding-left: 1.5rem;
-    }
-
-    > :deep(:last-child) {
-        margin-bottom: 0;
-    }
+/* Markdown-rendered section body (v-html). Paragraph spacing mirrors
+   .content-page__paragraph; bullet lists mirror the global .stack-list look
+   (no markers, stacked with gap). Ordered lists keep their numbers so CMS
+   numbered lists degrade sanely. */
+.content-page__body :deep(p) {
+  margin: 0 0 1rem;
+}
+.content-page__body :deep(ul) {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.content-page__body :deep(ol) {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+.content-page__body > :deep(:last-child) {
+  margin-bottom: 0;
 }
 
 .content-page__routes {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .content-page__route {
-    border: 1px solid var(--fkds-color-border-primary);
-    border-left-width: 4px;
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    padding: 1rem;
-
-    h3 {
-        margin: 0 0 0.5rem;
-        font-size: 1.125rem;
-        font-weight: 600;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    &--clinic {
-        border-left-color: var(--fkds-color-action-border-primary-default);
-    }
-
-    &--guide {
-        border-left-color: var(--fkds-color-feedback-border-positive, currentColor);
-    }
-
-    &--acute {
-        border-left-color: var(--fkds-color-feedback-border-negative, currentColor);
-    }
+  border: 1px solid var(--fkds-color-border-primary);
+  border-left-width: 4px;
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  padding: 1rem;
+}
+.content-page__route h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.content-page__route p {
+  margin: 0;
+}
+.content-page__route--clinic {
+  border-left-color: var(--fkds-color-action-border-primary-default);
+}
+.content-page__route--guide {
+  border-left-color: var(--fkds-color-feedback-border-positive, currentColor);
+}
+.content-page__route--acute {
+  border-left-color: var(--fkds-color-feedback-border-negative, currentColor);
 }
 
 .content-page__grid-intro {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .content-page__grid-section {
-    border-left: 4px solid var(--fkds-color-action-border-primary-default);
-    padding-left: 1rem;
+  border-left: 4px solid var(--fkds-color-action-border-primary-default);
+  padding-left: 1rem;
 }
 
 .content-page__grid-section-title {
-    margin: 0 0 0.5rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .content-page__grid-section-text {
-    margin: 0;
-    color: var(--fkds-color-text-secondary);
+  margin: 0;
+  color: var(--fkds-color-text-secondary);
 }
 
 .content-page__cta {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .content-page__updated {
-    margin: 1rem 0 0;
-    color: var(--fkds-color-text-secondary);
+  margin: 1rem 0 0;
+  color: var(--fkds-color-text-secondary);
 }
 
-// Content links are rendered with v-html, so scoped styles need :deep().
+/* Content links are rendered with v-html, so scoped styles need :deep(). */
 .content-page :deep(a) {
-    color: var(--fkds-color-action-text-primary-default);
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  color: var(--fkds-color-action-text-primary-default);
 }
+.content-page :deep(a):hover {
+  text-decoration: underline;
+}
+.content-page :deep(a):focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+
 </style>

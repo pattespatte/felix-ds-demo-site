@@ -109,58 +109,56 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
     </nav>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .app-breadcrumbs {
-    // Same light blue band as the main navigation row above – together they
-    // form one navigation surface, like the reference design.
-    background-color: var(--fkds-color-feedback-background-info);
-    border-bottom: 1px solid var(--fkds-color-border-primary);
-    padding: 0.5rem 1rem;
-
-    // The 404 route has no trail beyond Start; hide the band there.
-    &:has(.app-breadcrumbs__current:only-child) {
-        display: none;
-    }
+  /* Same light blue band as the main navigation row above – together they
+     form one navigation surface, like the reference design. */
+  background-color: var(--fkds-color-feedback-background-info);
+  border-bottom: 1px solid var(--fkds-color-border-primary);
+  padding: 0.5rem 1rem;
+  /* The 404 route has no trail beyond Start; hide the band there. */
+}
+.app-breadcrumbs:has(.app-breadcrumbs__current:only-child) {
+  display: none;
 }
 
 .app-breadcrumbs__list {
-    max-width: 72rem;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    list-style: none;
-    padding: 0;
-    font-size: 0.875rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  font-size: 0.875rem;
 }
 
 .app-breadcrumbs__item {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .app-breadcrumbs__link {
-    color: var(--fkds-color-action-text-primary-default);
-    text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  color: var(--fkds-color-action-text-primary-default);
+  text-decoration: none;
+}
+.app-breadcrumbs__link:hover {
+  text-decoration: underline;
+}
+.app-breadcrumbs__link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-breadcrumbs__current {
-    color: var(--fkds-color-text-primary);
-    font-weight: 600;
+  color: var(--fkds-color-text-primary);
+  font-weight: 600;
 }
 
 .app-breadcrumbs__separator {
-    color: var(--fkds-color-text-secondary);
+  color: var(--fkds-color-text-secondary);
 }
+
 </style>

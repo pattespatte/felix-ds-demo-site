@@ -501,128 +501,125 @@ const onConfirmSend = () => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .specialist__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .specialist__alert {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .specialist__success {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .specialist__intro {
-    margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .specialist__filter {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .specialist__cards {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .specialist__clinic-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .specialist__meta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .specialist__meta-value {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .specialist__meta-line {
-    color: var(--fkds-color-text-secondary);
+  color: var(--fkds-color-text-secondary);
 }
 
 .specialist__meta-label {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .specialist__meta-specialists {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    margin-top: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
 }
 
 .specialist__apply {
-    margin-top: 0.5rem;
-    align-self: flex-start;
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
 .specialist__heading {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .specialist__table-note {
-    margin: 0 0 1rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0 0 1rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .specialist__referral-list {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .specialist__wizard-notice {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-feedback-background-info);
-    padding: 1rem;
-
-    p {
-        margin: 0;
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-feedback-background-info);
+  padding: 1rem;
+}
+.specialist__wizard-notice p {
+  margin: 0;
 }
 
 .specialist__wizard-review {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-feedback-background-positive);
-    padding: 1rem;
-
-    h3 {
-        margin: 0 0 0.5rem;
-        font-size: 1.125rem;
-    }
-
-    p {
-        margin: 0;
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-feedback-background-positive);
+  padding: 1rem;
+}
+.specialist__wizard-review h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+}
+.specialist__wizard-review p {
+  margin: 0;
 }
 
 .specialist__wizard-summary {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-background-secondary);
-    padding: 1rem;
-
-    p {
-        margin: 0;
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-background-secondary);
+  padding: 1rem;
+}
+.specialist__wizard-summary p {
+  margin: 0;
 }
 
 .specialist__wizard-actions {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .specialist__wizard-actions-right {
-    display: flex;
-    gap: 0.75rem;
+  display: flex;
+  gap: 0.75rem;
 }
+
 </style>

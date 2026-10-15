@@ -53,55 +53,51 @@ const stepStatus = (index: number): 'done' | 'current' | 'todo' => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .progress-indicator__bar {
-    display: block;
-    margin-bottom: 0.75rem;
+  display: block;
+  margin-bottom: 0.75rem;
 }
 
 .progress-indicator__steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    font-size: 0.875rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.875rem;
 }
 
 .progress-indicator__step {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    color: var(--fkds-color-text-secondary);
-
-    &::before {
-        content: '';
-        display: inline-block;
-        width: 0.625rem;
-        height: 0.625rem;
-        border-radius: 50%;
-        border: 2px solid var(--fkds-color-border-strong);
-        background-color: transparent;
-    }
-
-    &--done {
-        color: var(--fkds-color-text-primary);
-
-        &::before {
-            border-color: var(--fkds-color-feedback-border-positive, currentColor);
-            background-color: var(--fkds-color-feedback-background-positive);
-        }
-    }
-
-    &--current {
-        color: var(--fkds-color-text-primary);
-        font-weight: 600;
-
-        &::before {
-            border-color: var(--fkds-color-action-border-primary-default);
-            background-color: var(--fkds-color-action-background-primary-default);
-        }
-    }
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--fkds-color-text-secondary);
 }
+.progress-indicator__step::before {
+  content: "";
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  border: 2px solid var(--fkds-color-border-strong);
+  background-color: transparent;
+}
+.progress-indicator__step--done {
+  color: var(--fkds-color-text-primary);
+}
+.progress-indicator__step--done::before {
+  border-color: var(--fkds-color-feedback-border-positive, currentColor);
+  background-color: var(--fkds-color-feedback-background-positive);
+}
+.progress-indicator__step--current {
+  color: var(--fkds-color-text-primary);
+  font-weight: 600;
+}
+.progress-indicator__step--current::before {
+  border-color: var(--fkds-color-action-border-primary-default);
+  background-color: var(--fkds-color-action-background-primary-default);
+}
+
 </style>

@@ -131,92 +131,88 @@ const qualifications = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .lediga__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .lediga__intro {
-    margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .lediga__section {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-
-    &--accent {
-        background-color: var(--fkds-color-feedback-background-info);
-    }
-
-    &--muted {
-        background-color: var(--fkds-color-background-secondary);
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.lediga__section--accent {
+  background-color: var(--fkds-color-feedback-background-info);
+}
+.lediga__section--muted {
+  background-color: var(--fkds-color-background-secondary);
 }
 
 .lediga__section-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .lediga__job {
-    border-left: 4px solid var(--fkds-color-action-border-primary-default);
-    padding-left: 1rem;
+  border-left: 4px solid var(--fkds-color-action-border-primary-default);
+  padding-left: 1rem;
 }
 
 .lediga__job-title {
-    margin: 0 0 0.25rem;
-    font-weight: 600;
+  margin: 0 0 0.25rem;
+  font-weight: 600;
 }
 
 .lediga__job-description {
-    margin: 0;
+  margin: 0;
 }
 
 .lediga__job-deadline {
-    margin: 0.5rem 0 0;
-    font-size: 0.875rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .lediga__columns {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .lediga__panel {
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    padding: 1.5rem;
-
-    &--offer {
-        background-color: var(--fkds-color-feedback-background-positive);
-    }
-
-    &--qualifications {
-        background-color: var(--fkds-color-feedback-background-warning);
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  padding: 1.5rem;
+}
+.lediga__panel--offer {
+  background-color: var(--fkds-color-feedback-background-positive);
+}
+.lediga__panel--qualifications {
+  background-color: var(--fkds-color-feedback-background-warning);
 }
 
 .lediga__panel-title {
-    margin: 0 0 0.75rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .lediga__paragraph {
-    margin: 0 0 1rem;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
+  margin: 0 0 1rem;
+}
+.lediga__paragraph:last-child {
+  margin-bottom: 0;
 }
 
 .lediga__actions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
+
 </style>

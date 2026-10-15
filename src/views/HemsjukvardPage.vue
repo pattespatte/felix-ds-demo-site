@@ -448,139 +448,133 @@ const onConfirmSend = () => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .hem__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .hem__alert {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hem__success {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hem__filter {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hem__intro {
-    margin: 0 0 1.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .hem__cards {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .hem__service-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .hem__meta-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .hem__meta-value {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .hem__meta-line {
-    color: var(--fkds-color-text-secondary);
+  color: var(--fkds-color-text-secondary);
 }
 
 .hem__meta-label {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .hem__contact {
-    margin-top: 0.5rem;
-    align-self: flex-start;
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
 .hem__heading {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .hem__criteria {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hem__section {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hem__cost {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-background-secondary);
-    padding: 1rem;
-
-    h3 {
-        margin: 0 0 0.5rem;
-        font-size: 1.125rem;
-    }
-
-    p {
-        margin: 0 0 0.75rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-background-secondary);
+  padding: 1rem;
+}
+.hem__cost h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+}
+.hem__cost p {
+  margin: 0 0 0.75rem;
+}
+.hem__cost p:last-child {
+  margin-bottom: 0;
 }
 
 .hem__staff {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .hem__specialization {
-    margin: 0;
-    font-size: 0.875rem;
+  margin: 0;
+  font-size: 0.875rem;
 }
 
 .hem__acute {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-feedback-background-info);
-    padding: 1rem;
-
-    h3 {
-        margin: 0 0 0.5rem;
-        font-size: 1.125rem;
-    }
-
-    p {
-        margin: 0 0 0.5rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-feedback-background-info);
+  padding: 1rem;
+}
+.hem__acute h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+}
+.hem__acute p {
+  margin: 0 0 0.5rem;
+}
+.hem__acute p:last-child {
+  margin-bottom: 0;
 }
 
 .hem__modal-notice {
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background-color: var(--fkds-color-feedback-background-info);
-    padding: 1rem;
-    margin-bottom: 1rem;
-
-    p {
-        margin: 0;
-    }
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background-color: var(--fkds-color-feedback-background-info);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.hem__modal-notice p {
+  margin: 0;
 }
 
 .hem__modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.75rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }
+
 </style>

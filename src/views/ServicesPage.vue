@@ -60,19 +60,20 @@ const services = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .tjanster__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .tjanster__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .tjanster__cards {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
+
 </style>

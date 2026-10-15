@@ -639,89 +639,86 @@ onMounted(() => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .form__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .form__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .form__message {
-    display: block;
-    margin-bottom: 1.5rem;
+  display: block;
+  margin-bottom: 1.5rem;
 }
 
-.form__summary {
-    h3 {
-        margin: 1rem 0 0.25rem;
-        font-size: 1rem;
-    }
-
-    ul {
-        margin: 0 0 0.5rem;
-        padding-left: 1.25rem;
-    }
+.form__summary h3 {
+  margin: 1rem 0 0.25rem;
+  font-size: 1rem;
+}
+.form__summary ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.25rem;
 }
 
 .form__summary-close {
-    margin-top: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .form__section {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .form__section-title {
-    margin: 0 0 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .form__fieldset {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .form__fieldset--wide {
-    grid-column: 1 / -1;
+  grid-column: 1/-1;
 }
 
 .form__conditional {
-    margin-left: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .form__upload {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .form__upload-note {
-    margin: 0.5rem 0 0;
-    font-size: 0.875rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .form__remove-file {
-    padding: 0;
-    border: 0;
-    background: none;
-    font: inherit;
-    color: var(--fkds-color-action-text-primary-default);
-    text-decoration: underline;
-    cursor: pointer;
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--fkds-color-action-text-primary-default);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.form__remove-file:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .form__actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
+
 </style>

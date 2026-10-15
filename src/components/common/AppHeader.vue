@@ -244,304 +244,297 @@ const isDropdownActive = (item: NavItem) =>
     </header>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .app-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-//
-// Brand row
-//
+/* 
+   Brand row
+    */
 .app-header__brand {
-    background-color: var(--fkds-color-header-background-primary);
-    color: var(--fkds-color-header-text-primary);
-    border-bottom: 1px solid var(--fkds-color-border-weak);
+  background-color: var(--fkds-color-header-background-primary);
+  color: var(--fkds-color-header-text-primary);
+  border-bottom: 1px solid var(--fkds-color-border-weak);
 }
 
 .app-header__inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .app-header__logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .app-header__logo-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: var(--f-radius-border-radius-small, 0.375rem);
-    background-color: var(--fkds-color-action-background-primary-default);
-    color: var(--fkds-color-action-text-inverted-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--f-radius-border-radius-small, 0.375rem);
+  background-color: var(--fkds-color-action-background-primary-default);
+  color: var(--fkds-color-action-text-inverted-default);
 }
 
 .app-header__logo-mark:hover {
-    background-color: var(--fkds-color-action-background-primary-hover);
+  background-color: var(--fkds-color-action-background-primary-hover);
 }
 
 .app-header__logo-icon {
-    width: 1.75rem;
-    height: 1.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
 }
 
 .app-header__logo-text {
-    font-family: var(--fkds-typography-font-family-heading, inherit);
-    font-size: 1.25rem;
-    font-weight: 600;
+  font-family: var(--fkds-typography-font-family-heading, inherit);
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .app-header__tools {
-    display: none;
-    align-items: center;
-    gap: 1rem;
-    min-width: 0;
-
-    @media (min-width: 48rem) {
-        display: flex;
-    }
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+@media (min-width: 48rem) {
+  .app-header__tools {
+    display: flex;
+  }
 }
 
 .app-header__mode-toggle {
-    color: var(--fkds-color-header-text-primary);
+  color: var(--fkds-color-header-text-primary);
 }
 
 .app-header__menu-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    border: none;
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-    background: transparent;
-    color: var(--fkds-color-header-text-primary);
-    cursor: pointer;
-
-    @media (min-width: 48rem) {
-        display: none;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+  background: transparent;
+  color: var(--fkds-color-header-text-primary);
+  cursor: pointer;
+}
+@media (min-width: 48rem) {
+  .app-header__menu-button {
+    display: none;
+  }
+}
+.app-header__menu-button:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-header__menu-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-//
-// Nav row – light blue band under the white brand row (reference look).
-// The feedback-info token is the theme's pale blue in light mode and a dark
-// navy surface in dark mode, so text-primary keeps contrast in both.
-//
+/* 
+   Nav row – light blue band under the white brand row (reference look).
+   The feedback-info token is the theme's pale blue in light mode and a dark
+   navy surface in dark mode, so text-primary keeps contrast in both.
+    */
 .app-header__nav {
-    display: none;
-    background-color: var(--fkds-color-background-secondary);
-    border-bottom: 1px solid var(--fkds-color-border-weak);
-    color: var(--fkds-color-text-primary);
-
-    @media (min-width: 48rem) {
-        display: block;
-    }
+  display: none;
+  background-color: var(--fkds-color-background-secondary);
+  border-bottom: 1px solid var(--fkds-color-border-weak);
+  color: var(--fkds-color-text-primary);
+}
+@media (min-width: 48rem) {
+  .app-header__nav {
+    display: block;
+  }
 }
 
 .app-header__nav-list {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    gap: 1.5rem;
-    list-style: none;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1.5rem;
+  list-style: none;
 }
 
 .app-header__nav-item {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .app-header__nav-link {
-    display: block;
-    padding: 0.75rem 0.25rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: inherit;
-
-    &:hover {
-        color: var(--fkds-color-action-text-primary-default);
-        text-decoration: underline;
-    }
-
-    &--active,
-    &:is(.router-link-active) {
-        color: var(--fkds-color-action-text-primary-default);
-        text-decoration: underline;
-        text-decoration-thickness: 0.2rem;
-        text-underline-offset: 0.4rem;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: block;
+  padding: 0.75rem 0.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+}
+.app-header__nav-link:hover {
+  color: var(--fkds-color-action-text-primary-default);
+  text-decoration: underline;
+}
+.app-header__nav-link--active, .app-header__nav-link:is(.router-link-active) {
+  color: var(--fkds-color-action-text-primary-default);
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+  text-underline-offset: 0.4rem;
+}
+.app-header__nav-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-header__dropdown-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.25rem;
-    border: none;
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-
-    &:hover {
-        color: var(--fkds-color-action-text-primary-default);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.app-header__dropdown-toggle:hover {
+  color: var(--fkds-color-action-text-primary-default);
+}
+.app-header__dropdown-toggle:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-header__dropdown-icon {
-    width: 1rem;
-    height: 1rem;
-    transition: transform 200ms ease;
-
-    &--open {
-        transform: rotate(180deg);
-    }
+  width: 1rem;
+  height: 1rem;
+  transition: transform 200ms ease;
+}
+.app-header__dropdown-icon--open {
+  transform: rotate(180deg);
 }
 
-//
-// Mobile menu – same light blue band as the desktop nav row.
-//
+/* 
+   Mobile menu – same light blue band as the desktop nav row.
+    */
 .app-header__mobile {
-    background-color: var(--fkds-color-feedback-background-info);
-    color: var(--fkds-color-text-primary);
-    border-bottom: 1px solid var(--fkds-color-border-primary);
-    padding: 1rem;
-
-    @media (min-width: 48rem) {
-        display: none;
-    }
+  background-color: var(--fkds-color-feedback-background-info);
+  color: var(--fkds-color-text-primary);
+  border-bottom: 1px solid var(--fkds-color-border-primary);
+  padding: 1rem;
+}
+@media (min-width: 48rem) {
+  .app-header__mobile {
+    display: none;
+  }
 }
 
 .app-header__mobile-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .app-header__mobile-link {
-    display: block;
-    padding: 0.75rem 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: inherit;
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-
-    &:hover {
-        background-color: var(--fkds-color-background-secondary);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: block;
+  padding: 0.75rem 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+}
+.app-header__mobile-link:hover {
+  background-color: var(--fkds-color-background-secondary);
+}
+.app-header__mobile-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-header__mobile-sublist {
-    list-style: none;
-    margin: 0 0 0.5rem;
-    padding: 0 0 0 1.5rem;
-    display: flex;
-    flex-direction: column;
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-header__mobile-sublink {
-    display: block;
-    padding: 0.5rem;
-    text-decoration: none;
-    color: inherit;
-    opacity: 0.85;
-    border-radius: var(--f-radius-border-radius-small, 0.25rem);
-
-    &:hover {
-        background-color: var(--fkds-color-background-secondary);
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: block;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.85;
+  border-radius: var(--f-radius-border-radius-small, 0.25rem);
+}
+.app-header__mobile-sublink:hover {
+  background-color: var(--fkds-color-background-secondary);
+}
+.app-header__mobile-sublink:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .app-header__mobile-tools {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
+
 </style>
 
-<style lang="scss">
-// The context menu popup is teleported to <body>, outside the reach of the
-// scoped styles above. The class set on <f-context-menu> falls through to the
-// teleported .popup root element and scopes these overrides to the header's
-// menus only – other FKUI popups are untouched.
-//
-// FKUI anchors the popup to the level-one nav item and always leaves a 20px
-// gap below it (its internal POPUP_SPACING constant). Pulling the wrapper up
-// by the same amount hangs the menu flush against the nav bar's bottom edge.
+<style>
+/* The context menu popup is teleported to <body>, outside the reach of the
+   scoped styles above. The class set on <f-context-menu> falls through to the
+   teleported .popup root element and scopes these overrides to the header's
+   menus only – other FKUI popups are untouched.
+
+   FKUI anchors the popup to the level-one nav item and always leaves a 20px
+   gap below it (its internal POPUP_SPACING constant). Pulling the wrapper up
+   by the same amount hangs the menu flush against the nav bar's bottom edge. */
 .app-header__menu-popup > .popup__wrapper {
-    margin-top: -20px;
+  margin-top: -20px;
 }
 
-// Menu rows fill the popup edge-to-edge: FKUI's list padding and item margins
-// would otherwise leave white around the hover highlight and the row shading.
+/* Menu rows fill the popup edge-to-edge: FKUI's list padding and item margins
+   would otherwise leave white around the hover highlight and the row shading. */
 .app-header__menu-popup .contextmenu__list {
-    padding: 0;
+  padding: 0;
 }
 
 .app-header__menu-popup .contextmenu__list__item {
-    margin: 0;
-
-    // The theme's global anchor underline is out of place inside the menu.
-    a {
-        text-decoration: none;
-    }
+  margin: 0;
+  /* The theme's global anchor underline is out of place inside the menu. */
+}
+.app-header__menu-popup .contextmenu__list__item a {
+  text-decoration: none;
 }
 
-// Alternating row shading. Kept on the <li> so the hover highlight on the
-// inner div paints over it without a specificity fight.
+/* Alternating row shading. Kept on the <li> so the hover highlight on the
+   inner div paints over it without a specificity fight. */
 .app-header__menu-popup .contextmenu li:nth-child(odd) {
-    background-color: var(--fkds-color-header-background-primary);
+  background-color: var(--fkds-color-header-background-primary);
 }
 
 .app-header__menu-popup .contextmenu li:nth-child(even) {
-    background-color: var(--fkds-color-background-secondary);
+  background-color: var(--fkds-color-background-secondary);
 }
+
 </style>

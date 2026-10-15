@@ -44,56 +44,54 @@ const headingId = useId()
     </nav>
 </template>
 
-<style scoped lang="scss">
-// Deliberately sits 1rem below the page h1 (2.5rem top margin) so the
-// sidebar starts just under the title line.
+<style scoped>
+/* Deliberately sits 1rem below the page h1 (2.5rem top margin) so the
+   sidebar starts just under the title line. */
 .related-links {
-    margin-top: 3.5rem;
+  margin-top: 3.5rem;
 }
 
 .related-links__title {
-    margin: 0 0 1.25rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--fkds-color-text-primary);
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--fkds-color-text-primary);
 }
 
 .related-links__list {
-    margin: 0;
-    padding: 0 0 0 1.25rem;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    border-left: 2px solid var(--fkds-color-border-weak);
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-left: 2px solid var(--fkds-color-border-weak);
 }
 
 .related-links__link {
-    color: var(--fkds-color-text-secondary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-
-    &:hover,
-    &[aria-current='page'] {
-        color: var(--fkds-color-text-primary);
-    }
+  color: var(--fkds-color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.related-links__link:hover, .related-links__link[aria-current=page] {
+  color: var(--fkds-color-text-primary);
 }
 
-// Marks the current page on the list rule, like the reference context nav:
-// a bar segment in the primary border color over the weak grey rule,
-// spanning the active item. Offsets repeat the list padding (1.25rem) and
-// border (2px).
+/* Marks the current page on the list rule, like the reference context nav:
+   a bar segment in the primary border color over the weak grey rule,
+   spanning the active item. Offsets repeat the list padding (1.25rem) and
+   border (2px). */
 .related-links__item {
-    position: relative;
-
-    &--active::before {
-        content: '';
-        position: absolute;
-        left: calc(-1.25rem - 2px);
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background-color: var(--fkds-color-border-primary);
-    }
+  position: relative;
 }
+.related-links__item--active::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.25rem - 2px);
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--fkds-color-border-primary);
+}
+
 </style>

@@ -125,78 +125,79 @@ const acuteRows = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .kontakt__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .kontakt__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .kontakt__success {
-    display: block;
-    margin-bottom: 1.5rem;
+  display: block;
+  margin-bottom: 1.5rem;
 }
 
 .kontakt__columns {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .kontakt__details {
-    margin: 0;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem 0.75rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 0.75rem;
 }
 
 .kontakt__term {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .kontakt__value {
-    margin: 0;
+  margin: 0;
 }
 
 .kontakt__acute-intro {
-    margin: 0 0 0.75rem;
+  margin: 0 0 0.75rem;
 }
 
 .kontakt__section {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .kontakt__form-intro {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .kontakt__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
 .kontakt__form-actions {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .kontakt__map {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 16rem;
-    border-radius: var(--f-radius-border-radius-small, 0.5rem);
-    background-color: var(--fkds-color-background-secondary);
-    border: 1px solid var(--fkds-color-border-weak);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16rem;
+  border-radius: var(--f-radius-border-radius-small, 0.5rem);
+  background-color: var(--fkds-color-background-secondary);
+  border: 1px solid var(--fkds-color-border-weak);
 }
 
 .kontakt__map-label {
-    margin: 0;
-    font-weight: 600;
-    color: var(--fkds-color-text-secondary);
+  margin: 0;
+  font-weight: 600;
+  color: var(--fkds-color-text-secondary);
 }
+
 </style>

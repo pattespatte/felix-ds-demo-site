@@ -113,67 +113,65 @@ const infoItems = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .mina__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .mina__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .mina__login {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .mina__login-text {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .mina__login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .mina__services {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .mina__service-link {
-    display: inline-flex;
-    align-items: center;
-    align-self: flex-start;
-    margin-top: 0.5rem;
-    padding: 0;
-    border: none;
-    background: none;
-    font: inherit;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--fkds-color-action-text-primary-default);
-    cursor: pointer;
-
-    &::after {
-        content: '→';
-        margin-left: 0.25rem;
-    }
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--fkds-color-action-text-primary-default);
+  cursor: pointer;
+}
+.mina__service-link::after {
+  content: "→";
+  margin-left: 0.25rem;
+}
+.mina__service-link:hover {
+  text-decoration: underline;
+}
+.mina__service-link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
 }
 
 .mina__info {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
+
 </style>

@@ -182,31 +182,32 @@ const importantNotes = [
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .avg__title {
-    margin: 2.5rem 0 1.5rem;
-    font-size: 1.875rem;
-    font-weight: 600;
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 
 .avg__intro {
-    margin: 0 0 2rem;
-    font-size: 1.125rem;
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
 }
 
 .avg__frikort {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .avg__stats {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .avg__section {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .avg__table-intro {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
+
 </style>

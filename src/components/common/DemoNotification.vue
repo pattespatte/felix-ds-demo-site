@@ -51,72 +51,73 @@ const watermarkCount = 200
     </f-message-box>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 /* Full-page decorative watermark, tied to the banner's visibility state.
    Purely visual: aria-hidden, non-interactive and exempt from contrast rules
    (WCAG 1.4.3 pure decoration). */
 .demo-watermark {
-    position: fixed;
-    inset: 0;
-    z-index: 10000; // above FKUI's overlay layers, pointer-events keeps it inert
-    overflow: hidden;
-    pointer-events: none;
-    user-select: none;
-    opacity: 0.18;
+  position: fixed;
+  inset: 0;
+  z-index: 10000; /* above FKUI's overlay layers, pointer-events keeps it inert */
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.18;
 }
 
 /* Oversized rotated tile grid: the viewport maps onto its center band, so
    rotating cannot reveal uncovered corners. */
 .demo-watermark__grid {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 240vmax;
-    height: 240vmax;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    gap: 6vmax 5vmax;
-    transform: translate(-50%, -50%) rotate(-30deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240vmax;
+  height: 240vmax;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 6vmax 5vmax;
+  transform: translate(-50%, -50%) rotate(-30deg);
 }
 
 .demo-watermark__item {
-    font-family: "Roboto Slab", serif; // display text – the theme ships no heading-family token
-    font-size: 2.2vmax;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    white-space: nowrap;
-    color: var(--fkds-color-text-primary);
+  font-family: "Roboto Slab", serif; /* display text – the theme ships no heading-family token */
+  font-size: 2.2vmax;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  color: var(--fkds-color-text-primary);
 }
 
 .demo-notification {
-    display: block;
-    position: relative;
-    margin: 1rem;
-    /* Must stay above .demo-watermark (z-index 10000) so the opaque
-       message-box background hides the watermark strings behind the banner. */
-    z-index: 10001;
-    border-radius: 0;
-    /* Doubled text makes the notice tall enough to collide with the fixed
-       component note; cap it and let it scroll instead. */
-    max-height: 35vh;
-    overflow-y: auto;
+  display: block;
+  position: relative;
+  margin: 1rem;
+  /* Must stay above .demo-watermark (z-index 10000) so the opaque
+     message-box background hides the watermark strings behind the banner. */
+  z-index: 10001;
+  border-radius: 0;
+  /* Doubled text makes the notice tall enough to collide with the fixed
+     component note; cap it and let it scroll instead. */
+  max-height: 35vh;
+  overflow-y: auto;
 }
 
 .demo-notification__body {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .demo-notification__text {
-    flex: 1;
-    margin: 0;
+  flex: 1;
+  margin: 0;
 }
 
 .demo-notification__dismiss {
-    flex-shrink: 0;
-    white-space: nowrap;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
+
 </style>

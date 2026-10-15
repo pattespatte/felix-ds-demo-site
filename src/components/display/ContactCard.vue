@@ -72,48 +72,47 @@ const formatPhoneLink = (phone: string): string => {
     </f-card>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .contact-card {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 }
 
 .contact-card__name {
-    margin: 0;
-    font-weight: 600;
+  margin: 0;
+  font-weight: 600;
 }
 
 .contact-card__role {
-    margin: 0 0 0.75rem;
-    color: var(--fkds-color-text-secondary);
+  margin: 0 0 0.75rem;
+  color: var(--fkds-color-text-secondary);
 }
 
 .contact-card__details {
-    margin: 0;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.25rem 0.75rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.75rem;
 }
 
 .contact-card__term {
-    font-weight: 600;
-    color: var(--fkds-color-text-secondary);
+  font-weight: 600;
+  color: var(--fkds-color-text-secondary);
 }
 
 .contact-card__value {
-    margin: 0;
+  margin: 0;
 }
 
 .contact-card__link {
-    color: var(--fkds-color-action-text-primary-default);
-
-    &:hover {
-        text-decoration: underline;
-    }
-
-    &:focus-visible {
-        outline: none;
-        box-shadow: var(--f-focus-box-shadow);
-    }
+  color: var(--fkds-color-action-text-primary-default);
 }
+.contact-card__link:hover {
+  text-decoration: underline;
+}
+.contact-card__link:focus-visible {
+  outline: none;
+  box-shadow: var(--f-focus-box-shadow);
+}
+
 </style>
