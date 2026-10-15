@@ -1,33 +1,22 @@
-// Entry stylesheet: felix theme through the scoped mixin pair so the dark
-// profile can live under html[data-color-mode="dark"]. The plain global
-// entries (felix-ds/src/index, dist/felix.css) are light-only and cannot
-// support the attribute scope – see docs/create-a-site in the felix-ds repo.
-//
-// The base theme is loaded through the felix module (its `light`/`dark`
-// mixins emit the upstream default variables plus the felix overrides) –
-// loading @fkui/theme-default here as well would collide with felix's own
-// configured load of the same module.
-@use 'felix-ds/src/fonts/fonts';
-@use 'felix-ds/src/theme/default' as felix with (
-    $global: false
-);
+// Entry stylesheet. The felix theme itself is consumed as prebuilt CSS from
+// felix-ds/dist/felix.css (imported in main.ts): self-hosted fonts, light on
+// :root and dark under html[data-color-mode="dark"]. Only the app's own
+// layout SCSS and the page-layout surface override remain here – the
+// composed base theme ships inside the prebuilt file, so loading or
+// configuring @fkui/theme-default separately would be redundant (a second
+// configured load collides with felix's own).
 @use './layout';
 
-// Light is the default; the dark scope outranks :root by specificity
+// The dark scope in the prebuilt file outranks :root by specificity
 // ((0,1,1) vs (0,1,0)), so switching is instant and needs no !important.
 // Both scopes emit the complete token surface including color-scheme, so
 // native controls and scrollbars follow the active mode.
 :root {
-    @include felix.light;
-
     // Page layout surface token: upstream defines it only inside the page
     // layout's shadow parts, so standalone consumers of it would render
-    // transparent.
+    // transparent. The var() re-resolves per color mode on the html element,
+    // so one declaration covers both scopes.
     --f-page-layout-background: var(--fkds-color-background-secondary);
-}
-
-html[data-color-mode='dark'] {
-    @include felix.dark;
 }
 
 html,

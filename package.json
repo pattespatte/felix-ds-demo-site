@@ -19,7 +19,7 @@
     "@fkui/icon-lib-default": "6.59.0",
     "@fkui/logic": "6.59.0",
     "@fkui/vue": "6.59.0",
-    "felix-ds": "github:pattespatte/felix-ds#7e3cff7ad99cfbbe73a6407f52df43094979daca",
+    "felix-ds": "github:pattespatte/felix-ds#3288df1575de6cebb6d039b267e18570749b1439",
     "js-yaml": "^5.4.3",
     "markdown-it": "^15.0.2",
     "vue": "^3.5.43",
