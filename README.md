@@ -14,8 +14,8 @@ The content is carried over verbatim from the source demo site, with one excepti
 
 - Vue 3 (`<script setup lang="ts">`) + TypeScript + Vite
 - Vue Router 4 (history mode)
-- FKUI 6.57.1 (`@fkui/vue`, `@fkui/design`, `@fkui/date`, `@fkui/logic`, `@fkui/icon-lib-default`; `@fkui/theme-default` comes in transitively with felix-ds and is loaded by the felix theme layer)
-- felix-ds as a pinned git dependency (the dark-theme commit)
+- FKUI 6.59.0 (`@fkui/vue`, `@fkui/design`, `@fkui/date`, `@fkui/logic`, `@fkui/icon-lib-default`; `@fkui/theme-default` comes in transitively with felix-ds and is loaded by the felix theme layer)
+- felix-ds from GitHub Packages, declared with a semver range (see [Upgrade felix-ds](#upgrade-felix-ds))
 - No Tailwind, no icon CDN: layout SCSS uses felix/FKUI tokens only, icons come from the FKUI default library plus a small Phosphor extension (see [Icons](#icons)), fonts are self-hosted
 
 ## Styling conventions
@@ -76,16 +76,19 @@ The Phosphor set is injected as extra `f-icon-*` symbols in the same `"f"` sprit
 
 Note: the sibling site writes `<PhChild>` for the BVC card, but `@phosphor-icons/vue` 2.x has no such icon (it renders nothing there). This site uses `baby-carriage` for that concept instead.
 
-## Update the theme
+## Upgrade felix-ds
 
 `@pattespatte/felix-ds` is installed from GitHub Packages (restricted visibility), declared with a semver range in `package.json` and locked in `bun.lockb`. The tracked `.npmrc` points the `@pattespatte` scope at the registry and reads its token from the `GITHUB_PACKAGES_TOKEN` environment variable (a PAT with `read:packages`; the Pages workflow maps `secrets.GITHUB_TOKEN` onto it).
 
-To upgrade – set the new range, install, and verify the full build:
+The theme has no CLI – it is a plain CSS package – so upgrading is a dependency update. With `GITHUB_PACKAGES_TOKEN` exported:
 
 ```bash
-bun add @pattespatte/felix-ds@^1.2.0   # example: next minor
-bun run build                          # search index + typecheck + build + prerender
+bun update @pattespatte/felix-ds
 ```
+
+This resolves the newest published version allowed by the range in `package.json`, rewrites that range to the new version and updates `bun.lockb`. The `@fkui/*` packages are pinned to exact versions and are not touched, as long as they stay inside the theme's peer range (`@fkui/theme-default >=6.57.0 <7.0.0`). Restart the dev server afterwards – Vite pre-bundles the old CSS – and run `bun run build` before committing.
+
+To see which version is installed, run `npm ls @pattespatte/felix-ds` (local lookup, no token needed). `npm view @pattespatte/felix-ds versions` lists every published version – it needs the token and must run from the repo root so `.npmrc` applies. To install a specific release instead of the newest one, `bun add @pattespatte/felix-ds@1.4.0` pins that exact version, while `bun add @pattespatte/felix-ds@latest` writes a fresh caret range – use it when a major release falls outside the current range, which `bun update` never crosses. The registry has no dist-tags other than `latest`.
 
 ## Deploy
 
