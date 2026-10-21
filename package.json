@@ -19,7 +19,7 @@
     "@fkui/logic": "6.59.0",
     "@fkui/theme-default": "6.59.0",
     "@fkui/vue": "6.59.0",
-    "@pattespatte/felix-ds": "^1.1.0",
+    "@pattespatte/felix-ds": "1.4.0",
     "js-yaml": "^5.4.3",
     "markdown-it": "^15.0.2",
     "vue": "^3.5.43",
