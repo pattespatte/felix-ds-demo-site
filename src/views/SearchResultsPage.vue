@@ -2,6 +2,7 @@
 import { onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useSearch, type SearchResult } from '@/composables/useSearch'
+import PageIntro from '@/components/common/PageIntro.vue'
 
 const route = useRoute()
 const { searchQuery, searchResults, isLoading, hasResults, performSearch, searchIndex, loadSearchIndex } =
@@ -122,7 +123,7 @@ const performFullSearch = (query: string) => {
 <template>
     <div class="page">
         <div class="page__intro">
-            <h1 class="sok__title">Sökresultat för "{{ searchQuery }}"</h1>
+            <page-intro :title="`Sökresultat för “${searchQuery}”`" />
 
             <div v-if="isLoading" class="sok__state">
                 <p>Söker...</p>
@@ -158,12 +159,6 @@ const performFullSearch = (query: string) => {
 </template>
 
 <style scoped>
-.sok__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .sok__state {
   padding: 2rem 0;
   text-align: center;

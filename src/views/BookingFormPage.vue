@@ -19,6 +19,7 @@ import {
     FValidationForm
 } from '@fkui/vue'
 import AlertMessage from '@/components/display/AlertMessage.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 
 const router = useRouter()
 
@@ -253,12 +254,10 @@ onMounted(() => {
 
 <template>
     <div class="page">
-        <div class="page__intro">
-            <h1 class="form__title">Boka tid &ndash; planerat besök</h1>
-            <p class="form__intro">
-                Fyll i formuläret nedan för att boka en tid för ett planerat vårdbesök.
-            </p>
-        </div>
+        <page-intro
+            title="Boka tid – planerat besök"
+            intro="Fyll i formuläret nedan för att boka en tid för ett planerat vårdbesök."
+        />
 
         <!-- Success alert -->
         <f-message-box v-if="showSuccess" type="success" class="form__message">
@@ -640,17 +639,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.form__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.form__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .form__message {
   display: block;
   margin-bottom: 1.5rem;

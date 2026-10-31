@@ -2,6 +2,7 @@
 import { FButton, FIcon } from '@fkui/vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 
 const guidelines = [
     {
@@ -79,13 +80,10 @@ const selfCareAdvice = [
 
 <template>
     <div class="page">
-        <div class="page__intro">
-            <h1 class="guide__title">Vårdguide</h1>
-            <p class="guide__intro">
-                I vår vårdguide hittar du information om vanliga sjukdomar och besvär, samt råd om
-                när du ska söka vård. Informationen är ett komplement till 1177 Vårdguiden.
-            </p>
-        </div>
+        <page-intro
+            title="Vårdguide"
+            intro="I vår vårdguide hittar du information om vanliga sjukdomar och besvär, samt råd om när du ska söka vård. Informationen är ett komplement till 1177 Vårdguiden."
+        />
 
         <AppCard title="När ska jag söka vård?" class="guide__section">
             <p class="guide__paragraph">
@@ -146,17 +144,6 @@ const selfCareAdvice = [
 </template>
 
 <style scoped>
-.guide__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.guide__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .guide__section {
   margin-bottom: 1.5rem;
 }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton } from '@fkui/vue'
@@ -44,7 +45,7 @@ const qualifications = [
 <template>
     <div class="page page--sidebar">
         <div class="page__narrow">
-            <h1 class="lediga__title">Lediga tjänster</h1>
+            <page-intro title="Lediga tjänster" />
 
             <AppCard>
                 <p class="lediga__intro">
@@ -132,12 +133,6 @@ const qualifications = [
 </template>
 
 <style scoped>
-.lediga__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .lediga__intro {
   margin: 0 0 1.5rem;
 }

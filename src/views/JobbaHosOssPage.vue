@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton } from '@fkui/vue'
@@ -9,7 +10,7 @@ import { omOssSectionLinks } from '@/data/omOssSection'
 <template>
     <div class="page page--sidebar">
         <div class="page__narrow">
-            <h1 class="jobba__title">Jobba hos oss</h1>
+            <page-intro title="Jobba hos oss" />
             <AppCard>
                 <p class="jobba__intro">
                     Vill du bli en del av vårt team? Här hittar du information om lediga tjänster
@@ -59,12 +60,6 @@ import { omOssSectionLinks } from '@/data/omOssSection'
 </template>
 
 <style scoped>
-.jobba__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .jobba__intro {
   margin: 0 0 2rem;
 }

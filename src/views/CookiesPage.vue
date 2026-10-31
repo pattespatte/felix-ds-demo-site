@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { FDataTable, FTableColumn, FTableColumnType } from '@fkui/vue'
 import AppCard from '@/components/display/AppCard.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import ListItem from '@/components/display/ListItem.vue'
 
 const cookieTypes = [
@@ -117,11 +118,10 @@ const contactDetails = [
 <template>
     <div class="page">
         <div class="page__narrow">
-            <h1 class="ck__title">Cookies</h1>
-            <p class="ck__intro">
-                Denna sida förklarar hur vår webbplats använder cookies (kakor) och vilka val du
-                har gällande dem.
-            </p>
+            <page-intro
+                title="Cookies"
+                intro="Denna sida förklarar hur vår webbplats använder cookies (kakor) och vilka val du har gällande dem."
+            />
 
             <AppCard title="Vad är cookies?" class="ck__section">
                 <p class="ck__paragraph">
@@ -238,17 +238,6 @@ const contactDetails = [
 </template>
 
 <style scoped>
-.ck__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.ck__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .ck__section {
   margin-bottom: 1.5rem;
 }

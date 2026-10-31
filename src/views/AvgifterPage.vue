@@ -9,6 +9,7 @@ import InfoCard from '@/components/display/InfoCard.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import AlertMessage from '@/components/display/AlertMessage.vue'
 import ListItem from '@/components/display/ListItem.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 
 // Fee data (verbatim from the source site)
 const feeData = [
@@ -69,13 +70,10 @@ const importantNotes = [
 
 <template>
     <div class="page">
-        <div class="page__intro">
-            <h1 class="avg__title">Avgifter</h1>
-            <p class="avg__intro">
-                Här hittar du information om kostnader för vård och behandling. Sverige har ett
-                högkostnadsskydd som innebär att du betalar högst en viss summa per år.
-            </p>
-        </div>
+        <page-intro
+            title="Avgifter"
+            intro="Här hittar du information om kostnader för vård och behandling. Sverige har ett högkostnadsskydd som innebär att du betalar högst en viss summa per år."
+        />
 
         <AlertMessage
             type="success"
@@ -183,17 +181,6 @@ const importantNotes = [
 </template>
 
 <style scoped>
-.avg__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.avg__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .avg__frikort {
   margin-bottom: 1.5rem;
 }

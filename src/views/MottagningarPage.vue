@@ -14,6 +14,7 @@ import {
     FValidationForm
 } from '@fkui/vue'
 import AlertMessage from '@/components/display/AlertMessage.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import ServiceCard from '@/components/display/ServiceCard.vue'
 import ContactCard from '@/components/display/ContactCard.vue'
 import AppTabs from '@/components/interactive/AppTabs.vue'
@@ -222,7 +223,7 @@ const onConfirmSend = () => {
             </template>
         </f-confirm-modal>
 
-        <h1 class="mott__title">Mottagningar</h1>
+        <page-intro title="Mottagningar" />
 
         <!-- Alert for important information -->
         <AlertMessage
@@ -366,12 +367,6 @@ const onConfirmSend = () => {
 </template>
 
 <style scoped>
-.mott__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .mott__alert {
   margin-bottom: 1.5rem;
 }

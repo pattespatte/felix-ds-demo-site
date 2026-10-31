@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import { FButton } from '@fkui/vue'
@@ -72,7 +73,7 @@ const testimonials = [
 <template>
     <div class="page page--sidebar">
         <div class="page__narrow">
-            <h1 class="karriar__title">Karriärvägar</h1>
+            <page-intro title="Karriärvägar" />
 
             <AppCard>
                 <p class="karriar__intro">
@@ -154,12 +155,6 @@ const testimonials = [
 </template>
 
 <style scoped>
-.karriar__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .karriar__intro {
   margin: 0 0 1.5rem;
 }

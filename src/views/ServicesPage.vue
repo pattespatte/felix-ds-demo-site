@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ServiceCard from '@/components/display/ServiceCard.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 
 // Icons: same Phosphor glyphs the sibling swedish-healthcare-demo-site uses
 // for these cards, injected as an extension of FIcon's "f" library (see
@@ -40,13 +41,10 @@ const services = [
 
 <template>
     <div class="page">
-        <div class="page__intro">
-            <h1 class="tjanster__title">Våra Tjänster</h1>
-            <p class="tjanster__intro">
-                Här hittar du information om alla de tjänster och vårdinsatser som vi erbjuder på
-                vår vårdcentral.
-            </p>
-        </div>
+        <page-intro
+            title="Våra Tjänster"
+            intro="Här hittar du information om alla de tjänster och vårdinsatser som vi erbjuder på vår vårdcentral."
+        />
 
         <div class="grid grid--2 tjanster__cards">
             <ServiceCard
@@ -61,17 +59,6 @@ const services = [
 </template>
 
 <style scoped>
-.tjanster__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.tjanster__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .tjanster__cards {
   margin-bottom: 2rem;
 }

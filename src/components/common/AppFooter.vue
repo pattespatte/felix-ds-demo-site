@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { FIcon } from '@fkui/vue'
+
 // Footer content copied verbatim from the source site. Icons that had no
 // semantic equivalent in the default FKUI icon library are rendered as plain
 // text labels instead (look-and-feel only).
@@ -62,6 +64,15 @@ const formatPhoneLink = (phone: string): string => {
 <template>
     <footer class="app-footer" role="contentinfo">
         <div class="app-footer__inner">
+            <!-- Brand row: mark + site name, like the reference portal's
+                 footer. -->
+            <div class="app-footer__brand">
+                <span class="app-footer__brand-mark">
+                    <f-icon name="cross" class="app-footer__brand-glyph" />
+                </span>
+                <span class="app-footer__brand-name">Vårdportalen DEMOWEBB</span>
+            </div>
+
             <div class="app-footer__grid">
                 <!-- Site Navigation -->
                 <div>
@@ -189,7 +200,35 @@ const formatPhoneLink = (phone: string): string => {
 .app-footer__inner {
   max-width: 72rem;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem 1.5rem;
+}
+
+/* Brand row above the link grid. */
+.app-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-footer__brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--f-radius-border-radius-small, 0.375rem);
+  background-color: var(--fkds-color-action-background-primary-default);
+  color: var(--fkds-color-action-text-inverted-default);
+}
+
+.app-footer__brand-glyph {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.app-footer__brand-name {
+  font-weight: 600;
 }
 
 .app-footer__grid {
@@ -227,7 +266,8 @@ const formatPhoneLink = (phone: string): string => {
 
 .app-footer__nav-link {
   font-size: 0.875rem;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
   color: var(--fkds-color-text-inverted);
 }
 .app-footer__nav-link:hover {
@@ -251,6 +291,8 @@ const formatPhoneLink = (phone: string): string => {
 
 .app-footer__contact-link {
   color: var(--fkds-color-text-inverted);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 .app-footer__contact-link:hover {
   color: var(--fkds-color-text-inverted);
@@ -373,7 +415,8 @@ const formatPhoneLink = (phone: string): string => {
 .app-footer__legal-link {
   font-size: 0.75rem;
   color: var(--fkds-color-text-inverted);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 .app-footer__legal-link:hover {
   color: var(--fkds-color-text-inverted);

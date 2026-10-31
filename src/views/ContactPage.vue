@@ -11,6 +11,7 @@ import {
 } from '@fkui/vue'
 import AppCard from '@/components/display/AppCard.vue'
 import AlertMessage from '@/components/display/AlertMessage.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 
 // Contact form state
 const name = ref('')
@@ -43,13 +44,10 @@ const acuteRows = [
 
 <template>
     <div class="page">
-        <div class="page__intro">
-            <h1 class="kontakt__title">Kontakt</h1>
-            <p class="kontakt__intro">
-                Här hittar du kontaktinformation till vår vårdcentral. Välkommen att kontakta oss
-                för frågor eller för att boka tid.
-            </p>
-        </div>
+        <page-intro
+            title="Kontakt"
+            intro="Här hittar du kontaktinformation till vår vårdcentral. Välkommen att kontakta oss för frågor eller för att boka tid."
+        />
 
         <f-message-box v-if="submitted" type="success" class="kontakt__success">
             <template #default="{ headingSlotClass }">
@@ -126,17 +124,6 @@ const acuteRows = [
 </template>
 
 <style scoped>
-.kontakt__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.kontakt__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .kontakt__success {
   display: block;
   margin-bottom: 1.5rem;
