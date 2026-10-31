@@ -128,7 +128,11 @@ defineExpose({
 </script>
 
 <template>
-    <div ref="root" class="search-box" :class="`search-box--${size}`">
+    <div
+        ref="root"
+        class="search-box"
+        :class="[`search-box--${size}`, { 'search-box--focused': isFocused }]"
+    >
         <div
             class="search-box__field"
             :class="{ 'search-box__field--hide-label': hideLabel }"
@@ -190,6 +194,27 @@ defineExpose({
 
 .search-box--small {
   width: 15rem;
+  max-width: 100%;
+  /* Expand while the field has focus so long search terms fit – compact by
+     default keeps the header row tidy (same behaviour as the felix-ds
+     playground's search box). On small screens the focused field takes the
+     whole controls row instead. */
+}
+@media (min-width: 48rem) {
+  .search-box--small.search-box--focused {
+    width: 17rem;
+  }
+}
+@media (max-width: 47.99rem) {
+  .search-box--small.search-box--focused {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .search-box--small {
+    transition: width 0.2s ease;
+  }
 }
 
 .search-box__field :deep(.text-field) {
