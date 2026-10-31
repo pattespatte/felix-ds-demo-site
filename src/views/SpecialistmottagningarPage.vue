@@ -5,17 +5,20 @@ import {
     FButton,
     FConfirmModal,
     FDataTable,
+    FMessageBox,
     FModal,
     FSelectField,
     FTableColumn,
     FTableColumnType,
     FTextField,
-    FValidationForm
+    FValidationForm,
+    FWizard,
+    FWizardStep
 } from '@fkui/vue'
 import AlertMessage from '@/components/display/AlertMessage.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import ServiceCard from '@/components/display/ServiceCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
-import ProgressIndicator from '@/components/display/ProgressIndicator.vue'
 import AppTabs from '@/components/interactive/AppTabs.vue'
 
 // Specialist clinic data (verbatim from the source site)
@@ -134,13 +137,14 @@ const filteredClinics = computed(() => {
     })
 })
 
-// Referral application wizard
+// Referral application wizard (FWizard owns step navigation and validation;
+// the keys are the wizard's v-model values).
 const showBookingModal = ref(false)
 const confirmOpen = ref(false)
 const successMessage = ref('')
 const selectedClinic = ref('')
-const bookingStep = ref(1)
-const bookingSteps = ['Välj mottagning', 'Personuppgifter', 'Symptom', 'Bekräfta']
+const firstStepKey = 'valj-mottagning'
+const currentStepKey = ref(firstStepKey)
 
 const referralReason = ref('')
 const patientName = ref('')
@@ -152,14 +156,14 @@ const allergies = ref('')
 
 const handleBooking = (clinicName: string) => {
     selectedClinic.value = clinicName
-    bookingStep.value = 1
+    currentStepKey.value = firstStepKey
     showBookingModal.value = true
 }
 
 const closeModal = () => {
     showBookingModal.value = false
     selectedClinic.value = ''
-    bookingStep.value = 1
+    currentStepKey.value = firstStepKey
 }
 
 // The wizard hands over to a confirm dialog before anything is sent; a
@@ -210,7 +214,7 @@ const onConfirmSend = () => {
             </template>
         </f-confirm-modal>
 
-        <h1 class="specialist__title">Specialistmottagningar</h1>
+        <page-intro title="Specialistmottagningar" />
 
         <!-- Alert for referral information -->
         <AlertMessage
@@ -378,31 +382,39 @@ const onConfirmSend = () => {
             </div>
         </AppTabs>
 
-        <!-- Referral modal -->
+        <!-- Referral modal: FWizard owns the step navigation and validates
+             each step, so the modal carries no footer buttons of its own. -->
         <f-modal :is-open="showBookingModal" size="large" @close="closeModal">
             <template #header> Ansök om remiss </template>
             <template #content>
-                <ProgressIndicator :steps="bookingSteps" :current-step="bookingStep - 1" />
+                <f-message-box type="info" layout="short" class="specialist__wizard-notice">
+                    <p>
+                        Du ansöker om remiss till:
+                        <strong>{{ selectedClinic }}</strong>
+                    </p>
+                </f-message-box>
 
-                <f-validation-form class="specialist__wizard">
-                    <div v-if="bookingStep === 1" class="stack--tight specialist__wizard-step">
-                        <div class="specialist__wizard-notice">
-                            <p>
-                                Du ansöker om remiss till:
-                                <strong>{{ selectedClinic }}</strong>
-                            </p>
-                        </div>
-
-                        <f-select-field id="referral-reason" v-model="referralReason" required>
+                <f-wizard
+                    v-model="currentStepKey"
+                    header-tag="h3"
+                    disable-initial-focus
+                    @completed="requestSend"
+                >
+                    <f-wizard-step key="valj-mottagning" title="Välj mottagning">
+                        <f-select-field
+                            id="referral-reason"
+                            v-model="referralReason"
+                            v-validation.required
+                        >
                             <template #label> Anledning till remiss </template>
                             <option value="new-symptoms">Nya symptom</option>
                             <option value="follow-up">Uppföljning av tidigare behandling</option>
                             <option value="second-opinion">Andrahandsutlåtande</option>
                             <option value="other">Annat</option>
                         </f-select-field>
-                    </div>
+                    </f-wizard-step>
 
-                    <div v-else-if="bookingStep === 2" class="stack--tight specialist__wizard-step">
+                    <f-wizard-step key="personuppgifter" title="Personuppgifter">
                         <f-text-field id="patient-name" v-model="patientName" v-validation.required :maxlength="100">
                             Fullständigt namn
                         </f-text-field>
@@ -424,9 +436,9 @@ const onConfirmSend = () => {
                         >
                             Telefonnummer
                         </f-text-field>
-                    </div>
+                    </f-wizard-step>
 
-                    <div v-else-if="bookingStep === 3" class="stack--tight specialist__wizard-step">
+                    <f-wizard-step key="symptom" title="Symptom">
                         <f-text-field id="symptoms" v-model="symptoms" v-validation.required :maxlength="500">
                             Beskriv dina symptom
                         </f-text-field>
@@ -438,16 +450,18 @@ const onConfirmSend = () => {
                         <f-text-field id="allergies" v-model="allergies" :maxlength="500">
                             Kända allergier
                         </f-text-field>
-                    </div>
+                    </f-wizard-step>
 
-                    <div v-else-if="bookingStep === 4" class="stack--tight specialist__wizard-step">
-                        <div class="specialist__wizard-review">
-                            <h3>Granska din ansökan</h3>
-                            <p>
-                                Kontrollera att all information är korrekt innan du skickar din
-                                ansökan.
-                            </p>
-                        </div>
+                    <f-wizard-step key="bekrafta" title="Bekräfta">
+                        <f-message-box type="success" class="specialist__wizard-review">
+                            <template #default="{ headingSlotClass }">
+                                <h3 :class="headingSlotClass">Granska din ansökan</h3>
+                                <p>
+                                    Kontrollera att all information är korrekt innan du skickar
+                                    din ansökan.
+                                </p>
+                            </template>
+                        </f-message-box>
 
                         <div class="specialist__wizard-summary">
                             <p>
@@ -464,50 +478,14 @@ const onConfirmSend = () => {
                                 [Dina symptom]
                             </p>
                         </div>
-                    </div>
-                </f-validation-form>
-            </template>
-            <template #footer>
-                <div class="specialist__wizard-actions">
-                    <div>
-                        <f-button
-                            v-if="bookingStep > 1"
-                            size="medium"
-                            variant="secondary"
-                            @click="bookingStep--"
-                        >
-                            Föregående
-                        </f-button>
-                    </div>
-                    <div class="specialist__wizard-actions-right">
-                        <f-button size="medium" variant="secondary" @click="closeModal">
-                            Avbryt
-                        </f-button>
-                        <f-button
-                            v-if="bookingStep < 4"
-                            size="medium"
-                            variant="primary"
-                            @click="bookingStep++"
-                        >
-                            Nästa
-                        </f-button>
-                        <f-button v-else size="medium" variant="primary" @click="requestSend">
-                            Skicka ansökan
-                        </f-button>
-                    </div>
-                </div>
+                    </f-wizard-step>
+                </f-wizard>
             </template>
         </f-modal>
     </div>
 </template>
 
 <style scoped>
-.specialist__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .specialist__alert {
   margin-bottom: 1.5rem;
 }
@@ -582,22 +560,14 @@ const onConfirmSend = () => {
 }
 
 .specialist__wizard-notice {
-  border-radius: var(--f-radius-border-radius-small, 0.25rem);
-  background-color: var(--fkds-color-feedback-background-info);
-  padding: 1rem;
-}
-.specialist__wizard-notice p {
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .specialist__wizard-review {
-  border-radius: var(--f-radius-border-radius-small, 0.25rem);
-  background-color: var(--fkds-color-feedback-background-positive);
-  padding: 1rem;
+  margin-bottom: 1rem;
 }
-.specialist__wizard-review h3 {
+.specialist__wizard-review :deep(.message-box__heading) {
   margin: 0 0 0.5rem;
-  font-size: 1.125rem;
 }
 .specialist__wizard-review p {
   margin: 0;
@@ -610,16 +580,6 @@ const onConfirmSend = () => {
 }
 .specialist__wizard-summary p {
   margin: 0;
-}
-
-.specialist__wizard-actions {
-  display: flex;
-  justify-content: space-between;
-}
-
-.specialist__wizard-actions-right {
-  display: flex;
-  gap: 0.75rem;
 }
 
 </style>

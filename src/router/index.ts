@@ -24,7 +24,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
             title: 'Vårdcentralen Vårdportalen DEMOWEBB - Start',
             description: 'Boka tid, kontakta vården och hantera dina vårdärenden',
-            components: ['FCard', 'FIcon']
+            components: ['FIcon']
         }
     },
     {
@@ -103,11 +103,12 @@ const routes: Array<RouteRecordRaw> = [
                 'FConfirmModal',
                 'FDataTable',
                 'FIcon',
+                'FMessageBox',
                 'FModal',
-                'FProgressbar',
                 'FSelectField',
                 'FTextField',
-                'FValidationForm'
+                'FValidationForm',
+                'FWizard'
             ]
         }
     },
