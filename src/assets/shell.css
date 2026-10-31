@@ -26,6 +26,10 @@
     box-sizing: border-box;
     padding: 0.75rem 1rem 0.75rem 1.5rem;
     background-color: transparent;
+    /* Upstream clips the header row; the search field's suggestion list is
+       absolutely positioned below the field and must be allowed to hang
+       over the page content instead of being cut off at the header edge. */
+    overflow: visible;
 }
 
 /* Upstream gives the right slot a small top padding that optically aligns it

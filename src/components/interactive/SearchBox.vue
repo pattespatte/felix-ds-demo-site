@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { FIcon, FSearchTextField } from '@fkui/vue'
 import { useSearch } from '@/composables/useSearch'
@@ -42,13 +42,25 @@ const {
 const root = ref<HTMLElement | null>(null)
 const searchResultsComponent = ref<InstanceType<typeof SearchResults> | null>(null)
 const isFocused = ref(false)
+// Set while the field holds a submitted query whose results were cleared:
+// keeps the live dropdown shut (it would otherwise show its "no results"
+// state over the results page – the input often keeps focus after a
+// submit). Reopens as soon as the query changes or the field is re-focused.
+const submitHidden = ref(false)
 
 // Show the live dropdown only while the field has focus and a query – the
 // header must not float a stale list over the page after tabbing away.
-const showDropdown = computed(() => isFocused.value && searchQuery.value.length > 0)
+const showDropdown = computed(
+    () => isFocused.value && searchQuery.value.length > 0 && !submitHidden.value
+)
+
+watch(searchQuery, () => {
+    submitHidden.value = false
+})
 
 const handleFocus = () => {
     isFocused.value = true
+    submitHidden.value = false
     // Fetch the search index on first focus so results are ready while the
     // visitor types; useSearch no longer loads it at page load.
     loadSearchIndex()
@@ -66,6 +78,7 @@ const handleSearch = () => {
     if (searchQuery.value.trim()) {
         router.push({ name: 'SearchResults', query: { q: searchQuery.value.trim() } })
         searchResults.value = []
+        submitHidden.value = true
     }
 }
 
@@ -83,8 +96,21 @@ const handleViewAllResults = () => {
     handleSearch()
 }
 
-// Handle keyboard navigation
+// Handle keyboard navigation: the dropdown consumes arrows, escape and an
+// Enter pressed on an arrow-key-highlighted suggestion; any other Enter –
+// from the input itself – submits the query exactly like the Sök button.
+// Keys from the field's own buttons (Sök, clear) keep their native click.
 const handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter' && !event.isComposing && event.target instanceof HTMLInputElement) {
+        const consumed =
+            searchResultsComponent.value &&
+            showDropdown.value &&
+            searchResultsComponent.value.handleKeydown(event)
+        if (!consumed) {
+            handleSearch()
+        }
+        return
+    }
     if (searchResultsComponent.value && showDropdown.value) {
         searchResultsComponent.value.handleKeydown(event)
     }

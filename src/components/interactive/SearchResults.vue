@@ -18,43 +18,57 @@ const emit = defineEmits<{
     'view-all-results': []
 }>()
 
-const selectedIndex = ref(0)
+// -1 = no highlighted option; the highlight only appears after the user
+// hovers or moves with the arrow keys, never on open.
+const selectedIndex = ref(-1)
+// Enter commits the query (the parent submits) unless the highlight was
+// moved onto a suggestion with the arrow keys – then Enter activates it.
+const keyboardNavigated = ref(false)
 
-// Reset selected index when results change
+// Reset selection when results change
 watch(
     () => props.searchResults,
     () => {
-        selectedIndex.value = 0
+        selectedIndex.value = -1
+        keyboardNavigated.value = false
     }
 )
 
-// Handle keyboard navigation (invoked by the parent SearchBox)
-const handleKeydown = (event: KeyboardEvent) => {
+// Handle keyboard navigation (invoked by the parent SearchBox). Returns true
+// when the event was consumed; an unconsumed Enter falls through so the
+// parent submits the query exactly like the Sök button.
+const handleKeydown = (event: KeyboardEvent): boolean => {
     if (!props.showResults || !props.hasResults) {
-        return
+        return false
     }
 
     switch (event.key) {
         case 'ArrowDown':
             event.preventDefault()
+            keyboardNavigated.value = true
             selectedIndex.value = (selectedIndex.value + 1) % props.searchResults.length
-            break
+            return true
         case 'ArrowUp':
             event.preventDefault()
+            keyboardNavigated.value = true
             selectedIndex.value =
                 selectedIndex.value <= 0 ? props.searchResults.length - 1 : selectedIndex.value - 1
-            break
+            return true
         case 'Enter':
+            if (!keyboardNavigated.value) {
+                return false
+            }
             event.preventDefault()
             if (props.searchResults[selectedIndex.value]) {
                 selectResult(props.searchResults[selectedIndex.value])
             }
-            break
+            return true
         case 'Escape':
             event.preventDefault()
             emit('result-select', null) // Close results
-            break
+            return true
     }
+    return false
 }
 
 // Select a result
