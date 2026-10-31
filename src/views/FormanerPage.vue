@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
-import { FButton, FExpandableParagraph } from '@fkui/vue'
+import { FButton, FExpandableParagraph, FMessageBox } from '@fkui/vue'
 import { omOssSectionLinks } from '@/data/omOssSection'
 
 const benefitGroups = [
@@ -91,7 +92,7 @@ const toggle = (title: string) => {
 <template>
     <div class="page page--sidebar">
         <div class="page__narrow">
-            <h1 class="formaner__title">Förmåner</h1>
+            <page-intro title="Förmåner" />
 
             <AppCard>
                 <p class="formaner__intro">
@@ -132,21 +133,25 @@ const toggle = (title: string) => {
                     </f-expandable-paragraph>
                 </div>
 
-                <div class="formaner__handbook" id="formanshandbok">
-                    <h2 class="formaner__handbook-title">Förmånshandbok</h2>
-                    <p class="formaner__handbook-text">
-                        Som ny medarbetare får du tillgång till vår förmånshandbok där alla
-                        förmåner beskrivs i detalj. Handboken uppdateras regelbundet och innehåller
-                        all information du behöver för att kunna nyttja dina förmåner på bästa
-                        sätt.
-                    </p>
-                    <div class="formaner__handbook-actions">
-                        <f-button size="medium" variant="primary">
-                            Ladda ner förmånshandbok (PDF)
-                        </f-button>
-                        <f-button size="medium" variant="secondary"> Kontakta HR </f-button>
-                    </div>
-                </div>
+                <f-message-box type="info" class="formaner__handbook" id="formanshandbok">
+                    <template #default="{ headingSlotClass }">
+                        <h2 :class="headingSlotClass" class="formaner__handbook-title">
+                            Förmånshandbok
+                        </h2>
+                        <p class="formaner__handbook-text">
+                            Som ny medarbetare får du tillgång till vår förmånshandbok där alla
+                            förmåner beskrivs i detalj. Handboken uppdateras regelbundet och
+                            innehåller all information du behöver för att kunna nyttja dina
+                            förmåner på bästa sätt.
+                        </p>
+                        <div class="formaner__handbook-actions">
+                            <f-button size="medium" variant="primary">
+                                Ladda ner förmånshandbok (PDF)
+                            </f-button>
+                            <f-button size="medium" variant="secondary"> Kontakta HR </f-button>
+                        </div>
+                    </template>
+                </f-message-box>
             </AppCard>
         </div>
 
@@ -155,12 +160,6 @@ const toggle = (title: string) => {
 </template>
 
 <style scoped>
-.formaner__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .formaner__intro {
   margin: 0 0 1.5rem;
 }
@@ -205,16 +204,8 @@ const toggle = (title: string) => {
   font-weight: 600;
 }
 
-.formaner__handbook {
-  border-radius: var(--f-radius-border-radius-small, 0.5rem);
-  padding: 1.5rem;
-  background-color: var(--fkds-color-feedback-background-info);
-}
-
 .formaner__handbook-title {
   margin: 0 0 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 600;
 }
 
 .formaner__handbook-text {

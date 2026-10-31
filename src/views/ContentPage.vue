@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FButton, FExpandableParagraph } from '@fkui/vue'
+import { FButton, FExpandableParagraph, FMessageBox } from '@fkui/vue'
 import AppCard from '@/components/display/AppCard.vue'
 import InfoCard from '@/components/display/InfoCard.vue'
 import RelatedLinksSidebar from '@/components/common/RelatedLinksSidebar.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import { omOssSectionLinks } from '@/data/omOssSection'
 import { getPage } from '@/content/pages'
 import { mdInline, mdBlock } from '@/content/markdown'
@@ -32,12 +33,15 @@ const accordionId = (groupIndex: number, itemIndex: number) => `${groupIndex}-${
 <template>
     <div class="page" :class="{ 'page--sidebar': page.sidebar }">
         <div :class="{ page__narrow: narrow }">
-            <h1 class="content-page__title">{{ page.title }}</h1>
-            <p v-if="page.intro" class="content-page__intro" v-html="mdInline(page.intro)" />
+            <page-intro :title="page.title">
+                <template v-if="page.intro" #default>
+                    <span v-html="mdInline(page.intro)" />
+                </template>
+            </page-intro>
 
-            <div v-if="page.notice" class="content-page__notice">
+            <f-message-box v-if="page.notice" type="info" layout="short" class="content-page__notice">
                 <p v-html="mdInline(page.notice)" />
-            </div>
+            </f-message-box>
 
             <div v-if="page.infoCards?.length" class="grid grid--4 content-page__stats">
                 <InfoCard
@@ -149,27 +153,11 @@ const accordionId = (groupIndex: number, itemIndex: number) => `${groupIndex}-${
 </template>
 
 <style scoped>
-.content-page__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.content-page__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .content-page__notice {
-  border-radius: var(--f-radius-border-radius-small, 0.5rem);
-  border: 2px solid var(--fkds-color-feedback-border-info);
-  background-color: var(--fkds-color-feedback-background-info);
-  padding: 1rem;
   margin-bottom: 2rem;
 }
 .content-page__notice p {
   margin: 0;
-  font-size: 0.875rem;
 }
 
 .content-page__stats {

@@ -5,6 +5,7 @@ import {
     FButton,
     FConfirmModal,
     FEmailTextField,
+    FMessageBox,
     FModal,
     FPhoneTextField,
     FSelectField,
@@ -13,6 +14,7 @@ import {
     FValidationForm
 } from '@fkui/vue'
 import AlertMessage from '@/components/display/AlertMessage.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import ServiceCard from '@/components/display/ServiceCard.vue'
 import ContactCard from '@/components/display/ContactCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
@@ -245,7 +247,7 @@ const onConfirmSend = () => {
             </template>
         </f-confirm-modal>
 
-        <h1 class="hem__title">Hemsjukvård</h1>
+        <page-intro title="Hemsjukvård" />
 
         <!-- Alert for important information -->
         <AlertMessage
@@ -393,12 +395,12 @@ const onConfirmSend = () => {
         <f-modal :is-open="showContactModal" size="medium" @close="closeModal">
             <template #header> Kontakta oss om hemsjukvård </template>
             <template #content>
-                <div class="hem__modal-notice">
+                <f-message-box type="info" layout="short" class="hem__modal-notice">
                     <p>
                         Du kontaktar oss gällande:
                         <strong>{{ selectedService }}</strong>
                     </p>
-                </div>
+                </f-message-box>
 
                 <f-validation-form class="hem__form">
                     <f-text-field
@@ -449,12 +451,6 @@ const onConfirmSend = () => {
 </template>
 
 <style scoped>
-.hem__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .hem__alert {
   margin-bottom: 1.5rem;
 }
@@ -562,13 +558,7 @@ const onConfirmSend = () => {
 }
 
 .hem__modal-notice {
-  border-radius: var(--f-radius-border-radius-small, 0.25rem);
-  background-color: var(--fkds-color-feedback-background-info);
-  padding: 1rem;
   margin-bottom: 1rem;
-}
-.hem__modal-notice p {
-  margin: 0;
 }
 
 .hem__modal-actions {

@@ -5,6 +5,7 @@ import {
     FButton,
     FConfirmModal,
     FDatepickerField,
+    FMessageBox,
     FModal,
     FPaginator,
     FSelectField,
@@ -12,6 +13,7 @@ import {
     FValidationForm
 } from '@fkui/vue'
 import AlertMessage from '@/components/display/AlertMessage.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import ServiceCard from '@/components/display/ServiceCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 import AppTabs from '@/components/interactive/AppTabs.vue'
@@ -252,7 +254,7 @@ const onConfirmSend = () => {
             </template>
         </f-confirm-modal>
 
-        <h1 class="labb__title">Labbprov</h1>
+        <page-intro title="Labbprov" />
 
         <!-- Alert for important information -->
         <AlertMessage
@@ -405,12 +407,12 @@ const onConfirmSend = () => {
         <f-modal :is-open="showBookingModal" size="medium" @close="closeModal">
             <template #header> Boka tid för provtagning </template>
             <template #content>
-                <div class="labb__wizard-notice">
+                <f-message-box type="info" layout="short" class="labb__wizard-notice">
                     <p>
                         Du bokar tid för:
                         <strong>{{ selectedTest }}</strong>
                     </p>
-                </div>
+                </f-message-box>
 
                 <f-validation-form class="labb__form">
                     <f-text-field
@@ -469,12 +471,6 @@ const onConfirmSend = () => {
 </template>
 
 <style scoped>
-.labb__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .labb__alert {
   margin-bottom: 1.5rem;
 }
@@ -551,13 +547,7 @@ const onConfirmSend = () => {
 }
 
 .labb__wizard-notice {
-  border-radius: var(--f-radius-border-radius-small, 0.25rem);
-  background-color: var(--fkds-color-feedback-background-info);
-  padding: 1rem;
   margin-bottom: 1rem;
-}
-.labb__wizard-notice p {
-  margin: 0;
 }
 
 .labb__modal-actions {

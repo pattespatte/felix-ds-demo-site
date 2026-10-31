@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { FButton, FIcon } from '@fkui/vue'
+import { FButton, FMessageBox } from '@fkui/vue'
 import SearchBox from '@/components/interactive/SearchBox.vue'
 import AppCard from '@/components/display/AppCard.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 
 const router = useRouter()
 
@@ -55,18 +56,10 @@ const navigateToPage = (path: string) => {
     <div class="page">
         <div class="page__narrow nf__narrow">
             <!-- 404 message -->
-            <div class="nf__header">
-                <f-icon name="alert" class="nf__icon" />
-
-                <h1 class="nf__title">Sidan kunde inte hittas</h1>
-
-                <p class="nf__subtitle">Tyvärr, sidan du letar efter finns inte.</p>
-
-                <p class="nf__text">
-                    Sidan kan ha flyttats, tagits bort eller så har du angett felaktig webbadress.
-                    Du kan använda sökfunktionen nedan eller välja en av våra populära sidor.
-                </p>
-            </div>
+            <page-intro
+                title="Sidan kunde inte hittas"
+                intro="Tyvärr, sidan du letar efter finns inte. Sidan kan ha flyttats, tagits bort eller så har du angett felaktig webbadress. Du kan använda sökfunktionen nedan eller välja en av våra populära sidor."
+            />
 
             <!-- Search Box (submits to the search results page) -->
             <div class="nf__search">
@@ -104,18 +97,20 @@ const navigateToPage = (path: string) => {
             </AppCard>
 
             <!-- Contact Information -->
-            <div class="nf__help">
-                <h2 class="nf__help-title">Behöver du hjälp?</h2>
-                <p class="nf__help-text">
-                    Om du inte hittar det du söker kan du kontakta oss:
-                </p>
-                <div class="nf__help-links">
-                    <a href="tel:+46812345678" class="nf__help-link"> 08-123 456 78 </a>
-                    <a href="mailto:info@vardcentralen.se" class="nf__help-link">
-                        info@vardcentralen.se
-                    </a>
-                </div>
-            </div>
+            <f-message-box type="info" class="nf__help">
+                <template #default="{ headingSlotClass }">
+                    <h2 :class="headingSlotClass" class="nf__help-title">Behöver du hjälp?</h2>
+                    <p class="nf__help-text">
+                        Om du inte hittar det du söker kan du kontakta oss:
+                    </p>
+                    <div class="nf__help-links">
+                        <a href="tel:+46812345678" class="nf__help-link"> 08-123 456 78 </a>
+                        <a href="mailto:info@vardcentralen.se" class="nf__help-link">
+                            info@vardcentralen.se
+                        </a>
+                    </div>
+                </template>
+            </f-message-box>
         </div>
     </div>
 </template>
@@ -123,34 +118,6 @@ const navigateToPage = (path: string) => {
 <style scoped>
 .nf__narrow {
   text-align: center;
-}
-
-.nf__header {
-  margin: 2.5rem 0 2rem;
-}
-
-.nf__icon {
-  width: 5rem;
-  height: 5rem;
-  margin-bottom: 1.5rem;
-  color: var(--fkds-color-action-text-primary-default);
-}
-
-.nf__title {
-  margin: 0 0 1rem;
-  font-size: 2.25rem;
-  font-weight: 600;
-}
-
-.nf__subtitle {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-}
-
-.nf__text {
-  margin: 0 auto;
-  max-width: 42rem;
-  color: var(--fkds-color-text-secondary);
 }
 
 .nf__search {
@@ -205,15 +172,10 @@ const navigateToPage = (path: string) => {
 
 .nf__help {
   margin-top: 2.5rem;
-  border-radius: var(--f-radius-border-radius-small, 0.5rem);
-  background-color: var(--fkds-color-feedback-background-info);
-  padding: 1.5rem;
 }
 
 .nf__help-title {
   margin: 0 0 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 600;
 }
 
 .nf__help-text {
