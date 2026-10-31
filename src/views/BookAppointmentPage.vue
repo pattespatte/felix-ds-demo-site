@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { FButton } from '@fkui/vue'
 import ServiceCard from '@/components/display/ServiceCard.vue'
 import AppCard from '@/components/display/AppCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
@@ -6,13 +7,10 @@ import ListItem from '@/components/display/ListItem.vue'
 
 <template>
     <div class="page">
-        <div class="page__intro">
-            <h1 class="boka__title">Boka tid</h1>
-            <p class="boka__intro">
-                Här kan du boka tid för vårdbesök, vaccinationer och hälsokontroller. Välj den typ
-                av tid du behöver boka.
-            </p>
-        </div>
+        <page-intro
+            title="Boka tid"
+            intro="Här kan du boka tid för vårdbesök, vaccinationer och hälsokontroller. Välj den typ av tid du behöver boka."
+        />
 
         <div class="grid grid--2 boka__cards">
             <ServiceCard
@@ -20,7 +18,9 @@ import ListItem from '@/components/display/ListItem.vue'
                 description="För akuta besvär som inte kan vänta. Ring oss direkt på telefonnummer 08-123 456 78."
                 icon="warning-circle-fill"
             >
-                <a href="tel:+46812345678" class="boka__action boka__action--alert">
+                <!-- A real tel: anchor (FButton renders a button element),
+                     dressed in FKUI's global button classes. -->
+                <a href="tel:+46812345678" class="button button--secondary button--small boka__action">
                     Ring oss nu
                 </a>
             </ServiceCard>
@@ -30,8 +30,10 @@ import ListItem from '@/components/display/ListItem.vue'
                 description="Boka tid för planerat vårdbesök, hälsokontroll eller uppföljning."
                 icon="calendar"
             >
-                <router-link to="/boka-tid/form" class="boka__action boka__action--primary">
-                    Boka tid online
+                <router-link to="/boka-tid/form" custom v-slot="{ navigate }">
+                    <f-button size="small" variant="primary" role="link" class="boka__action" @click="navigate">
+                        Boka tid online
+                    </f-button>
                 </router-link>
             </ServiceCard>
 
@@ -40,9 +42,9 @@ import ListItem from '@/components/display/ListItem.vue'
                 description="Boka tid för vaccination, inklusive influensa- och COVID-19-vaccin."
                 icon="syringe"
             >
-                <button type="button" class="boka__action boka__action--primary">
+                <f-button size="small" variant="secondary" class="boka__action">
                     Boka vaccinationstid
-                </button>
+                </f-button>
             </ServiceCard>
 
             <ServiceCard
@@ -50,9 +52,9 @@ import ListItem from '@/components/display/ListItem.vue'
                 description="Boka tid för provtagning. Observera att vissa prover kräver faste."
                 icon="test-tube"
             >
-                <button type="button" class="boka__action boka__action--primary">
+                <f-button size="small" variant="secondary" class="boka__action">
                     Boka provtagning
-                </button>
+                </f-button>
             </ServiceCard>
         </div>
 
@@ -76,58 +78,15 @@ import ListItem from '@/components/display/ListItem.vue'
 </template>
 
 <style scoped>
-.boka__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
-.boka__intro {
-  margin: 0 0 2rem;
-  font-size: 1.125rem;
-}
-
 .boka__cards {
   margin-bottom: 1.5rem;
 }
 
-/* The source used colored action buttons per card; FKUI buttons are themed,
-   so the actions render as theme buttons with the alert variant standing in
-   for the red phone action. */
+/* Card actions sit on FKUI/FButton styling; only the placement stays custom.
+   The tel: anchor reuses FKUI's global button classes for the same look. */
 .boka__action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   align-self: flex-start;
   margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--f-radius-border-radius-small, 0.25rem);
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-  background-color: var(--fkds-color-action-background-primary-default);
-  color: var(--fkds-color-action-text-inverted-default);
-  /* Restate the colour on hover: the theme's `:root a:hover` outranks the
-     base rule and would paint the dark link colour on this dark fill. */
-}
-.boka__action:hover {
-  color: var(--fkds-color-action-text-inverted-default);
-  background-color: var(--fkds-color-action-background-primary-hover);
-}
-.boka__action:focus-visible {
-  outline: none;
-  box-shadow: var(--f-focus-box-shadow);
-}
-.boka__action--alert {
-  background-color: var(--fkds-color-feedback-background-negative-strong);
-  color: var(--fkds-color-text-inverted, #ffffff);
-}
-.boka__action--alert:hover {
-  color: var(--fkds-color-text-inverted, #ffffff);
-  background-color: var(--fkds-color-feedback-background-negative-strong);
-  filter: brightness(1.1);
 }
 
 .boka__info {

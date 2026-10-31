@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { FButton, FPersonnummerTextField, FTextField, FValidationForm } from '@fkui/vue'
 import AppCard from '@/components/display/AppCard.vue'
+import PageIntro from '@/components/common/PageIntro.vue'
 import ServiceCard from '@/components/display/ServiceCard.vue'
 import ListItem from '@/components/display/ListItem.vue'
 
@@ -54,13 +55,10 @@ const infoItems = [
 
 <template>
     <div class="page">
-        <div class="page__intro">
-            <h1 class="mina__title">Mina Sidor</h1>
-            <p class="mina__intro">
-                På Mina Sidor kan du hantera dina vårdärenden, boka tid och se dina journaler. Logga
-                in med BankID för att komma åt dina personuppgifter.
-            </p>
-        </div>
+        <page-intro
+            title="Mina sidor"
+            intro="På Mina sidor kan du hantera dina vårdärenden, boka tid och se dina journaler. Logga in med BankID för att komma åt dina personuppgifter."
+        />
 
         <AppCard title="Logga in" class="mina__login">
             <p class="mina__login-text">
@@ -96,10 +94,10 @@ const infoItems = [
                 :description="service.description"
                 :icon="service.icon"
             >
-                <button type="button" class="mina__service-link">
+                <f-button size="small" variant="tertiary" icon-right="arrow-right" class="mina__service-link">
                     {{ service.action }}
                     <span class="sr-only"> – {{ service.title }}</span>
-                </button>
+                </f-button>
             </ServiceCard>
         </div>
 
@@ -114,12 +112,6 @@ const infoItems = [
 </template>
 
 <style scoped>
-.mina__title {
-  margin: 2.5rem 0 1.5rem;
-  font-size: 1.875rem;
-  font-weight: 600;
-}
-
 .mina__intro {
   margin: 0 0 2rem;
   font-size: 1.125rem;
@@ -145,29 +137,8 @@ const infoItems = [
 }
 
 .mina__service-link {
-  display: inline-flex;
-  align-items: center;
   align-self: flex-start;
   margin-top: 0.5rem;
-  padding: 0;
-  border: none;
-  background: none;
-  font: inherit;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--fkds-color-action-text-primary-default);
-  cursor: pointer;
-}
-.mina__service-link::after {
-  content: "→";
-  margin-left: 0.25rem;
-}
-.mina__service-link:hover {
-  text-decoration: underline;
-}
-.mina__service-link:focus-visible {
-  outline: none;
-  box-shadow: var(--f-focus-box-shadow);
 }
 
 .mina__info {

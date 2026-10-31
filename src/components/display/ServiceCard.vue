@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { FCard, FIcon } from '@fkui/vue'
+import { FBadge, FCard, FIcon } from '@fkui/vue'
 
 // Service card: FCard with an icon in a token-colored circle and a link to
 // the service page. Same prop surface as the source site's ServiceCard.
@@ -53,9 +53,9 @@ const isInternal = computed(() => Boolean(props.link && props.link.startsWith('/
                 </div>
 
                 <div v-if="tags && tags.length > 0" class="service-card__tags">
-                    <span v-for="(tag, index) in tags" :key="index" class="service-card__tag">
+                    <f-badge v-for="(tag, index) in tags" :key="index">
                         {{ tag }}
-                    </span>
+                    </f-badge>
                 </div>
 
                 <div v-if="link" class="service-card__footer">
@@ -142,18 +142,6 @@ const isInternal = computed(() => Boolean(props.link && props.link.startsWith('/
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.service-card__tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.125rem 0.625rem;
-  /* capsule: any radius above half the height collapses to a pill, in em so it follows text scaling */
-  border-radius: 999em;
-  background-color: var(--fkds-color-feedback-background-info);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--fkds-color-text-primary);
 }
 
 .service-card__footer {

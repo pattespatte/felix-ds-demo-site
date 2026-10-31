@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { FButton } from '@fkui/vue'
 import type { SearchResult } from '@/composables/useSearch'
 
 interface Props {
@@ -157,9 +158,9 @@ defineExpose({
 
         <!-- View all results link -->
         <div v-if="hasResults" class="search-results__footer">
-            <button type="button" class="search-results__all" @click="viewAllResults">
+            <f-button size="small" variant="secondary" @click="viewAllResults">
                 Visa alla resultat
-            </button>
+            </f-button>
         </div>
     </div>
 </template>
@@ -251,21 +252,6 @@ a.search-results__item-body:focus-visible {
   padding: 0.5rem 0.75rem;
   border-top: 1px solid var(--fkds-color-border-weak);
   text-align: center;
-}
-
-.search-results__all {
-  padding: 0;
-  border: none;
-  background: none;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--fkds-color-text-primary);
-  text-decoration: underline;
-  cursor: pointer;
-}
-.search-results__all:focus-visible {
-  outline: none;
-  box-shadow: var(--f-focus-box-shadow);
 }
 
 :deep(mark) {
