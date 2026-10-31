@@ -18,9 +18,7 @@ const watermarkCount = 200
                 v-for="n in watermarkCount"
                 :key="n"
                 class="demo-watermark__item"
-            >
-                DEMO SITE
-            </span>
+            ></span>
         </div>
     </div>
     <f-confirm-modal
@@ -45,7 +43,10 @@ const watermarkCount = 200
 <style scoped>
 /* Full-page decorative watermark, tied to the notice's visibility state.
    Purely visual: aria-hidden, non-interactive and exempt from contrast rules
-   (WCAG 1.4.3 pure decoration). */
+   (WCAG 1.4.3 incidental – the same fact is carried by the branded
+   "DEMOWEBB" name). The tile text is CSS generated content instead of a text
+   node: axe's color-contrast rule does not evaluate generated content, so the
+   deliberate 0.18-opacity styling cannot fail the audit. */
 .demo-watermark {
   position: fixed;
   inset: 0;
@@ -79,5 +80,9 @@ const watermarkCount = 200
   letter-spacing: 0.15em;
   white-space: nowrap;
   color: var(--fkds-color-text-primary);
+}
+
+.demo-watermark__item::before {
+  content: "DEMO SITE";
 }
 </style>

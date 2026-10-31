@@ -8,7 +8,7 @@
 # Usage: ./scripts/axe-playwright-audit.sh [base-url]
 # The base URL must point at a running dev or preview server.
 
-URL="${1:-http://localhost:4173/felix-ds-demo-site/}"
+URL="${1:-http://localhost:5173/}"
 OUTPUT="accessibility-report"
 
 if [ ! -d "node_modules/playwright" ] || [ ! -d "node_modules/axe-playwright" ]; then
@@ -65,7 +65,7 @@ function discoverRoutes() {
         if (pass.toggle) {
             // Make the explicit choice once, then audit with it persisted.
             await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
-            await page.click('.app-header .color-mode-toggle');
+            await page.click('header .color-mode-toggle');
         }
 
         for (const route of pass.routes) {
