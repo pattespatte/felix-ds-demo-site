@@ -57,13 +57,16 @@ const dismiss = () => {
 </template>
 
 <style scoped>
-/* Floating per-page note. Sits above the decorative watermark (z-index
-   10000) so the opaque message-box background keeps the text readable. */
+/* Floating per-page note. Sits below FKUI's overlay layers (modal dialog
+   9995, header and navigation panel 9994) so the demo notice, any modal and
+   the navigation drawer always cover it; it only floats above page content.
+   The decorative demo watermark (z-index 10000) may show its glyphs over the
+   note – purely decorative (aria-hidden, opacity 0.18). */
 .component-note {
   position: fixed;
   right: 1rem;
   bottom: 1rem;
-  z-index: 10001;
+  z-index: 9993;
   max-width: min(20rem, 100vw - 2rem);
   /* Doubled text grows the note into the demo notice banner at the top of
      the viewport; cap the height and scroll the note internally instead. */

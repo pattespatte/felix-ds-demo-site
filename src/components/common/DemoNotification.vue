@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FButton, FMessageBox } from '@fkui/vue'
+import { FConfirmModal } from '@fkui/vue'
 
-// State to manage notification visibility
+// State to manage notification visibility. Not persisted: the notice shows
+// on every full page load.
 const isVisible = ref(true)
-
-// Function to dismiss the notification
-const dismiss = () => {
-    isVisible.value = false
-}
 
 // Number of repeated watermark strings. The tile grid scales with vmax, so a
 // fixed count covers any viewport; surplus tiles are clipped outside the view.
@@ -27,32 +23,27 @@ const watermarkCount = 200
             </span>
         </div>
     </div>
-    <f-message-box v-if="isVisible" type="info" class="demo-notification">
-        <template #default="{ headingSlotClass }">
-            <div class="demo-notification__body">
-                <p :class="headingSlotClass" class="demo-notification__text">
-                    <strong>Detta är en demowebbplats</strong>
-                    och inte en faktisk vårdcentral. Ingen information på denna
-                    sida är verklig och ingen medicinsk rådgivning erbjuds.
-                    Syftet med webbplatsen är istället att testa
-                    <a href="https://github.com/pattespatte/felix-ds">designsystemet felix-ds</a>.
-                </p>
-                <f-button
-                    class="demo-notification__dismiss"
-                    variant="primary"
-                    size="medium"
-                    icon-left="close"
-                    @click="dismiss"
-                >
-                    Stäng meddelande
-                </f-button>
-            </div>
+    <f-confirm-modal
+        :is-open="isVisible"
+        aria-close-text="Stäng"
+        :buttons="[{ label: 'Jag förstår', type: 'primary', event: 'confirm' }]"
+        @confirm="isVisible = false"
+        @close="isVisible = false"
+    >
+        <template #heading>Demowebbplats</template>
+        <template #content>
+            <p>
+                Detta är en demowebbplats och inte en faktisk vårdcentral.
+                Ingen information på denna sida är verklig och ingen medicinsk
+                rådgivning erbjuds. Syftet med webbplatsen är istället att testa
+                <a href="https://github.com/pattespatte/felix-ds">designsystemet felix-ds</a>.
+            </p>
         </template>
-    </f-message-box>
+    </f-confirm-modal>
 </template>
 
 <style scoped>
-/* Full-page decorative watermark, tied to the banner's visibility state.
+/* Full-page decorative watermark, tied to the notice's visibility state.
    Purely visual: aria-hidden, non-interactive and exempt from contrast rules
    (WCAG 1.4.3 pure decoration). */
 .demo-watermark {
@@ -89,35 +80,4 @@ const watermarkCount = 200
   white-space: nowrap;
   color: var(--fkds-color-text-primary);
 }
-
-.demo-notification {
-  display: block;
-  position: relative;
-  margin: 1rem;
-  /* Must stay above .demo-watermark (z-index 10000) so the opaque
-     message-box background hides the watermark strings behind the banner. */
-  z-index: 10001;
-  border-radius: 0;
-  /* Doubled text makes the notice tall enough to collide with the fixed
-     component note; cap it and let it scroll instead. */
-  max-height: 35vh;
-  overflow-y: auto;
-}
-
-.demo-notification__body {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.demo-notification__text {
-  flex: 1;
-  margin: 0;
-}
-
-.demo-notification__dismiss {
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
 </style>
