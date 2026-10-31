@@ -1,0 +1,107 @@
+/* App-shell overrides for the FKUI application template
+   (FLayoutApplicationTemplate + FPageHeader + FLayoutLeftPanel).
+
+   The header content row, the drawer and the scrim are all FKUI component
+   internals that slot content cannot reach with scoped styles, so these rules
+   are global. Colours come exclusively from felix/FKUI tokens (--fkds-* /
+   --f-*) so every surface flips with the color mode; dimensions are plain rem
+   values. */
+
+/* Page column: header content and the routed views share one centered
+   column; the bands behind them stay full-bleed. */
+:root {
+    --page-max-width: 72rem;
+}
+
+/* Thin white utility bar. FKUI paints the band colour on .page-header__root
+   (full-bleed) while .page-header is the centered content row inside it. */
+.page-header__root {
+    background-color: var(--fkds-color-background-primary);
+    border-bottom: 1px solid var(--fkds-color-border-weak);
+}
+
+.page-header {
+    max-width: var(--page-max-width);
+    margin-inline: auto;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem 0.75rem 1.5rem;
+    background-color: transparent;
+}
+
+/* Upstream gives the right slot a small top padding that optically aligns it
+   with a logotype; zeroing it lets align-items: center line up brand, search
+   field and buttons on one row. */
+.page-header__right {
+    padding-top: 0;
+}
+
+/* Left navigation drawer. The menu starts closed at every viewport (the
+   header's Meny button is the only toggle) and opens as FKUI's fixed
+   overlay panel: no permanent side column, no drag-to-resize. The panel
+   measures the header height once at mount for its top offset. */
+
+/* Collapsed state: hide FKUI's floating reopen rail entirely – the header
+   button owns the affordance. */
+.layout-navigation__navigation[aria-expanded="false"] {
+    display: none;
+}
+
+/* Open state: fixed-width drawer over the content. Beats the component's
+   inline width (initial-width, 320px) on narrow viewports. */
+.layout-navigation__navigation[aria-expanded="true"] {
+    width: min(85vw, 320px) !important;
+    background-color: var(--fkds-color-background-primary);
+}
+
+/* The component puts margin-left on the primary column inline (rail or panel
+   width); the content must always span the full viewport so the routed views
+   can center themselves. */
+.layout-navigation__primary {
+    margin-left: 0 !important;
+}
+
+/* Drag-to-resize is a column affordance; the drawer is fixed-width. */
+.layout-navigation__navigation__border {
+    display: none;
+}
+
+/* The static nav column would carry FKUI's declared z-index (9994) and, as
+   the later element in the DOM, paint on top of the equally ranked header.
+   Lift the header one step so the utility bar keeps spanning the viewport. */
+.layout-application-template__header {
+    z-index: 9995;
+}
+
+/* Backdrop behind the open drawer, shown only while the panel reports itself
+   expanded (the element itself is an empty, height-less div in every other
+   state). Taps close the drawer via App.vue; keyboard users have the panel's
+   own close button. Sits one step below the panel (FKUI 9994) and below the
+   header band (9995), and reuses the modal overlay token so both color modes
+   keep their shared overlay value. */
+.nav-scrim {
+    display: none;
+}
+
+body:has(.layout-navigation__navigation[aria-expanded="true"]) .nav-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 9993;
+    background: var(--f-background-overlay, rgba(0, 0, 0, 0.8));
+    cursor: pointer;
+}
+
+/* Freeze the page behind the open drawer; the drawer's own list keeps
+   scrolling independently. */
+body:has(.layout-navigation__navigation[aria-expanded="true"]) {
+    overflow: hidden;
+}
+
+/* Panel heading row ("Meny"). */
+.shell-nav-title {
+    margin: 0;
+    padding: 0.5rem 0.25rem;
+    font-size: var(--f-font-size-h3, 1.25rem);
+    font-weight: var(--f-font-weight-bold, 600);
+    color: var(--fkds-color-text-primary);
+}

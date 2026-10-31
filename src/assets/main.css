@@ -6,6 +6,7 @@
    configuring @fkui/theme-default separately would be redundant (a second
    configured load collides with felix's own). */
 @import './layout.css';
+@import './shell.css';
 
 /* The dark scope in the prebuilt file outranks :root by specificity
    ((0,1,1) vs (0,1,0)), so switching is instant and needs no !important.

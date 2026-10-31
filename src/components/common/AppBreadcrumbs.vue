@@ -110,21 +110,20 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
 </template>
 
 <style scoped>
+/* Quiet in-column breadcrumb strip above the routed view (the shell renders
+   it inside the content column, not as a full-bleed band). */
 .app-breadcrumbs {
-  /* Same light blue band as the main navigation row above – together they
-     form one navigation surface, like the reference design. */
-  background-color: var(--fkds-color-feedback-background-info);
-  border-bottom: 1px solid var(--fkds-color-border-primary);
-  padding: 0.5rem 1rem;
-  /* The 404 route has no trail beyond Start; hide the band there. */
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 0;
+  /* The 404 route has no trail beyond Start; hide the strip there. */
 }
 .app-breadcrumbs:has(.app-breadcrumbs__current:only-child) {
   display: none;
 }
 
 .app-breadcrumbs__list {
-  max-width: 72rem;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
