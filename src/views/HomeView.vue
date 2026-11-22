@@ -237,14 +237,29 @@ html[data-color-mode="dark"] .home {
   min-width: 0;
 }
 
+/* Quick-start cards. Upstream's entrypoint ships a 1px transparent border and
+   paints its fill in the same navy as the hero band behind it, so without an
+   edge the four cards dissolve into the band. The border restates the width
+   (felix narrows --f-border-width-medium to 1px) with the hero navy one step
+   lighter, which reads as a tonal edge rather than a drawn outline; hover
+   lifts it to the action blue, since upstream would otherwise fade the border
+   to transparent on hover. */
 .home__quick-entry {
   margin: 0;
   gap: 1rem;
   height: 100%;
   box-sizing: border-box;
   padding: 1.25rem 1.5rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--fkds-color-action-background-primary-hover, #334075);
   border-radius: var(--f-radius-border-radius-large, 0.75rem);
   text-decoration: none;
+}
+
+.entrypoint.home__quick-entry:hover,
+.entrypoint.home__quick-entry:active {
+  border-color: var(--fkds-color-action-text-primary-hover, #0865ae);
 }
 
 /* The label and description stack; the row itself centres them. */
