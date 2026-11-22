@@ -14,8 +14,8 @@ The content is carried over verbatim from the source demo site, with one excepti
 
 - Vue 3 (`<script setup lang="ts">`) + TypeScript + Vite
 - Vue Router 4 (history mode)
-- FKUI 6.59.0 (`@fkui/vue`, `@fkui/design`, `@fkui/date`, `@fkui/logic`, `@fkui/icon-lib-default`; `@fkui/theme-default` comes in transitively with felix-ds and is loaded by the felix theme layer)
-- felix-ds from GitHub Packages, declared with a semver range (see [Upgrade felix-ds](#upgrade-felix-ds))
+- FKUI 6.65.0 (`@fkui/vue`, `@fkui/design`, `@fkui/date`, `@fkui/logic`, `@fkui/icon-lib-default`, `@fkui/theme-default`) – all six are direct dependencies pinned to the same exact version in lockstep. `@fkui/theme-default` is the peer felix-ds declares and is pinned explicitly, but not imported separately: felix's prebuilt CSS already contains the composed theme (see `src/assets/main.css`)
+- felix-ds from GitHub Packages, pinned to an exact version (see [Upgrade felix-ds](#upgrade-felix-ds))
 - No Tailwind, no icon CDN: layout SCSS uses felix/FKUI tokens only, icons come from the FKUI default library plus a small Phosphor extension (see [Icons](#icons)), fonts are self-hosted
 
 ## Styling conventions
@@ -78,17 +78,27 @@ Note: the sibling site writes `<PhChild>` for the BVC card, but `@phosphor-icons
 
 ## Upgrade felix-ds
 
-`@pattespatte/felix-ds` is installed from GitHub Packages (restricted visibility), declared with a semver range in `package.json` and locked in `bun.lockb`. The tracked `.npmrc` points the `@pattespatte` scope at the registry and reads its token from the `GITHUB_PACKAGES_TOKEN` environment variable (a PAT with `read:packages`; the Pages workflow maps `secrets.GITHUB_TOKEN` onto it).
+`@pattespatte/felix-ds` is installed from GitHub Packages (restricted visibility), pinned to an exact version in `package.json` and locked in `bun.lockb`. The tracked `.npmrc` points the `@pattespatte` scope at the registry and reads its token from the `GITHUB_PACKAGES_TOKEN` environment variable (a PAT with `read:packages`; the Pages workflow maps `secrets.GITHUB_TOKEN` onto it).
 
-The theme has no CLI – it is a plain CSS package – so upgrading is a dependency update. With `GITHUB_PACKAGES_TOKEN` exported:
+The theme has no CLI – it is a plain CSS package – so upgrading is a dependency update. Because the dependency is an exact pin, `bun update @pattespatte/felix-ds` is a no-op: bun only moves a dependency inside the range in `package.json`, and an exact version has no range to move in. Pass the version to `bun add` instead. With `GITHUB_PACKAGES_TOKEN` exported:
 
 ```bash
-bun update @pattespatte/felix-ds
+bun add @pattespatte/felix-ds@1.7.0
 ```
 
-This resolves the newest published version allowed by the range in `package.json`, rewrites that range to the new version and updates `bun.lockb`. The `@fkui/*` packages are pinned to exact versions and are not touched, as long as they stay inside the theme's peer range (`@fkui/theme-default >=6.57.0 <7.0.0`). Restart the dev server afterwards – Vite pre-bundles the old CSS – and run `bun run build` before committing.
+This writes the new exact pin, resolves it and updates `bun.lockb`. Read the [release notes](https://github.com/pattespatte/felix-ds/releases) before you start. felix-ds ships prebuilt CSS generated against a specific FKUI release, so move the six `@fkui/*` packages to the same version in the same change – for 1.7.0 that is 6.65.0, the version in felix-ds's own `package.json` (still inside the theme's `>=6.57.0 <7.0.0` peer range). They are exact pins as well, so name the version:
 
-To see which version is installed, run `npm ls @pattespatte/felix-ds` (local lookup, no token needed). `npm view @pattespatte/felix-ds versions` lists every published version – it needs the token and must run from the repo root so `.npmrc` applies. To install a specific release instead of the newest one, `bun add @pattespatte/felix-ds@1.4.0` pins that exact version, while `bun add @pattespatte/felix-ds@latest` writes a fresh caret range – use it when a major release falls outside the current range, which `bun update` never crosses. The registry has no dist-tags other than `latest`.
+```bash
+bun add --exact \
+    @fkui/theme-default@6.65.0 @fkui/design@6.65.0 @fkui/vue@6.65.0 \
+    @fkui/date@6.65.0 @fkui/logic@6.65.0 @fkui/icon-lib-default@6.65.0
+```
+
+Restart the dev server afterwards – Vite pre-bundles the old CSS – reload the page, and run `bun run build` before committing. Keep both upgrades in one commit when you do them together.
+
+Use bun, not npm. `npm i` writes a `package-lock.json` next to `bun.lockb`, prunes packages bun installed and can leave the two package managers disagreeing about the tree. If that happens, delete `package-lock.json` and run `bun install`.
+
+To see what is installed, run `npm ls @pattespatte/felix-ds` (local lookup, no token needed). `npm view @pattespatte/felix-ds versions` lists every published version – it needs the token and must run from the repo root so `.npmrc` applies. `bun add @pattespatte/felix-ds@latest` resolves the newest release too, but it writes a caret range (`^1.7.0`) rather than the exact pin used here – pass the version explicitly to keep the pin style. The registry has no dist-tags other than `latest`.
 
 ## Deploy
 
