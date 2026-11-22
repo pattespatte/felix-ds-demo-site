@@ -5,7 +5,8 @@ declare module 'vue-router' {
     interface RouteMeta {
         title: string
         description: string
-        /** FKUI components rendered by the view (see ComponentNote.vue). */
+        /** FKUI components and felix-ds CSS patterns rendered by the view
+            (see ComponentNote.vue). */
         components?: string[]
     }
 }
@@ -13,9 +14,10 @@ declare module 'vue-router' {
 // Routes and meta copied verbatim from the source site; the four internal
 // styleguide routes (/components, /colors, /phosphor-icons, /health-icons)
 // are dropped – the felix-ds playground fills that role. The `components`
-// meta lists the FKUI components each page renders, including those inside
-// the shared display components (AppCard → FCard and so on); it drives the
-// per-page component note.
+// meta lists the FKUI components – and felix-ds CSS patterns, such as the
+// entrypoint – that each page renders, including those inside the shared
+// display components (AppCard → FCard and so on); it drives the per-page
+// component note.
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -24,7 +26,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
             title: 'Vårdcentralen Vårdportalen DEMOWEBB - Start',
             description: 'Boka tid, kontakta vården och hantera dina vårdärenden',
-            components: ['FIcon']
+            components: ['Entrypoint', 'FCard', 'FIcon']
         }
     },
     {

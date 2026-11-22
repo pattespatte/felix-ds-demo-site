@@ -4,7 +4,8 @@
 // resolves to the demo of each component.
 
 export interface ComponentLink {
-    /** FKUI component name as written in templates. */
+    /** FKUI component name, or felix-ds CSS pattern name, as used in the
+        route meta. */
     name: string
     /** Swedish title of the playground section the link points to. */
     title: string
@@ -14,8 +15,10 @@ export interface ComponentLink {
 
 const PLAYGROUND_BASE = 'https://pattespatte.github.io/felix-ds/#/'
 
-// name: [playground "slug/anchor", Swedish section title]
+// name: [playground "slug/anchor", Swedish section title]. Mostly FKUI Vue
+// components; Entrypoint is a felix-ds CSS pattern (playground "Endast CSS").
 const COMPONENT_PATHS: Record<string, [string, string]> = {
+    Entrypoint: ['css/entrypoint', 'Startpunkt (endast CSS)'],
     FBadge: ['aterkoppling/fbadge', 'Brickor'],
     FButton: ['knappar/fbutton', 'Knappar'],
     FCard: ['ytor/fcard', 'Kort'],

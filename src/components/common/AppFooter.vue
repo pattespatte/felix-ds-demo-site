@@ -62,7 +62,10 @@ const formatPhoneLink = (phone: string): string => {
 </script>
 
 <template>
-    <footer class="app-footer" role="contentinfo">
+    <!-- A div, not a footer: FLayoutApplicationTemplate already wraps the
+         #footer slot in its own footer element (the page's single landmark),
+         and a footer inside a footer is invalid HTML. -->
+    <div class="app-footer">
         <div class="app-footer__inner">
             <!-- Brand row: mark + site name, like the reference portal's
                  footer. -->
@@ -178,7 +181,7 @@ const formatPhoneLink = (phone: string): string => {
                 </ul>
             </div>
         </div>
-    </footer>
+    </div>
 </template>
 
 <style scoped>

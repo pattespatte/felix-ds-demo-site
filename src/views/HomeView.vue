@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FIcon } from '@fkui/vue'
+import { FCard, FIcon } from '@fkui/vue'
 
 // Start page modelled on the reference portal design: a dark hero band with
 // a "Kom igång" card grid, a service list-card beside a light info panel and
@@ -65,12 +65,17 @@ const serviceLinks: ServiceLink[] = [
                 </p>
 
                 <h2 class="home__quick-heading">Kom igång</h2>
+                <!-- Service entries use felix's entrypoint pattern: a full-width
+                     row that reads as the primary call to action, with the
+                     theme's own chevron at the far end. -->
                 <ul class="home__quick-grid">
                     <li v-for="card in quickStartCards" :key="card.to">
-                        <router-link :to="card.to" class="home__quick-card">
+                        <router-link :to="card.to" class="entrypoint home__quick-entry">
                             <f-icon :name="card.icon" class="home__quick-icon" />
-                            <span class="home__quick-title">{{ card.title }}</span>
-                            <span class="home__quick-text">{{ card.description }}</span>
+                            <span class="home__quick-body">
+                                <span class="home__quick-title">{{ card.title }}</span>
+                                <span class="home__quick-text">{{ card.description }}</span>
+                            </span>
                         </router-link>
                     </li>
                 </ul>
@@ -80,21 +85,27 @@ const serviceLinks: ServiceLink[] = [
         <!-- Service list-card beside the light info panel. -->
         <div class="page home__sections">
             <section class="home__row" aria-label="Tjänster och information">
-                <aside class="home__services">
-                    <h2 class="home__services-title">Våra tjänster</h2>
-                    <ul class="home__services-list">
-                        <li v-for="link in serviceLinks" :key="link.to">
-                            <router-link :to="link.to" class="home__services-link">
-                                {{ link.label }}
-                                <f-icon name="arrow-right" class="home__services-arrow" />
-                            </router-link>
-                        </li>
-                    </ul>
-                    <router-link to="/tjanster" class="home__services-all">
-                        Visa alla tjänster
-                        <f-icon name="arrow-right" class="home__services-arrow" />
-                    </router-link>
-                </aside>
+                <f-card class="home__services">
+                    <template #header="{ headingSlotClass }">
+                        <h2 :class="headingSlotClass">Våra tjänster</h2>
+                    </template>
+                    <template #default>
+                        <!-- One entrypoint per service: felix's row pattern with
+                             the chevron pointing along the reading direction. -->
+                        <ul class="home__services-list">
+                            <li v-for="link in serviceLinks" :key="link.to">
+                                <router-link :to="link.to" class="entrypoint home__services-link">
+                                    {{ link.label }}
+                                    <f-icon name="arrow-right" class="entrypoint__icon" />
+                                </router-link>
+                            </li>
+                        </ul>
+                        <router-link to="/tjanster" class="home__services-all">
+                            Visa alla tjänster
+                            <f-icon name="arrow-right" class="home__services-arrow" />
+                        </router-link>
+                    </template>
+                </f-card>
 
                 <div class="home__about">
                     <div class="home__about-text">
@@ -124,29 +135,53 @@ const serviceLinks: ServiceLink[] = [
                 </div>
             </section>
 
-            <!-- Bottom row of light cards. -->
+            <!-- Bottom row of cards on the warm surface. -->
             <section class="grid grid--2 home__bottom" aria-label="Aktuellt och kontakt">
-                <router-link to="/patientinformation" class="home__bottom-card">
-                    <span class="home__bottom-title">Patientinformation</span>
-                    <span class="home__bottom-text">
-                        Håll dig uppdaterad på vårdgarantier, avgifter och din vårdkontakt.
-                    </span>
-                </router-link>
-                <router-link to="/kontakt" class="home__bottom-card">
-                    <span class="home__bottom-title">Kontakt och felanmälan</span>
-                    <span class="home__bottom-text">
-                        Ställ frågor eller skicka in en felanmälan till vården.
-                    </span>
-                </router-link>
+                <f-card class="home__bottom-card">
+                    <template #header="{ headingSlotClass }">
+                        <h2 :class="headingSlotClass">
+                            <router-link to="/patientinformation">Patientinformation</router-link>
+                        </h2>
+                    </template>
+                    <template #default>
+                        <p class="home__bottom-text">
+                            Håll dig uppdaterad på vårdgarantier, avgifter och din vårdkontakt.
+                        </p>
+                    </template>
+                </f-card>
+                <f-card class="home__bottom-card">
+                    <template #header="{ headingSlotClass }">
+                        <h2 :class="headingSlotClass">
+                            <router-link to="/kontakt">Kontakt och felanmälan</router-link>
+                        </h2>
+                    </template>
+                    <template #default>
+                        <p class="home__bottom-text">
+                            Ställ frågor eller skicka in en felanmälan till vården.
+                        </p>
+                    </template>
+                </f-card>
             </section>
         </div>
     </div>
 </template>
 
 <style scoped>
+/* The warm surface token ships with the next theme release. On the current
+   pin these local fallbacks keep both color modes readable until then; once
+   the token exists every branch resolves to it. */
+.home {
+  --home-warm: var(--fkds-color-background-warm, #dfd7c8);
+}
+
+html[data-color-mode="dark"] .home {
+  --home-warm: var(--fkds-color-background-warm, #252932);
+}
+
 /* The hero band spans the primary column's full width (the shell gives the
    routed views the viewport), while the inner row keeps the shared page
-   column. */
+   column. The band is the deep navy action surface, so its text uses the
+   inverted tokens. */
 .home__hero {
   background-color: var(--fkds-color-action-background-primary-default);
   color: var(--fkds-color-action-text-inverted-default);
@@ -180,14 +215,16 @@ const serviceLinks: ServiceLink[] = [
   color: inherit;
 }
 
-/* Quick-start grid: flat light cards with an outline icon, an underlined
-   link title and a short description. */
+/* Quick-start grid: one entrypoint per service, two columns from the medium
+   breakpoint so the hero keeps its height down. The entrypoint class carries
+   felix's own layout (full-width row, arrow at the far end); this rule only
+   adds the icon-and-text body inside it. */
 .home__quick-grid {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 1.25rem;
+  gap: 0.75rem;
   grid-template-columns: minmax(0, 1fr);
 }
 @media (min-width: 48rem) {
@@ -200,44 +237,37 @@ const serviceLinks: ServiceLink[] = [
   min-width: 0;
 }
 
-.home__quick-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
+.home__quick-entry {
+  margin: 0;
+  gap: 1rem;
   height: 100%;
   box-sizing: border-box;
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem;
   border-radius: var(--f-radius-border-radius-large, 0.75rem);
-  background-color: var(--fkds-color-background-primary);
-  color: var(--fkds-color-text-primary);
   text-decoration: none;
 }
 
-.home__quick-card:hover {
-  text-decoration: none;
-  box-shadow: var(--f-card-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.2));
-}
-
-.home__quick-card:focus-visible {
-  outline: none;
-  box-shadow: var(--f-focus-box-shadow);
+/* The label and description stack; the row itself centres them. */
+.home__quick-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .home__quick-icon {
-  width: 2rem;
-  height: 2rem;
-  color: var(--fkds-color-action-text-primary-default);
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: inherit;
 }
 
-/* Titles are links inside a link card; keep them underlined like the
-   reference and let the hover colour come from the theme's anchor rule. */
 .home__quick-title {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--fkds-color-action-text-primary-default);
-  text-decoration: underline;
-  text-underline-offset: 0.2rem;
+  color: inherit;
+  text-decoration: none;
 }
 
 .home__quick-text {
@@ -262,20 +292,46 @@ const serviceLinks: ServiceLink[] = [
   }
 }
 
-/* Dark list-card with stacked link rows. */
+/* The service card sits on the warm tertiary band, and each row is an
+   entrypoint whose pill fill carries the deeper sand. Compound selectors keep
+   the overrides ahead of the theme's `:root a.entrypoint` state rules. The
+   hover/active fill mixes a little primary ink into the sand: tokens only, no
+   raw palette value. The card's own upstream margin is dropped so the two
+   side-by-side panels start on the same line (the grid gap owns the spacing). */
 .home__services {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  border-radius: var(--f-radius-border-radius-large, 0.75rem);
-  background-color: var(--fkds-color-action-background-primary-default);
-  color: var(--fkds-color-action-text-inverted-default);
+  margin: 0;
+  background-color: var(--fkds-color-background-tertiary, #f6f3ef);
+  border-color: var(--fkds-color-background-tertiary, #f6f3ef);
+  color: var(--fkds-color-text-primary);
 }
 
-.home__services-title {
-  margin: 0 0 1rem;
-  font-size: 1.25rem;
-  color: inherit;
+.entrypoint.home__services-link,
+.entrypoint.home__services-link:hover,
+.entrypoint.home__services-link:active,
+.entrypoint.home__services-link:focus-visible {
+  color: var(--fkds-color-text-primary);
+  text-decoration: none;
+}
+
+.entrypoint.home__services-link {
+  margin: 0;
+  /* Tighter than the upstream button padding, density-scaled like it. */
+  padding: calc(0.5rem * var(--f-density-factor, 1)) 1.25rem;
+  border-radius: var(--f-radius-border-radius-small, 0.375rem);
+  background-color: var(--home-warm);
+}
+
+.entrypoint.home__services-link:hover,
+.entrypoint.home__services-link:active {
+  background-color: color-mix(in srgb, var(--home-warm) 92%, var(--fkds-color-text-primary));
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.entrypoint.home__services-link:focus-visible {
+  background-color: var(--home-warm);
 }
 
 .home__services-list {
@@ -288,36 +344,25 @@ const serviceLinks: ServiceLink[] = [
   flex: 1;
 }
 
-.home__services-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--f-radius-border-radius-small, 0.375rem);
-  background-color: var(--fkds-color-action-background-primary-hover);
-  color: inherit;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* Restate the light colour on hover: the theme's `:root a:hover` (0,2,1)
-   outranks this scoped rule (0,2,0) and would paint the dark link colour on
-   the dark fill. */
-.home__services-link:hover {
-  color: var(--fkds-color-action-text-inverted-default);
-  background-color: var(--fkds-color-action-background-primary-active);
-}
-
-.home__services-link:focus-visible {
-  outline: none;
-  box-shadow: var(--f-focus-box-shadow);
-}
-
 .home__services-arrow {
   flex: none;
   width: 1rem;
   height: 1rem;
+}
+
+/* The theme draws every bare arrow-right glyph with the downward chevron
+   (the dropdown artwork); the "see all" link is not an entrypoint, so it gets
+   the entrypoint's reading-direction chevron here. */
+.home__services-all :deep(.f-icon-arrow-right) {
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.5 6l6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.home__services-all :deep(.f-icon-arrow-right > use) {
+  visibility: hidden;
 }
 
 .home__services-all {
@@ -325,11 +370,11 @@ const serviceLinks: ServiceLink[] = [
   align-items: center;
   justify-content: flex-end;
   gap: 0.375rem;
-  color: inherit;
+  color: var(--fkds-color-action-text-primary-default);
   font-weight: 600;
 }
 .home__services-all:hover {
-  color: var(--fkds-color-action-text-inverted-default);
+  color: var(--fkds-color-action-text-primary-hover);
 }
 
 .home__services-all:focus-visible {
@@ -337,14 +382,14 @@ const serviceLinks: ServiceLink[] = [
   box-shadow: var(--f-focus-box-shadow);
 }
 
-/* Light blue info panel with a dark visual card. */
+/* Info panel on the soft warm band, with a sand visual card beside it. */
 .home__about {
   display: grid;
   gap: 1.5rem;
   align-items: center;
   padding: 1.5rem;
   border-radius: var(--f-radius-border-radius-large, 0.75rem);
-  background-color: var(--fkds-color-background-info, var(--fkds-color-feedback-background-info));
+  background-color: var(--fkds-color-background-tertiary);
   color: var(--fkds-color-text-primary);
 }
 @media (min-width: 48rem) {
@@ -385,6 +430,8 @@ const serviceLinks: ServiceLink[] = [
   height: 1rem;
 }
 
+/* Decorative icon collage standing in for the reference's image card:
+   aria-hidden, no information content, on the deep sand surface. */
 .home__about-visual {
   display: flex;
   flex-direction: column;
@@ -394,8 +441,8 @@ const serviceLinks: ServiceLink[] = [
   width: 11rem;
   height: 11rem;
   border-radius: var(--f-radius-border-radius-large, 0.75rem);
-  background-color: var(--fkds-color-action-background-primary-default);
-  color: var(--fkds-color-action-text-inverted-default);
+  background-color: var(--home-warm);
+  color: var(--fkds-color-text-primary);
 }
 
 .home__about-visual-cross {
@@ -414,39 +461,29 @@ const serviceLinks: ServiceLink[] = [
   height: 1.25rem;
 }
 
-/* Bottom row: light cards with underlined link titles. */
+/* Bottom row: cards whose header is a link to the page. Margin dropped for
+   the same reason as the service card: the grid gap owns the spacing. */
 .home__bottom-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: block;
   height: 100%;
+  margin: 0;
   box-sizing: border-box;
-  padding: 1.5rem;
-  border-radius: var(--f-radius-border-radius-large, 0.75rem);
-  background-color: var(--fkds-color-background-secondary);
-  color: var(--fkds-color-text-primary);
-  text-decoration: none;
 }
 
-.home__bottom-card:hover {
-  text-decoration: none;
-  box-shadow: var(--f-card-box-shadow, 0 2px 8px rgba(0, 0, 0, 0.2));
-}
-
-.home__bottom-card:focus-visible {
-  outline: none;
-  box-shadow: var(--f-focus-box-shadow);
-}
-
-.home__bottom-title {
+.home__bottom-card :deep(.card__header-label) {
+  margin-bottom: 0.25rem;
   font-size: 1.125rem;
-  font-weight: 600;
+}
+
+.home__bottom-card :deep(.card__header-label a) {
   color: var(--fkds-color-action-text-primary-default);
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 0.2rem;
 }
 
 .home__bottom-text {
+  margin: 0;
   font-size: 0.875rem;
 }
 </style>
